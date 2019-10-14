@@ -25,8 +25,21 @@
 
     self.temps = [NSMutableArray array];
     // Do any additional setup after loading the view.
+    
+    [self.githubLabel setAllowsEditingTextAttributes:YES];
+    [self.githubLabel setSelectable:YES];
+    NSString *credits = @"GitHub地址:<a href=\"https://github.com/yangKJ\">https://github.com/yangKJ</a>";
+    [self.githubLabel setAttributedStringValue:[self stringFromHTML:credits withFont:[self.githubLabel font]]];
 }
-
+/// 超链接
+- (NSAttributedString *)stringFromHTML:(NSString *)html withFont:(NSFont *)font{
+  if (!font) font = [NSFont systemFontOfSize:0.0];  // Default font
+  html = [NSString stringWithFormat:@"<span style=\"font-family:'%@';font-size:%dpx;\">%@</span>", [font fontName], (int)[font pointSize], html];
+  NSData *data = [html dataUsingEncoding:NSUTF8StringEncoding];
+  NSDictionary *options = @{NSTextEncodingNameDocumentOption:@"UTF-8"};
+  NSAttributedString* string = [[NSAttributedString alloc] initWithHTML:data options:options documentAttributes:nil];
+  return string;
+}
 
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];

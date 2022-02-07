@@ -13,47 +13,62 @@
 
 基于 **MVVM + RxSwift** 搭建响应式数据绑定基础架构
 
-### Resources
+### CatHome
 - 资源模块，主要处理图片资源和文本资源读取
   - 读取图片资源：`R.image("base_black_back")`
   - 读取文本资源：`R.text("base_empty_title")`
+
+### BeeBox
+- 主要收集[RxSwift](https://github.com/ReactiveX/RxSwift)相关好用方法类等
 
 ### Adapter
 - 该模块主要就是封装基类
   - [BaseViewController](https://github.com/yangKJ/Rickenbacker): 支持oc基类，公共部分
   - [VMTableViewController](https://github.com/yangKJ/Rickenbacker): 列表基类, 内部采用响应式处理
   - [VMViewController](https://github.com/yangKJ/Rickenbacker): 该基类继承时需指定`ViewModel`或其子类作为泛型
-  - [ViewModel](https://github.com/yangKJ/Rickenbacker): 基础模型
-  - [TableViewModel](https://github.com/yangKJ/Rickenbacker): 主要用于`VMTableViewController`数据驱动绑定模型
+  - [ViewModel](https://github.com/yangKJ/Rickenbacker): 基础模型，子类必须继承使用
 
 ### CTMediatror
 - 该模块主要解决Swift采用该组件化方案CocoaPods问题
 
 ### HBDNavigationBar
-- 该模块是基于`HBDNavigationBar`二次封装底层基础导航栏
+- 该模块是基于[HBDNavigationBar](https://github.com/listenzz/HBDNavigationBar)二次封装底层基础导航栏
 
 ### MJRefresh
-- 该模块是基于`MJRefresh`封装列表刷新功能
+- 该模块是基于[MJRefresh](https://github.com/CoderMJLee/MJRefresh)封装列表刷新功能
 
 ### DZNEmptyDataSet
-- 该模块是基于`EmptyDataSet-Swift`封装列表空数据展示功能
+- 该模块是基于[EmptyDataSet-Swift](https://github.com/Xiaoye220/EmptyDataSet-Swift)封装列表空数据展示功能
 
-### CocoaPods Install
+### CocoaPods
+-  导入项目响应式基类模块
+
 ```
-Ex: 导入项目响应式基类模块
-- pod 'Rickenbacker/Adapter'
+pod 'Rickenbacker/Adapter'
+```
 
-Ex: 导入组件化模块
-- pod 'Rickenbacker/CTMediatror'
+- 导入组件化模块
 
-Ex: 导入导航栏基础模块
-- pod 'Rickenbacker/HBDNavigationBar'
+```
+pod 'Rickenbacker/CTMediatror'
+```
 
-Ex: 导入自动刷新模块
-- pod 'Rickenbacker/MJRefresh'
+- 导入导航栏基础模块
 
-Ex: 导入空数据自动展示模块
-- pod 'Rickenbacker/DZNEmptyDataSet'
+```
+pod 'Rickenbacker/HBDNavigationBar'
+```
+
+- 导入自动刷新模块
+
+```
+pod 'Rickenbacker/MJRefresh'
+```
+
+- 导入空数据自动展示模块
+
+```
+pod 'Rickenbacker/DZNEmptyDataSet'
 ```
 
 -----

@@ -11,43 +11,62 @@
 
 English | [**简体中文**](README_CN.md)
 
-This is a set of infrastructure based on `MVVM + RxSwift`
+This is a set of infrastructure based on MVVM + RxSwift
 
-### Resources
-- Resource module, which mainly deals with image resource and text resource reading.
-  - Read image resource: `R.image("base_black_back")`
-  - Read text resource: `R.text("base_empty_title")`
+## Features
+At the moment, the most important features of [Rickenbacker](https://github.com/yangKJ/Rickenbacker) can be summarized as follows:
 
 ### Adapter
-- This module is mainly to encapsulate the base class.
-  - [BaseViewController](https://github.com/yangKJ/Rickenbacker): Support oc base class, public part.
-  - [VMTableViewController](https://github.com/yangKJ/Rickenbacker): List base class, internally responsive processing.
-  - [VMViewController](https://github.com/yangKJ/Rickenbacker): When inheriting this base class, you need to specify `ViewModel` or its subclasses as generics.
-  - [ViewModel](https://github.com/yangKJ/Rickenbacker): Basic view model.
-  - [TableViewModel](https://github.com/yangKJ/Rickenbacker): Mainly used for `VMTableViewController` data-driven binding model.
+This module is mainly to encapsulate the base class.
 
-- CocoaPods Install ==> `pod 'Rickenbacker/Adapter'`
+- [BaseViewController](https://github.com/yangKJ/Rickenbacker/blob/master/Sources/Adapter/Controller/BaseViewController.swift): Support oc base class, public part.
+- [VMTableViewController](https://github.com/yangKJ/Rickenbacker/blob/master/Sources/Adapter/Controller/VMTableViewController.swift): List base class, internally responsive processing.
+- [VMViewController](https://github.com/yangKJ/Rickenbacker/blob/master/Sources/Adapter/Controller/VMViewController.swift): You need to specify `ViewModel` or its subclasses as generics.
+- [ViewModel](https://github.com/yangKJ/Rickenbacker/blob/master/Sources/Adapter/ViewModel/ViewModel.swift): Basic view model, Subclasses must inherit.
+
+### CatHome
+Resource module, which mainly deals with image resource and text resource reading.
+
+- Read image resource: 
+
+```
+R.image("base_black_back")
+```
+
+- Read text resource: 
+
+```
+R.text("base_empty_title")
+```
+
+- Read color resource:
+
+```
+R.color("background")
+```
+### BeeBox
+Mainly collect [RxSwift](https://github.com/ReactiveX/RxSwift) related useful method classes, etc.
 
 ### CTMediatror
-- This module mainly solves the cocoapods problem encountered by Swift using this componentized solution.
-
-- CocoaPods Install ==> `pod 'Rickenbacker/CTMediatror'`
+This module mainly solves the cocoapods problem encountered by Swift using this componentized solution.
 
 ### HBDNavigationBar
-- This module is based on `HBDNavigationBar` secondary encapsulation of the underlying basic Navigation.
-
-- CocoaPods Install ==> `pod 'Rickenbacker/HBDNavigationBar'`
+This module is based on [HBDNavigationBar](https://github.com/listenzz/HBDNavigationBar) secondary encapsulation of the underlying basic Navigation.
 
 ### MJRefresh
-- This module is based on the refresh function of `MJRefresh` encapsulated UITableView.
-
-- CocoaPods Install ==> `pod 'Rickenbacker/MJRefresh'`
+This module is based on the refresh function of [MJRefresh](https://github.com/CoderMJLee/MJRefresh) encapsulated UITableView.
 
 ### DZNEmptyDataSet
-- This module is based on the empty data display function of the `EmptyDataSet-Swift` package UITableView.
+This module is based on the empty data display function of the [EmptyDataSet-Swift](https://github.com/Xiaoye220/EmptyDataSet-Swift) package UITableView.
 
-- CocoaPods Install ==> `pod 'Rickenbacker/DZNEmptyDataSet'`
+----
 
+### CocoaPods
+- If you want use this framework.☠️
+
+```
+pod 'Rickenbacker'
+```
 ### Remarks
 
 > The general process is almost like this, the Demo is also written in great detail, you can check it out for yourself.🎷

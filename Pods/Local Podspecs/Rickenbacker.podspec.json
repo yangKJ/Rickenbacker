@@ -1,7 +1,7 @@
 {
   "name": "Rickenbacker",
-  "version": "1.0.9",
-  "summary": "👌. MVVM + RxSwift + MJRefresh + DZNEmptyDataSet + SkeletonView",
+  "version": "0.0.1",
+  "summary": "👌. MVVM + RxSwift Project Architecture.",
   "homepage": "https://github.com/yangKJ/Rickenbacker",
   "description": "https://github.com/yangKJ/Rickenbacker/blob/master/README.md",
   "license": {
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/yangKJ/Rickenbacker.git",
-    "tag": "1.0.9"
+    "tag": "0.0.1"
   },
   "social_media_url": "https://juejin.cn/user/1987535102554472/posts",
   "platforms": {

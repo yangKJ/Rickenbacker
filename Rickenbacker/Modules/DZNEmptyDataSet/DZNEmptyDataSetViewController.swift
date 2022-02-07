@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SnapKit
 import Rickenbacker
 
 class DZNEmptyDataSetViewController: VMTableViewController<EmptyViewModel> {
@@ -43,11 +42,14 @@ class DZNEmptyDataSetViewController: VMTableViewController<EmptyViewModel> {
     func setupUI() {
         self.navigationItem.rightBarButtonItem = self.resetBarButton
         self.view.addSubview(self.tableView)
-        self.tableView.snp.makeConstraints { make in
-            make.top.equalTo(self.view.snp.topMargin)
-            make.bottom.equalTo(self.view.snp.bottomMargin)
-            make.left.right.equalTo(self.view)
-        }
+        tableView.contentInset = UIEdgeInsets(top: navigationHeight, left: 0, bottom: 0, right: 0)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ])
     }
     
     func setupTable() {

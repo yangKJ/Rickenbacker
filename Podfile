@@ -10,8 +10,6 @@ target 'Rickenbacker_Example' do
 #  pod 'Rickenbacker/DZNEmptyDataSet', :path => './'
   
   pod 'Rickenbacker', :path => './'
-
-  pod 'SnapKit'
   
 end
 

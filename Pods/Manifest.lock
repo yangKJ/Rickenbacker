@@ -48,11 +48,9 @@ PODS:
   - RxRelay (6.5.0):
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
-  - SnapKit (5.0.1)
 
 DEPENDENCIES:
   - Rickenbacker (from `./`)
-  - SnapKit
 
 SPEC REPOS:
   trunk:
@@ -63,7 +61,6 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
-    - SnapKit
 
 EXTERNAL SOURCES:
   Rickenbacker:
@@ -78,8 +75,7 @@ SPEC CHECKSUMS:
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
-  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 80e09ef6736f3fb5dd3bfaafa31d2825368921fe
+PODFILE CHECKSUM: fa2aaf89da92065fbd6c14cdefa0b87c83b7601d
 
 COCOAPODS: 1.11.2

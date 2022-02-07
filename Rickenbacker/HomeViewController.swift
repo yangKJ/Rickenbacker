@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SnapKit
 import Rickenbacker
 
 class HomeViewController: UIViewController {
@@ -25,6 +24,9 @@ class HomeViewController: UIViewController {
         tableView.showsHorizontalScrollIndicator = false
         tableView.backgroundColor = UIColor.white
         tableView.separatorStyle = .none
+        if #available(iOS 11, *) {
+            tableView.contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.never
+        }
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: HomeViewController.homeCellIdentifier)
         return tableView
     }()
@@ -45,11 +47,14 @@ class HomeViewController: UIViewController {
     
     func setupUI() {
         self.view.addSubview(self.tableView)
-        self.tableView.snp.makeConstraints { make in
-            make.top.equalTo(self.view.snp.topMargin)
-            make.bottom.equalTo(self.view.snp.bottomMargin)
-            make.left.right.equalTo(self.view).inset(0)
-        }
+        tableView.contentInset = UIEdgeInsets(top: navigationHeight, left: 0, bottom: 0, right: 0)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ])
     }
     
     func setupBinding() {
@@ -66,8 +71,7 @@ class HomeViewController: UIViewController {
                 cell.backgroundColor = UIColor.background
             }
             return cell
-        }
-        .disposed(by: disposeBag)
+        }.disposed(by: disposeBag)
         
         /// 订阅点击事件
         tableView.rx.modelSelected(ViewControllerType.self).subscribe (onNext: { type in

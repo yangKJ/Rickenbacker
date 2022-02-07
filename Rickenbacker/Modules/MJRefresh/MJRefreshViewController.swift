@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SnapKit
 import Rickenbacker
 
 class MJRefreshViewController: VMTableViewController<MJRefreshViewModel> {
@@ -22,10 +21,11 @@ class MJRefreshViewController: VMTableViewController<MJRefreshViewModel> {
     
     override func loadView() {
         super.loadView()
-        // 这个必须写在`viewDidLoad`
-//        let footer = MJRefreshAutoFooter()
-//        footer.triggerAutomaticallyRefreshPercent = -5
-//        tableView.mj_footer = footer
+        // 这个必须写在`viewDidLoad`之前
+        enterBeginRefresh = true // 进入就刷新
+        let footer = MJRefreshAutoFooter()
+        footer.triggerAutomaticallyRefreshPercent = -5
+        tableView.mj_footer = footer
     }
     
     override func viewDidLoad() {
@@ -43,11 +43,14 @@ class MJRefreshViewController: VMTableViewController<MJRefreshViewModel> {
     
     func setupUI() {
         self.view.addSubview(self.tableView)
-        self.tableView.snp.makeConstraints { make in
-            make.top.equalTo(self.view.snp.topMargin)
-            make.bottom.equalTo(self.view.snp.bottomMargin)
-            make.left.right.equalTo(self.view)
-        }
+        tableView.contentInset = UIEdgeInsets(top: navigationHeight, left: 0, bottom: 0, right: 0)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ])
     }
     
     func setupTable() {
@@ -58,8 +61,7 @@ class MJRefreshViewController: VMTableViewController<MJRefreshViewModel> {
     }
     
     func setupBindings() {
-        let input = MJRefreshViewModel.Input(headerRefresh: headerRefreshing,
-                                             footerRefresh: footerRefreshing)
+        let input = MJRefreshViewModel.Input(headerRefresh: headerRefreshing, footerRefresh: footerRefreshing)
         let output = viewModel.transform(input: input)
         
         output.items.asObservable().bind(to: tableView.rx.items) { (tableView, row, element) in

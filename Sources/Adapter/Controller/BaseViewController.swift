@@ -21,12 +21,7 @@ open class BaseViewController: UIViewController {
     }()
     
     deinit {
-        D.DLog("🎷<\(D.split(String(describing: self))): Deinited")
-    }
-    
-    override open func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        D.DLog("🎷<\(D.split(String(describing: self))): didReceiveMemoryWarning")
+        Log.debug("\(self.description): Deinited", file: "\(type(of: self))")
     }
     
     @objc public var navigationTitle = "" {

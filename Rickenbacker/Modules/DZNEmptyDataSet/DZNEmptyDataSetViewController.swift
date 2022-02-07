@@ -55,13 +55,13 @@ class DZNEmptyDataSetViewController: VMTableViewController<EmptyViewModel> {
     func setupTable() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: DZNEmptyDataSetViewController.identifier)
         tableView.rx.modelSelected(String.self).subscribe (onNext: { (element) in
-            D.DLog(element)
+            Log.debug(element)
         }).disposed(by: disposeBag)
     }
     
     func setupBindings() {
         tableView.rx.modelSelected(String.self).subscribe (onNext: { (element) in
-            D.DLog(element)
+            Log.debug(element)
         }).disposed(by: disposeBag)
         
         viewModel.outputs.dataSource.bind(to: tableView.rx.items) { (tableView, row, element) in
@@ -76,7 +76,7 @@ class DZNEmptyDataSetViewController: VMTableViewController<EmptyViewModel> {
         .disposed(by: disposeBag)
         
         viewModel.isEmptyData.subscribe { (empty) in
-            D.DLog(empty.element)
+            Log.debug(empty.element)
         }.disposed(by: disposeBag)
         
         self.emptyDataSetViewTap.subscribe { [weak self] _ in

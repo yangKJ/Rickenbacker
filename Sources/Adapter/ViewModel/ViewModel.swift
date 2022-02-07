@@ -34,7 +34,7 @@ open class ViewModel: NSObject {
     required public override init() { }
     
     deinit {
-        D.DLog("🥁<\(D.split(String(describing: self))): ViewModel Deinited")
+        Log.debug("\(self.description): ViewModel Deinited", file: "\(type(of: self))")
     }
 }
 

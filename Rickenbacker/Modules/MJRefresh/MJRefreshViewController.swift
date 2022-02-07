@@ -56,7 +56,7 @@ class MJRefreshViewController: VMTableViewController<MJRefreshViewModel> {
     func setupTable() {
         tableView.register(withClass: UITableViewCell.self)
         tableView.rx.modelSelected(String.self).subscribe (onNext: { (element) in
-            D.DLog(element)
+            Log.debug(element)
         }).disposed(by: disposeBag)
     }
     

@@ -3,43 +3,43 @@ PODS:
   - EmptyDataSet-Swift (5.0.0)
   - HBDNavigationBar (1.9.4)
   - MJRefresh (3.7.5)
-  - Rickenbacker (0.0.1):
-    - Rickenbacker/Adapter (= 0.0.1)
-    - Rickenbacker/BeeBox (= 0.0.1)
-    - Rickenbacker/CatHome (= 0.0.1)
-    - Rickenbacker/CTMediator (= 0.0.1)
-    - Rickenbacker/DZNEmptyDataSet (= 0.0.1)
-    - Rickenbacker/HBDNavigationBar (= 0.0.1)
-    - Rickenbacker/MJRefresh (= 0.0.1)
-  - Rickenbacker/Adapter (0.0.1):
-    - Rickenbacker/Adapter/Controller (= 0.0.1)
-    - Rickenbacker/Adapter/View (= 0.0.1)
-    - Rickenbacker/Adapter/ViewModel (= 0.0.1)
+  - Rickenbacker (0.0.2):
+    - Rickenbacker/Adapter (= 0.0.2)
+    - Rickenbacker/BeeBox (= 0.0.2)
+    - Rickenbacker/CatHome (= 0.0.2)
+    - Rickenbacker/CTMediator (= 0.0.2)
+    - Rickenbacker/DZNEmptyDataSet (= 0.0.2)
+    - Rickenbacker/HBDNavigationBar (= 0.0.2)
+    - Rickenbacker/MJRefresh (= 0.0.2)
+  - Rickenbacker/Adapter (0.0.2):
+    - Rickenbacker/Adapter/Controller (= 0.0.2)
+    - Rickenbacker/Adapter/View (= 0.0.2)
+    - Rickenbacker/Adapter/ViewModel (= 0.0.2)
     - Rickenbacker/BeeBox
     - Rickenbacker/CatHome
-  - Rickenbacker/Adapter/Controller (0.0.1):
+  - Rickenbacker/Adapter/Controller (0.0.2):
     - Rickenbacker/Adapter/View
     - Rickenbacker/Adapter/ViewModel
     - Rickenbacker/BeeBox
     - Rickenbacker/CatHome
-  - Rickenbacker/Adapter/View (0.0.1):
+  - Rickenbacker/Adapter/View (0.0.2):
     - Rickenbacker/BeeBox
     - Rickenbacker/CatHome
-  - Rickenbacker/Adapter/ViewModel (0.0.1):
+  - Rickenbacker/Adapter/ViewModel (0.0.2):
     - Rickenbacker/BeeBox
     - Rickenbacker/CatHome
-  - Rickenbacker/BeeBox (0.0.1):
+  - Rickenbacker/BeeBox (0.0.2):
     - RxCocoa
     - RxSwift
-  - Rickenbacker/CatHome (0.0.1)
-  - Rickenbacker/CTMediator (0.0.1):
+  - Rickenbacker/CatHome (0.0.2)
+  - Rickenbacker/CTMediator (0.0.2):
     - CTMediator
-  - Rickenbacker/DZNEmptyDataSet (0.0.1):
+  - Rickenbacker/DZNEmptyDataSet (0.0.2):
     - EmptyDataSet-Swift
     - Rickenbacker/Adapter
-  - Rickenbacker/HBDNavigationBar (0.0.1):
+  - Rickenbacker/HBDNavigationBar (0.0.2):
     - HBDNavigationBar
-  - Rickenbacker/MJRefresh (0.0.1):
+  - Rickenbacker/MJRefresh (0.0.2):
     - MJRefresh
     - Rickenbacker/Adapter
   - RxCocoa (6.5.0):
@@ -74,7 +74,7 @@ SPEC CHECKSUMS:
   EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
   HBDNavigationBar: 6f2f5699c0d9f3e6087466c037b361d6f337ea22
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
-  Rickenbacker: 5e98cf2e2999367da6590242cddb194ef793318f
+  Rickenbacker: 7cf7e982839aabb64a2321a53edd6e03633a5949
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8

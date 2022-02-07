@@ -1,236 +1,127 @@
-# KJJsonToModelDemo
-一款json转model工具  
-<p align="left">
-  <img width="400" src="Res/WX20191012-114934@2x.png" hspace="1px" />
-</p>
+# Rickenbacker
 
-----------------------------------------
-### 框架整体介绍
-* [作者信息](#作者信息)
-* [作者其他库](#作者其他库)
-* [使用方法](#使用方法)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-brightgreen.svg?style=flat&colorA=28a745&&colorB=4E4E4E)](https://github.com/yangKJ/Rickenbacker)
+[![Releases Compatible](https://img.shields.io/github/release/yangKJ/Rickenbacker.svg?style=flat&label=Releases&colorA=28a745&&colorB=4E4E4E)](https://github.com/yangKJ/Rickenbacker/releases)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/Rickenbacker.svg?style=flat&label=CocoaPods&colorA=28a745&&colorB=4E4E4E)](https://cocoapods.org/pods/Rickenbacker)
+[![Platform](https://img.shields.io/badge/Platforms-iOS%20%7C%20macOS%20%7C%20watchOS-4E4E4E.svg?colorA=28a745)](#installation)
 
-#### <a id="作者信息"></a>作者信息
-> Github地址：https://github.com/yangKJ  
-> 简书地址：https://www.jianshu.com/u/c84c00476ab6  
-> 博客地址：https://blog.csdn.net/qq_34534179  
+<font color=red>**👌. MVVM + RxSwift + CTMediatror + MJRefresh + DZNEmptyDataSet + SkeletonView**</font>
 
-#### <a id="作者其他库"></a>作者其他Pod库
+-------
+
+English | [**简体中文**](#简体中文)
+
+This is a set of infrastructure based on `MVVM + RxSwift`
+
+### Resources
+- Resource module, which mainly deals with image resource and text resource reading.
+  - Read image resource: `R.image("base_black_back")`
+  - Read text resource: `R.text("base_empty_title")`
+
+### Adapter
+- This module is mainly to encapsulate the base class.
+  - [BaseViewController](https://github.com/yangKJ/Rickenbacker): Support oc base class, public part.
+  - [VMTableViewController](https://github.com/yangKJ/Rickenbacker): List base class, internally responsive processing.
+  - [VMViewController](https://github.com/yangKJ/Rickenbacker): When inheriting this base class, you need to specify `ViewModel` or its subclasses as generics.
+  - [ViewModel](https://github.com/yangKJ/Rickenbacker): Basic view model.
+  - [TableViewModel](https://github.com/yangKJ/Rickenbacker): Mainly used for `VMTableViewController` data-driven binding model.
+
+- CocoaPods Install ==> `pod 'Rickenbacker/Adapter'`
+
+### CTMediatror
+- This module mainly solves the cocoapods problem encountered by Swift using this componentized solution.
+
+- CocoaPods Install ==> `pod 'Rickenbacker/CTMediatror'`
+
+### HBDNavigationBar
+- This module is based on `HBDNavigationBar` secondary encapsulation of the underlying basic Navigation.
+
+- CocoaPods Install ==> `pod 'Rickenbacker/HBDNavigationBar'`
+
+### MJRefresh
+- This module is based on the refresh function of `MJRefresh` encapsulated UITableView.
+
+- CocoaPods Install ==> `pod 'Rickenbacker/MJRefresh'`
+
+### DZNEmptyDataSet
+- This module is based on the empty data display function of the `EmptyDataSet-Swift` package UITableView.
+
+- CocoaPods Install ==> `pod 'Rickenbacker/DZNEmptyDataSet'`
+
+### Remarks
+
+> The general process is almost like this, the Demo is also written in great detail, you can check it out for yourself.🎷
+>
+> [**RickenbackerDemo**](https://github.com/yangKJ/Rickenbacker)
+>
+> Tip: If you find it helpful, please help me with a star. If you have any questions or needs, you can also issue.
+>
+> Thanks.🎇
+
+### About the author
+- 🎷 **E-mail address: [yangkj310@gmail.com](yangkj310@gmail.com) 🎷**
+- 🎸 **GitHub address: [yangKJ](https://github.com/yangKJ) 🎸**
+
+-----
+
+### License
+Rickenbacker is available under the [MIT](LICENSE) license. See the [LICENSE](LICENSE) file for more info.
+
+-----
+
+## <a id="简体中文"></a>简体中文
+
+基于 **MVVM + RxSwift** 搭建响应式数据绑定基础架构
+
+### Resources
+- 资源模块，主要处理图片资源和文本资源读取
+  - 读取图片资源：`R.image("base_black_back")`
+  - 读取文本资源：`R.text("base_empty_title")`
+
+### Adapter
+- 该模块主要就是封装基类
+  - [BaseViewController](https://github.com/yangKJ/Rickenbacker): 支持oc基类，公共部分
+  - [VMTableViewController](https://github.com/yangKJ/Rickenbacker): 列表基类, 内部采用响应式处理
+  - [VMViewController](https://github.com/yangKJ/Rickenbacker): 该基类继承时需指定`ViewModel`或其子类作为泛型
+  - [ViewModel](https://github.com/yangKJ/Rickenbacker): 基础模型
+  - [TableViewModel](https://github.com/yangKJ/Rickenbacker): 主要用于`VMTableViewController`数据驱动绑定模型
+
+### CTMediatror
+- 该模块主要解决Swift采用该组件化方案CocoaPods问题
+
+### HBDNavigationBar
+- 该模块是基于`HBDNavigationBar`二次封装底层基础导航栏
+
+### MJRefresh
+- 该模块是基于`MJRefresh`封装列表刷新功能
+
+### DZNEmptyDataSet
+- 该模块是基于`EmptyDataSet-Swift`封装列表空数据展示功能
+
+### CocoaPods Install
 ```
-播放器 - KJPlayer是一款视频播放器，AVPlayer的封装，继承UIView
-pod 'KJPlayer'  # 播放器功能区
-pod 'KJPlayer/KJPlayerView'  # 自带展示界面
+Ex: 导入项目响应式基类模块
+- pod 'Rickenbacker/Adapter'
 
-实用又方便的Category和一些自定义控件
-pod 'KJEmitterView'
-pod 'KJEmitterView/Function'#
-pod 'KJEmitterView/Control' # 自定义控件
+Ex: 导入组件化模块
+- pod 'Rickenbacker/CTMediatror'
 
-轮播图 - 支持缩放 多种pagecontrol 支持继承自定义样式 自带网络加载和缓存
-pod 'KJBannerView'  # 轮播图，网络图片加载
+Ex: 导入导航栏基础模块
+- pod 'Rickenbacker/HBDNavigationBar'
 
-菜单控件 - 下拉控件 选择控件
-pod 'KJMenuView' # 菜单控件
+Ex: 导入自动刷新模块
+- pod 'Rickenbacker/MJRefresh'
 
-加载Loading - 多种样式供选择
-pod 'KJLoadingAnimation' # 加载控件
-
-```
-
-##### Issue
-如果您在使用中有好的需求及建议，或者遇到什么bug，欢迎随时issue，我会及时的回复，有空也会不断优化更新这些库
-
-#### <a id="使用方法"></a>使用方法
-```
-将需要转换的json字符串放在坐标框内，转换即可
-```
-实现代码
-
-```
-//
-//  ViewController.m
-//  KJJsonToModelDemo
-//
-//  Created by 杨科军 on 2019/10/12.
-//  Copyright © 2019 杨科军. All rights reserved.
-//
-
-#import "ViewController.h"
-
-@interface ViewController ()
-@property (nonatomic,strong) NSMutableArray *temps;
-@property (weak) IBOutlet NSButton *annotationButton;
-@property (weak) IBOutlet NSTextField *jsonTextField;
-@property (weak) IBOutlet NSTextField *annotationTextField;
-@property (weak) IBOutlet NSTextField *githubLabel;
-@property (unsafe_unretained) IBOutlet NSTextView *modelTextView;
-
-@end
-
-@implementation ViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-    self.temps = [NSMutableArray array];
-    // Do any additional setup after loading the view.
-}
-
-
-- (void)setRepresentedObject:(id)representedObject {
-    [super setRepresentedObject:representedObject];
-
-    // Update the view, if already loaded.
-}
-
-#pragma mark - json转字典
-- (NSDictionary *)getDictWithJsonString:(NSString *)jsonString{
-    jsonString = [[[[jsonString stringByReplacingOccurrencesOfString:@"\n" withString:@""]stringByReplacingOccurrencesOfString:@"\t" withString:@""]stringByReplacingOccurrencesOfString:@" " withString:@""]stringByReplacingOccurrencesOfString:@"\\" withString:@""];
-    /// 解析字典
-    jsonString = [jsonString stringByReplacingOccurrencesOfString:@";};" withString:@"};"];
-    jsonString = [jsonString stringByReplacingOccurrencesOfString:@";}" withString:@"}"];
-    jsonString = [jsonString stringByReplacingOccurrencesOfString:@";" withString:@","];
-    jsonString = [jsonString stringByReplacingOccurrencesOfString:@"=" withString:@":"];
-    jsonString = [jsonString stringByReplacingOccurrencesOfString:@"(" withString:@"["];
-    jsonString = [jsonString stringByReplacingOccurrencesOfString:@")" withString:@"]"];
-    NSString *regex = @"[,{].*?:";
-    NSError *error;
-    NSRegularExpression *regular = [NSRegularExpression regularExpressionWithPattern:regex options:NSRegularExpressionCaseInsensitive error:&error];
-    NSArray *matches = [regular matchesInString:jsonString options:0 range:NSMakeRange(0, jsonString.length)];
-    NSMutableString* jsonMuStr = [[NSMutableString alloc]initWithString:jsonString];
-    int i = 1;
-    for (NSTextCheckingResult *match in matches) {
-        NSRange range = [match range];
-        NSString *mStr = [jsonString substringWithRange:range];
-        if(![mStr containsString:@"\""]){
-            [jsonMuStr insertString:@"\"" atIndex:range.location + i];
-            i += 2;
-            [jsonMuStr insertString:@"\"" atIndex:range.location + i + range.length - 3];
-        }
-    }
-    ///
-    jsonString = [self correctErrValueWithJsonString:jsonMuStr];
-    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *err;
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];
-    if(err) {
-        [self errorHint];
-        return nil;
-    }
-    return dic;
-}
-- (NSString *)correctErrValueWithJsonString:(NSString *)jsonStr{
-    NSString *regex = @":.*?,";
-    NSError *error;
-    NSRegularExpression *regular = [NSRegularExpression regularExpressionWithPattern:regex options:NSRegularExpressionCaseInsensitive error:&error];
-    NSArray *matches = [regular matchesInString:jsonStr options:0 range:NSMakeRange(0, jsonStr.length)];
-    NSMutableString* jsonMuStr = [[NSMutableString alloc]initWithString:jsonStr];
-    int i = 1;
-    for (NSTextCheckingResult *match in matches) {
-        NSRange range = [match range];
-        NSString *mStr = [jsonStr substringWithRange:range];
-        if(mStr.length > 2)
-        mStr = [mStr substringWithRange:NSMakeRange(1, mStr.length - 2)];
-        if(![mStr containsString:@"\""] && ![self isPureNumber:mStr] && ![mStr containsString:@"}"] && ![mStr containsString:@"["] && ![mStr containsString:@"true"] && ![mStr containsString:@"false"]){
-            [jsonMuStr insertString:@"\"" atIndex:range.location + i];
-            i += 2;
-            [jsonMuStr insertString:@"\"" atIndex:range.location + i + range.length - 3];
-        }
-    }
-    return jsonMuStr;
-}
-- (BOOL)isPureNumber:(NSString*)string{
-    return [self isPureInt:string] || [self isPureFloat:string];
-}
-- (BOOL)isPureInt:(NSString*)string{
-    NSScanner* scan = [NSScanner scannerWithString:string];
-    int val;
-    return[scan scanInt:&val] && [scan isAtEnd];
-}
-- (BOOL)isPureFloat:(NSString*)string{
-    NSScanner* scan = [NSScanner scannerWithString:string];
-    float val;
-    return[scan scanFloat:&val] && [scan isAtEnd];
-}
-/// 错误提示
-- (void)errorHint{
-    NSAlert *alert = [[NSAlert alloc]init];
-    [alert addButtonWithTitle:@"确定"];
-    alert.messageText = @"错误";
-    alert.informativeText = @"json字符串不合法";
-    [alert setAlertStyle:NSAlertStyleWarning];
-    [alert beginSheetModalForWindow:[self.view window] completionHandler:^(NSModalResponse returnCode) {
-        
-    }];
-}
-/// 开始转换
-- (IBAction)thouchTransformButtonAction:(NSButton *)sender {
-    [self.temps removeAllObjects];
-    NSString *jsonStr = self.jsonTextField.stringValue;
-    if(!jsonStr.length){
-        [self errorHint];
-        return;
-    }
-    NSDictionary *resultDic = [self getDictWithJsonString:jsonStr];
-    [self recursionForResultWithObj:resultDic];
-    NSMutableArray *finalResultArr = [NSMutableArray array];
-    for (NSArray *subArr in self.temps) {
-        if(![finalResultArr containsObject:subArr]){
-            [finalResultArr addObject:subArr];
-        }
-    }
-    finalResultArr = (NSMutableArray *)[[finalResultArr reverseObjectEnumerator] allObjects];
-    NSString *outputString = @"";
-    /// 分割注释
-    NSArray *annArr = [self.annotationTextField.stringValue componentsSeparatedByString:@"\n"];
-    NSInteger count = annArr.count;
-    for (NSArray *subArr in finalResultArr) {
-        outputString = [outputString stringByAppendingString:@"************分割线************\n"];
-        for (NSInteger i=0; i<subArr.count; i++) {
-            NSString *tempString;
-            NSString *string = subArr[i];
-            if(self.annotationButton.state == NSControlStateValueOn){
-                NSString *annStr = @"";
-                if (i<count) {
-                    annStr = annArr[i];
-                }
-               tempString = [NSString stringWithFormat:@"/// %@\n%@",annStr,string];
-            }else{
-               tempString = string;
-            }
-            outputString = [outputString stringByAppendingString:tempString];
-        }
-    }
-    self.modelTextView.string = outputString;   
-}
-#pragma mark - 递归解析
-- (void)recursionForResultWithObj:(id)obj{
-    if([obj isKindOfClass:[NSArray class]]){
-        for (id subObj in obj) {
-            [self recursionForResultWithObj:subObj];
-        }
-    }else if([obj isKindOfClass:[NSDictionary class]]){
-        NSMutableArray *temp = [NSMutableArray array];
-        for (NSString *key in ((NSDictionary*)obj).allKeys){
-            id value = [obj objectForKey:key];
-            if([value isKindOfClass:[NSArray class]] || [value isKindOfClass:[NSDictionary class]]){
-                [temp addObject:[NSString stringWithFormat:@"@property (nonatomic,strong) %@ *%@;//\n",[[value superclass] class],key]];
-                [self recursionForResultWithObj:value];
-            }else{
-                if([value isKindOfClass:[NSString class]]){
-                    [temp addObject:[NSString stringWithFormat:@"@property (nonatomic,copy) %@ *%@;//\n",[NSString class],key]];
-                }else if([value isKindOfClass:[NSNumber class]]){
-                    [temp addObject:[NSString stringWithFormat:@"@property (nonatomic,strong) %@ *%@;//\n",[NSNumber class],key]];
-                }else{
-                    [temp addObject:[NSString stringWithFormat:@"@property (nonatomic,strong) %@ *%@;//\n",@"id",key]];
-                }
-            }
-            [self.temps addObject:temp];
-        }
-    }
-}
-
-@end
-
+Ex: 导入空数据自动展示模块
+- pod 'Rickenbacker/DZNEmptyDataSet'
 ```
 
+-----
+
+> <font color=red>**觉得有帮助的老哥们，请帮忙点个星 ⭐..**</font>
+
+**救救孩子吧，谢谢各位老板。**
+
+🥺
+
+-----

@@ -1,0 +1,6 @@
+framework module Rickenbacker {
+  umbrella header "Rickenbacker-umbrella.h"
+
+  export *
+  module * { export * }
+}

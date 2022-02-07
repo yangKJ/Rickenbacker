@@ -1,0 +1,10 @@
+//
+//  Rickenbacker
+//
+//  Created by Condy on 2021/10/2.
+//
+
+
+"base_empty_title" = "Empty";
+"base_network_error_title" = "Network anomalies";
+"base_network_again_load" = "Reload";

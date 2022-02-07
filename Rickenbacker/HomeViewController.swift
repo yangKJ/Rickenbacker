@@ -22,8 +22,8 @@ class HomeViewController: UIViewController {
         tableView.sectionFooterHeight = 0.00001
         tableView.showsVerticalScrollIndicator = false
         tableView.showsHorizontalScrollIndicator = false
-        tableView.backgroundColor = UIColor.white
-        tableView.separatorStyle = .none
+        tableView.backgroundColor = R.color("background")
+        //tableView.separatorStyle = .none
         if #available(iOS 11, *) {
             tableView.contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.never
         }
@@ -41,7 +41,7 @@ class HomeViewController: UIViewController {
     
     func setupInit() {
         self.title = "Case"
-        self.view.backgroundColor = UIColor.background
+        self.view.backgroundColor = R.color("background")
         self.hbd_barShadowHidden = true
     }
     
@@ -62,14 +62,10 @@ class HomeViewController: UIViewController {
         viewModel.datasObservable.bind(to: tableView.rx.items) { (tableView, row, element) in
             let cell = UITableViewCell(style: .value1, reuseIdentifier: HomeViewController.homeCellIdentifier)
             cell.selectionStyle = .none
-            cell.textLabel?.textColor = UIColor.defaultTint
+            cell.accessoryType = .disclosureIndicator
+            cell.textLabel?.textColor = R.color("defaultTint")
             cell.textLabel?.text = "\(row + 1). " + element.rawValue
             cell.textLabel?.font = UIFont.systemFont(ofSize: 14)
-            if row % 2 == 0 {
-                cell.backgroundColor = UIColor.cell_background?.withAlphaComponent(0.6)
-            } else {
-                cell.backgroundColor = UIColor.background
-            }
             return cell
         }.disposed(by: disposeBag)
         
@@ -80,4 +76,17 @@ class HomeViewController: UIViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }).disposed(by: disposeBag)
     }
+}
+
+var statusBarHeight: CGFloat {
+    if #available(iOS 13.0, *) {
+        let statusManager = UIApplication.shared.windows.first?.windowScene?.statusBarManager
+        return statusManager?.statusBarFrame.height ?? 20.0
+    } else {
+        return UIApplication.shared.statusBarFrame.height
+    }
+}
+
+var navigationHeight: CGFloat {
+    return 44 + statusBarHeight
 }

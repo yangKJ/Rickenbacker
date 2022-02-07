@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0467C97527A2433E008889DB /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0467C97427A2433E008889DB /* Color.xcassets */; };
-		0467C97727A24353008889DB /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467C97627A24353008889DB /* Color.swift */; };
 		04F2018E27796968007C6BB3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2018D27796968007C6BB3 /* HomeViewModel.swift */; };
 		04F201A327796B61007C6BB3 /* SecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2019227796B61007C6BB3 /* SecondViewModel.swift */; };
 		04F201A427796B61007C6BB3 /* SecondViewController+CTMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2019427796B61007C6BB3 /* SecondViewController+CTMediator.swift */; };
@@ -29,8 +27,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0467C97427A2433E008889DB /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
-		0467C97627A24353008889DB /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		04F2018D27796968007C6BB3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		04F2019227796B61007C6BB3 /* SecondViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewModel.swift; sourceTree = "<group>"; };
 		04F2019427796B61007C6BB3 /* SecondViewController+CTMediator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SecondViewController+CTMediator.swift"; sourceTree = "<group>"; };
@@ -69,8 +65,6 @@
 		04F2018C27796936007C6BB3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0467C97627A24353008889DB /* Color.swift */,
-				0467C97427A2433E008889DB /* Color.xcassets */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -271,7 +265,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
-				0467C97527A2433E008889DB /* Color.xcassets in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
@@ -366,7 +359,6 @@
 				04F201AB27796B61007C6BB3 /* HBDNavigationBarViewController.swift in Sources */,
 				04F201A627796B61007C6BB3 /* SecondViewController.swift in Sources */,
 				04F201A927796B61007C6BB3 /* MJRefreshViewController.swift in Sources */,
-				0467C97727A24353008889DB /* Color.swift in Sources */,
 				04F201A527796B61007C6BB3 /* CTMediatorViewController.swift in Sources */,
 				04F201A427796B61007C6BB3 /* SecondViewController+CTMediator.swift in Sources */,
 				04F201AA27796B61007C6BB3 /* MJRefreshViewModel.swift in Sources */,

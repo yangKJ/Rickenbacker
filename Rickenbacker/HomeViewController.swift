@@ -10,7 +10,7 @@ import UIKit
 import Rickenbacker
 
 class HomeViewController: UIViewController {
- 
+    
     private static let homeCellIdentifier = "homeCellIdentifier"
     private let disposeBag = DisposeBag()
     private let viewModel: HomeViewModel = HomeViewModel()

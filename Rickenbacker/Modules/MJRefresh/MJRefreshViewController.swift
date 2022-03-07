@@ -10,7 +10,7 @@ import UIKit
 import Rickenbacker
 
 class MJRefreshViewController: VMTableViewController<MJRefreshViewModel> {
-
+    
     lazy var resetBarButton: UIBarButtonItem = {
         let barButton = UIBarButtonItem.init(title: "Reset", style: .plain, target: nil, action: nil)
         barButton.rx.tap

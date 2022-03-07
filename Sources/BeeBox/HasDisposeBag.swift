@@ -6,20 +6,20 @@ fileprivate var disposeBagContext: UInt8 = 0
 
 /// each HasDisposeBag offers a unique RxSwift DisposeBag instance
 public protocol HasDisposeBag: AnyObject {
-
+    
     /// a unique RxSwift DisposeBag instance
     var disposeBag: DisposeBag { get set }
 }
 
 extension HasDisposeBag {
-
+    
     func synchronizedBag<T>( _ action: () -> T) -> T {
         objc_sync_enter(self)
         let result = action()
         objc_sync_exit(self)
         return result
     }
-
+    
     public var disposeBag: DisposeBag {
         get {
             return synchronizedBag {

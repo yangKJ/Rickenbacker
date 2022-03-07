@@ -9,7 +9,7 @@
 /// https://github.com/casatwy/CTMediator
 /// https://casatwy.com/CTMediator_in_Swift.html
 
-/// test case，
+/// 参考用例
 /// https://github.com/yangKJ/Rickenbacker/blob/master/Rickenbacker/Modules/CTMediator/CTMediator/SecondViewController+CTMediator.swift
 
 import Foundation

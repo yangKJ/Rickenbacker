@@ -42,7 +42,7 @@ extension VMTableViewController {
         setupSubEmptyData()
         setupEmptyData()
     }
-
+    
     /// 配置空数据
     private final func setupEmptyData() {
         guard self.openEmptyData else { return }
@@ -67,7 +67,7 @@ extension VMTableViewController {
                 self?.emptyDataSetViewTap.onNext(())
             }
         }
-
+        
         viewModel.isEmptyData.subscribe { [weak self] (empty) in
             guard let `self` = self, let boo = empty.element, boo else { return }
             self.tableView.reloadEmptyDataSet()
@@ -76,11 +76,11 @@ extension VMTableViewController {
 }
 
 extension VMTableViewController: EmptyDataSetDelegate {
-
+    
     public func emptyDataSetShouldDisplay(_ scrollView: UIScrollView) -> Bool {
         return self.viewModel.isEmptyData.value
     }
-
+    
     public func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView) -> Bool {
         return true
     }

@@ -8,7 +8,7 @@
 import Foundation
 import RxRelay
 
-/// test case，
+/// 参考用例
 /// https://github.com/yangKJ/Rickenbacker/blob/master/Rickenbacker/Modules/DZNEmptyDataSet/EmptyViewModel.swift
 
 fileprivate var EmptyDataContext: UInt8 = 0
@@ -19,7 +19,7 @@ public protocol EmptyViewModelProtocol {
 }
 
 extension EmptyViewModelProtocol {
-
+    
     public var isEmptyData: BehaviorRelay<Bool> {
         get {
             if let empty = objc_getAssociatedObject(self, &EmptyDataContext) {

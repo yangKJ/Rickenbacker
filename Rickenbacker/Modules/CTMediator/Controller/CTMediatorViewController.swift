@@ -10,7 +10,7 @@ import UIKit
 import Rickenbacker
 
 class CTMediatorViewController: BaseViewController {
-
+    
     let disposeBag = DisposeBag()
     
     lazy var pushButton: UIButton = {

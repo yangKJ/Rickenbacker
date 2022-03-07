@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 public extension Reactive where Base: UIViewController {
-
+    
     /// Push view controller
     /// Example:
     ///

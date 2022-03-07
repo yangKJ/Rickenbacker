@@ -10,7 +10,7 @@ import UIKit
 
 @objc(BaseViewController)
 open class BaseViewController: UIViewController {
-
+    
     @objc public lazy var backBarButton: UIBarButtonItem = {
         let barButton = UIBarButtonItem(image: R.image("base_black_back"),
                                         style: .plain,

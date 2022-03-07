@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-/// test case，
+/// 参考用例
 /// https://github.com/yangKJ/Rickenbacker/blob/master/Rickenbacker/Modules/MJRefresh/MJRefreshViewModel.swift
 
 fileprivate var RefreshSubjectContext: UInt8 = 0

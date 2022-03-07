@@ -10,7 +10,7 @@ import UIKit
 import Rickenbacker
 
 class HBDNavigationBarViewController: BaseViewController {
-
+    
     lazy var backButton: UIButton = {
         let button = UIButton.init(type: .custom)
         button.frame = CGRect(x: 10, y: 44, width: 44, height: 44)
@@ -32,7 +32,7 @@ class HBDNavigationBarViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.hbd_barHidden = true
         self.hbd_blackBarStyle = true
         self.view.backgroundColor = UIColor.green

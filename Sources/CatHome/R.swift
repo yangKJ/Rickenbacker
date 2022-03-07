@@ -36,11 +36,11 @@ import Foundation
     
     /// Read color resource
     @available(iOS 11.0, *)
-    public static func color(_ string: String, forResource: String = "Rickenbacker") -> UIColor? {
+    public static func color(_ string: String, forResource: String = "Rickenbacker") -> UIColor {
         let bundlePath = Bundle.main.path(forResource: forResource, ofType: "bundle")
         let bundle = Bundle.init(path: bundlePath!)
         guard let color = UIColor(named: string, in: bundle, compatibleWith: nil) else {
-            return nil
+            return UIColor.white
         }
         return color
     }

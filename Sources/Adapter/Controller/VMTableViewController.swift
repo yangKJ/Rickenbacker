@@ -9,7 +9,7 @@ import RxSwift
 import RxCocoa
 
 open class VMTableViewController<T: ViewModel>: VMViewController<T>, UITableViewDelegate {
-
+    
     /// 下拉刷新事件可观察序列✌️
     /// Pull down refresh event observable sequence✌️
     public let headerRefreshing: PublishSubject<Void> = PublishSubject()

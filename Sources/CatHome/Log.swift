@@ -14,7 +14,7 @@ public struct Log {
                              function: String = #function,
                              line: Int = #line) {
         #if DEBUG
-        let params = message.compactMap{ "\($0.orEmpty)" }.joined(separator: ", ")
+        let params = message.compactMap{ "\($0.log_empty)" }.joined(separator: ", ")
         NSLog("""
               \n------- 🎈 Rickenbacker Log 🎈 -------
               File: \((file as NSString).lastPathComponent)
@@ -26,13 +26,13 @@ public struct Log {
     }
     
     /// Split prefix `.`
-    public static func split(_ string: String) -> String {
+    private static func split(_ string: String) -> String {
         return String(string.split(separator: ".").last ?? "")
     }
 }
 
 extension Optional {
-    var orEmpty: Any {
+    fileprivate var log_empty: Any {
         switch self {
         case .some(let value):
             return value

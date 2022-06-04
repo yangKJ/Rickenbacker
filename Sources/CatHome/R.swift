@@ -14,11 +14,16 @@ import Foundation
     
     /// Load image resources
     @objc public static func image(_ named: String, forResource: String = "Rickenbacker") -> UIImage {
-        let bundlePath = Bundle.main.path(forResource: forResource, ofType: "bundle")
-        let bundle = Bundle.init(path: bundlePath!)
-        guard let image = UIImage(named: named, in: bundle, compatibleWith: nil) else {
+        let imageblock = { (name: String) -> UIImage in
             let image = UIImage(named: named)
             return image ?? UIImage()
+        }
+        guard let bundlePath = Bundle.main.path(forResource: forResource, ofType: "bundle") else {
+            return imageblock(named)
+        }
+        let bundle = Bundle.init(path: bundlePath)
+        guard let image = UIImage(named: named, in: bundle, compatibleWith: nil) else {
+            return imageblock(named)
         }
         return image
     }
@@ -27,20 +32,20 @@ import Foundation
     @objc public static func text(_ string: String,
                                   forResource: String = "Rickenbacker",
                                   comment: String = "Localizable") -> String {
-        let bundlePath = Bundle.main.path(forResource: forResource, ofType: "bundle")
-        if let bundle = Bundle.init(path: bundlePath!) {
-            return NSLocalizedString(string, tableName: nil, bundle: bundle, value: "", comment: comment)
+        guard let bundlePath = Bundle.main.path(forResource: forResource, ofType: "bundle"),
+              let bundle = Bundle.init(path: bundlePath) else {
+            return string
         }
-        return ""
+        return NSLocalizedString(string, tableName: nil, bundle: bundle, value: "", comment: comment)
     }
     
     /// Read color resource
     @available(iOS 11.0, *)
-    public static func color(_ string: String, forResource: String = "Rickenbacker") -> UIColor {
-        let bundlePath = Bundle.main.path(forResource: forResource, ofType: "bundle")
-        let bundle = Bundle.init(path: bundlePath!)
-        guard let color = UIColor(named: string, in: bundle, compatibleWith: nil) else {
-            return UIColor.white
+    @objc public static func color(_ string: String, forResource: String = "Rickenbacker") -> UIColor? {
+        guard let bundlePath = Bundle.main.path(forResource: forResource, ofType: "bundle"),
+              let bundle = Bundle.init(path: bundlePath),
+              let color = UIColor(named: string, in: bundle, compatibleWith: nil) else {
+            return nil
         }
         return color
     }

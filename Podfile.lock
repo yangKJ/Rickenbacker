@@ -1,7 +1,7 @@
 PODS:
   - CTMediator (46)
-  - EmptyDataSet-Swift (5.0.0)
-  - HBDNavigationBar (1.9.4)
+  - DZNEmptyDataSet (1.8.1)
+  - HBDNavigationBar (1.9.5)
   - MJRefresh (3.7.5)
   - Rickenbacker (0.0.3):
     - Rickenbacker/Adapter (= 0.0.3)
@@ -9,25 +9,13 @@ PODS:
     - Rickenbacker/CatHome (= 0.0.3)
     - Rickenbacker/CTMediator (= 0.0.3)
     - Rickenbacker/DZNEmptyDataSet (= 0.0.3)
+    - Rickenbacker/Extension (= 0.0.3)
     - Rickenbacker/HBDNavigationBar (= 0.0.3)
     - Rickenbacker/MJRefresh (= 0.0.3)
   - Rickenbacker/Adapter (0.0.3):
-    - Rickenbacker/Adapter/Controller (= 0.0.3)
-    - Rickenbacker/Adapter/View (= 0.0.3)
-    - Rickenbacker/Adapter/ViewModel (= 0.0.3)
-    - Rickenbacker/BeeBox
     - Rickenbacker/CatHome
-  - Rickenbacker/Adapter/Controller (0.0.3):
-    - Rickenbacker/Adapter/View
-    - Rickenbacker/Adapter/ViewModel
-    - Rickenbacker/BeeBox
-    - Rickenbacker/CatHome
-  - Rickenbacker/Adapter/View (0.0.3):
-    - Rickenbacker/BeeBox
-    - Rickenbacker/CatHome
-  - Rickenbacker/Adapter/ViewModel (0.0.3):
-    - Rickenbacker/BeeBox
-    - Rickenbacker/CatHome
+    - RxCocoa
+    - RxSwift
   - Rickenbacker/BeeBox (0.0.3):
     - RxCocoa
     - RxSwift
@@ -35,8 +23,9 @@ PODS:
   - Rickenbacker/CTMediator (0.0.3):
     - CTMediator
   - Rickenbacker/DZNEmptyDataSet (0.0.3):
-    - EmptyDataSet-Swift
+    - DZNEmptyDataSet
     - Rickenbacker/Adapter
+  - Rickenbacker/Extension (0.0.3)
   - Rickenbacker/HBDNavigationBar (0.0.3):
     - HBDNavigationBar
   - Rickenbacker/MJRefresh (0.0.3):
@@ -53,9 +42,9 @@ DEPENDENCIES:
   - Rickenbacker (from `./`)
 
 SPEC REPOS:
-  trunk:
+  https://github.com/CocoaPods/Specs.git:
     - CTMediator
-    - EmptyDataSet-Swift
+    - DZNEmptyDataSet
     - HBDNavigationBar
     - MJRefresh
     - RxCocoa
@@ -68,14 +57,14 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CTMediator: f1cf58d509fb3192086c367711f039efd769b907
-  EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
-  HBDNavigationBar: 6f2f5699c0d9f3e6087466c037b361d6f337ea22
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  HBDNavigationBar: 5e8e93c1dfaf4195c54b6fcf55090cb3ea597e06
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
-  Rickenbacker: d15521e9ba5ff5f9912c8c1f8ef306bb4d1e06ee
+  Rickenbacker: 46937ad26402a4c85e5516010ea3ad4e11d31ab5
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
 
-PODFILE CHECKSUM: fa2aaf89da92065fbd6c14cdefa0b87c83b7601d
+PODFILE CHECKSUM: 145e3f7b3a5ccba836a32de88a370a204cef59bb
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

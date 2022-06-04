@@ -23,6 +23,10 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		68C01E9227907CE0009CFC9C /* MJRefreshAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C01E9127907CE0009CFC9C /* MJRefreshAPI.swift */; };
+		874083D82848A78800791A64 /* CScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874083D72848A78800791A64 /* CScrollViewController.swift */; };
+		874083DA2848A7A700791A64 /* CScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874083D92848A7A700791A64 /* CScrollView.swift */; };
+		874083DC2848A7E900791A64 /* CScrollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874083DB2848A7E900791A64 /* CScrollViewModel.swift */; };
+		877D33A728378FE700EB1815 /* README_CN.md in Resources */ = {isa = PBXBuildFile; fileRef = 877D33A628378FE700EB1815 /* README_CN.md */; };
 		D69A6D5433C792A62D5FD31E /* Pods_Rickenbacker_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54E476D6C77D0F7941FDDA4 /* Pods_Rickenbacker_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +51,10 @@
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		68C01E9127907CE0009CFC9C /* MJRefreshAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MJRefreshAPI.swift; sourceTree = "<group>"; };
+		874083D72848A78800791A64 /* CScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CScrollViewController.swift; sourceTree = "<group>"; };
+		874083D92848A7A700791A64 /* CScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CScrollView.swift; sourceTree = "<group>"; };
+		874083DB2848A7E900791A64 /* CScrollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CScrollViewModel.swift; sourceTree = "<group>"; };
+		877D33A628378FE700EB1815 /* README_CN.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README_CN.md; sourceTree = SOURCE_ROOT; };
 		F54E476D6C77D0F7941FDDA4 /* Pods_Rickenbacker_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rickenbacker_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -68,6 +76,7 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				877D33A628378FE700EB1815 /* README_CN.md */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -79,6 +88,7 @@
 				04F201A027796B61007C6BB3 /* DZNEmptyDataSet */,
 				04F2019E27796B61007C6BB3 /* HBDNavigationBar */,
 				04F2019B27796B61007C6BB3 /* MJRefresh */,
+				874083D62848A75E00791A64 /* VMScrollViewController */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -201,6 +211,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		874083D62848A75E00791A64 /* VMScrollViewController */ = {
+			isa = PBXGroup;
+			children = (
+				874083D92848A7A700791A64 /* CScrollView.swift */,
+				874083D72848A78800791A64 /* CScrollViewController.swift */,
+				874083DB2848A7E900791A64 /* CScrollViewModel.swift */,
+			);
+			path = VMScrollViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -213,7 +233,7 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				06B16B99343A4A7ACE075873 /* [CP] Embed Pods Frameworks */,
-				C8AAEF452DBF5102975A2245 /* [CP] Copy Pods Resources */,
+				1517B9B049E788F77C1EBBCF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -248,6 +268,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 607FACC71AFB9204008FA782;
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
@@ -265,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				877D33A728378FE700EB1815 /* README_CN.md in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
@@ -281,7 +303,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Rickenbacker_Example/Pods-Rickenbacker_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CTMediator/CTMediator.framework",
-				"${BUILT_PRODUCTS_DIR}/EmptyDataSet-Swift/EmptyDataSet_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/HBDNavigationBar/HBDNavigationBar.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -291,7 +313,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CTMediator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EmptyDataSet_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HBDNavigationBar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
@@ -301,6 +323,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rickenbacker_Example/Pods-Rickenbacker_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1517B9B049E788F77C1EBBCF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rickenbacker_Example/Pods-Rickenbacker_Example-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/Rickenbacker/Rickenbacker.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Rickenbacker.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rickenbacker_Example/Pods-Rickenbacker_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		16A2C5818E4312F6D9773D14 /* [CP] Check Pods Manifest.lock */ = {
@@ -325,24 +365,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C8AAEF452DBF5102975A2245 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Rickenbacker_Example/Pods-Rickenbacker_Example-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/Rickenbacker/Rickenbacker.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Rickenbacker.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rickenbacker_Example/Pods-Rickenbacker_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -353,6 +375,7 @@
 				04F201A327796B61007C6BB3 /* SecondViewModel.swift in Sources */,
 				68C01E9227907CE0009CFC9C /* MJRefreshAPI.swift in Sources */,
 				607FACD81AFB9204008FA782 /* HomeViewController.swift in Sources */,
+				874083D82848A78800791A64 /* CScrollViewController.swift in Sources */,
 				04F201AD27796B61007C6BB3 /* EmptyViewModel.swift in Sources */,
 				04F2018E27796968007C6BB3 /* HomeViewModel.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
@@ -360,9 +383,11 @@
 				04F201A627796B61007C6BB3 /* SecondViewController.swift in Sources */,
 				04F201A927796B61007C6BB3 /* MJRefreshViewController.swift in Sources */,
 				04F201A527796B61007C6BB3 /* CTMediatorViewController.swift in Sources */,
+				874083DA2848A7A700791A64 /* CScrollView.swift in Sources */,
 				04F201A427796B61007C6BB3 /* SecondViewController+CTMediator.swift in Sources */,
 				04F201AA27796B61007C6BB3 /* MJRefreshViewModel.swift in Sources */,
 				04F201AC27796B61007C6BB3 /* DZNEmptyDataSetViewController.swift in Sources */,
+				874083DC2848A7E900791A64 /* CScrollViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

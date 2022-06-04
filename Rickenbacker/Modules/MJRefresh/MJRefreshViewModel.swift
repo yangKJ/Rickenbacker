@@ -9,13 +9,26 @@
 import Foundation
 import Rickenbacker
 
-final class MJRefreshViewModel: ViewModel {
+final class MJRefreshViewModel: ViewModel, ViewModelEmptiable {
     struct Input {
         let headerRefresh: Observable<Void>
         let footerRefresh: Observable<Void>
     }
     struct Output {
         let items: Driver<[String]>
+    }
+}
+
+extension MJRefreshViewModel: ViewModelHeaderable, ViewModelFooterable {
+    
+    var enterBeginRefresh: Bool {
+        return false
+    }
+    
+    var footer: MJRefreshFooter {
+        let footer = MJRefreshAutoFooter()
+        footer.triggerAutomaticallyRefreshPercent = -5
+        return footer
     }
 }
 
@@ -29,8 +42,8 @@ extension MJRefreshViewModel: ViewModelType {
         let refresh = input.headerRefresh.then(page = 1)
             .flatMapLatest {
                 MJRefreshAPI.refresh(page).request()
-            }.map { [unowned self] (items) -> [String] in
-                refreshSubject.onNext(.endHeaderRefresh)
+            }.map { [weak self] (items) -> [String] in
+                self?.refreshSubject.onNext(.endHeaderRefresh)
                 objects = items
                 return objects
             }.asDriver(onErrorJustReturn: [])
@@ -47,7 +60,7 @@ extension MJRefreshViewModel: ViewModelType {
                 }
                 objects += items
                 return objects
-            }.asDriver(onErrorJustReturn: [])
+            }.asDriver(onErrorJustReturn: objects)
         
         let items = Driver.of(refresh, more).merge()
         

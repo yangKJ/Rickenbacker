@@ -11,6 +11,8 @@ import Rickenbacker
 
 class MJRefreshViewController: VMTableViewController<MJRefreshViewModel> {
     
+    private static let identifier = "MJRefreshCellIdentifier"
+    
     lazy var resetBarButton: UIBarButtonItem = {
         let barButton = UIBarButtonItem.init(title: "Reset", style: .plain, target: nil, action: nil)
         barButton.rx.tap
@@ -18,15 +20,6 @@ class MJRefreshViewController: VMTableViewController<MJRefreshViewModel> {
             .disposed(by: disposeBag)
         return barButton
     }()
-    
-    override func loadView() {
-        super.loadView()
-        // 这个必须写在`viewDidLoad`之前
-        enterBeginRefresh = true // 进入就刷新
-        let footer = MJRefreshAutoFooter()
-        footer.triggerAutomaticallyRefreshPercent = -5
-        tableView.mj_footer = footer
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +47,8 @@ class MJRefreshViewController: VMTableViewController<MJRefreshViewModel> {
     }
     
     func setupTable() {
-        tableView.register(withClass: UITableViewCell.self)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: MJRefreshViewController.identifier)
+        tableView.rx.setDelegate(self).disposed(by: disposeBag)
         tableView.rx.modelSelected(String.self).subscribe (onNext: { (element) in
             Log.debug(element)
         }).disposed(by: disposeBag)
@@ -65,14 +59,25 @@ class MJRefreshViewController: VMTableViewController<MJRefreshViewModel> {
         let output = viewModel.transform(input: input)
         
         output.items.asObservable().bind(to: tableView.rx.items) { (tableView, row, element) in
-            let cell = tableView.dequeueReusableCell(with: UITableViewCell.self, for: IndexPath(index: row))
+            let cell = tableView.dequeueReusableCell(withIdentifier: MJRefreshViewController.identifier)!
             cell.selectionStyle = .none
             cell.accessoryType = .disclosureIndicator
             cell.textLabel?.textColor = UIColor.blue
-            cell.textLabel?.font = UIFont.systemFont(ofSize: 14)
+            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
             cell.textLabel?.text = "\(row + 1). " + element
+            cell.backgroundColor = ((row % 2) != 0) ? UIColor.cyan : UIColor.green
             return cell
-        }
-        .disposed(by: disposeBag)
+        }.disposed(by: disposeBag)
+    }
+}
+
+extension MJRefreshViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return ((indexPath.row % 2) != 0) ? 100 : 30
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        Log.debug("原始点击事件:\(indexPath.row)")
     }
 }

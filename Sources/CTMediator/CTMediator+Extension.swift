@@ -16,10 +16,11 @@ import Foundation
 
 #if canImport(CTMediator)
 import CTMediator
-#endif
 
 @objc public extension CTMediator {
     @objc static var shared: CTMediator {
         return CTMediator.sharedInstance()
     }
 }
+
+#endif

@@ -1,15 +1,23 @@
 use_frameworks!
+source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '10.0'
 
 target 'Rickenbacker_Example' do
-
+  
 #  pod 'Rickenbacker/CTMediator', :path => './'
 #  pod 'Rickenbacker/HBDNavigationBar', :path => './'
 #  pod 'Rickenbacker/MJRefresh', :path => './'
 #  pod 'Rickenbacker/DZNEmptyDataSet', :path => './'
-  
+
   pod 'Rickenbacker', :path => './'
+  
+#  pod 'RxSwift'
+#  pod 'RxCocoa'
+#  pod 'CTMediator' # 组件化 target-action
+#  pod 'MJRefresh' # 刷新
+#  pod 'DZNEmptyDataSet' # 空数据展示
+#  pod 'HBDNavigationBar' # 导航栏
   
 end
 

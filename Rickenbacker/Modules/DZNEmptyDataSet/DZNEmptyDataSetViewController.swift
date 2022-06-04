@@ -21,12 +21,6 @@ class DZNEmptyDataSetViewController: VMTableViewController<EmptyViewModel> {
         return barButton
     }()
     
-    override func loadView() {
-        super.loadView()
-        self.hideFooter = true
-        self.enterBeginRefresh = true
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupInit()
@@ -42,6 +36,7 @@ class DZNEmptyDataSetViewController: VMTableViewController<EmptyViewModel> {
     func setupUI() {
         self.navigationItem.rightBarButtonItem = self.resetBarButton
         self.view.addSubview(self.tableView)
+        tableView.rowHeight = 66
         tableView.contentInset = UIEdgeInsets(top: navigationHeight, left: 0, bottom: 0, right: 0)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -54,9 +49,6 @@ class DZNEmptyDataSetViewController: VMTableViewController<EmptyViewModel> {
     
     func setupTable() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: DZNEmptyDataSetViewController.identifier)
-        tableView.rx.modelSelected(String.self).subscribe (onNext: { (element) in
-            Log.debug(element)
-        }).disposed(by: disposeBag)
     }
     
     func setupBindings() {
@@ -69,17 +61,17 @@ class DZNEmptyDataSetViewController: VMTableViewController<EmptyViewModel> {
             cell.selectionStyle = .none
             cell.accessoryType = .disclosureIndicator
             cell.textLabel?.textColor = UIColor.blue
-            cell.textLabel?.font = UIFont.systemFont(ofSize: 14)
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 18)
             cell.textLabel?.text = "\(row + 1). " + element
+            cell.backgroundColor = ((row % 2) != 0) ? UIColor.red.withAlphaComponent(0.3) : UIColor.red
             return cell
-        }
-        .disposed(by: disposeBag)
+        }.disposed(by: disposeBag)
         
         viewModel.isEmptyData.subscribe { (empty) in
             Log.debug(empty.element)
         }.disposed(by: disposeBag)
         
-        self.emptyDataSetViewTap.subscribe { [weak self] _ in
+        emptyDataSetViewTap.subscribe { [weak self] _ in
             self?.resetAction()
         }.disposed(by: disposeBag)
         
@@ -90,5 +82,29 @@ class DZNEmptyDataSetViewController: VMTableViewController<EmptyViewModel> {
     
     @objc func resetAction() {
         viewModel.loadData()
+    }
+}
+
+// 配置空数据展示信息
+extension DZNEmptyDataSetViewController: DZNEmptyDataSetable {
+    
+    func DZNEmptyDataSetImage(scrollView: UIScrollView) -> UIImage {
+        return R.image("base_network_error_black")
+    }
+    
+    func DZNEmptyDataSetImageTintColor(scrollView: UIScrollView) -> UIColor? {
+        return UIColor.red
+    }
+    
+    func DZNEmptyDataSetTitle(scrollView: UIScrollView) -> NSAttributedString? {
+        NSAttributedString(string: R.text("TEXT"))
+    }
+    
+    func DZNEmptyDataSetDescription(scrollView: UIScrollView) -> NSAttributedString? {
+        NSAttributedString(string: R.text("测试网络异常展示"))
+    }
+    
+    func DZNEmptyDataSetVerticalOffset(scrollView: UIScrollView) -> CGFloat {
+        return 20
     }
 }

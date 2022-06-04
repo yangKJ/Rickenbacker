@@ -25,6 +25,10 @@
   "module_name": "Rickenbacker",
   "subspecs": [
     {
+      "name": "Extension",
+      "source_files": "Sources/Extension/*.swift"
+    },
+    {
       "name": "CatHome",
       "source_files": "Sources/CatHome/*.swift",
       "resource_bundles": {
@@ -47,36 +51,18 @@
     },
     {
       "name": "Adapter",
+      "source_files": "Sources/Adapter/*.swift",
       "dependencies": {
         "Rickenbacker/CatHome": [
 
         ],
-        "Rickenbacker/BeeBox": [
+        "RxSwift": [
+
+        ],
+        "RxCocoa": [
 
         ]
-      },
-      "subspecs": [
-        {
-          "name": "Controller",
-          "source_files": "Sources/Adapter/Controller/*.swift",
-          "dependencies": {
-            "Rickenbacker/Adapter/ViewModel": [
-
-            ],
-            "Rickenbacker/Adapter/View": [
-
-            ]
-          }
-        },
-        {
-          "name": "ViewModel",
-          "source_files": "Sources/Adapter/ViewModel/*.swift"
-        },
-        {
-          "name": "View",
-          "source_files": "Sources/Adapter/View/*.swift"
-        }
-      ]
+      }
     },
     {
       "name": "CTMediator",
@@ -116,7 +102,7 @@
         "Rickenbacker/Adapter": [
 
         ],
-        "EmptyDataSet-Swift": [
+        "DZNEmptyDataSet": [
 
         ]
       }

@@ -25,8 +25,13 @@ class HBDNavigationBarViewController: BaseViewController {
         button.center = self.view.center
         button.backgroundColor = UIColor.yellow
         button.setTitle("CTMediator", for: .normal)
-        button.setTitleColor(UIColor.green, for: .normal)
-        button.addTarget(self, action: #selector(pushAction), for: .touchUpInside)
+        button.setTitleColor(UIColor.red, for: .normal)
+        button.rx.tap.subscribe { [weak self] _ in
+            guard let `self` = self else { return }
+            let vm = SecondViewModel.init(title: self.title!)
+            let vc = SecondViewController.init(viewModel: vm)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }.disposed(by: rx.disposeBag)
         return button
     }()
     
@@ -35,15 +40,9 @@ class HBDNavigationBarViewController: BaseViewController {
         
         self.hbd_barHidden = true
         self.hbd_blackBarStyle = true
-        self.view.backgroundColor = UIColor.green
+        self.view.backgroundColor = UIColor.gray
         self.view.addSubview(self.backButton)
         self.view.addSubview(self.pushButton)
-    }
-    
-    @objc func pushAction() {
-        let vc = SecondViewController.init()
-        vc.viewModel = SecondViewModel.init(title: self.title!)
-        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc override func backAction() {

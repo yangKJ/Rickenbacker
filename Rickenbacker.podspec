@@ -1,5 +1,5 @@
 #
-# Be sure to run `pod lib lint Rickenbacker.podspec' to ensure this is a
+# Be sure to run 'pod lib lint Rickenbacker.podspec' to ensure this is a
 # valid spec before submitting.
 #
 # Any lines starting with a # are optional, but their use is encouraged
@@ -30,6 +30,10 @@ Pod::Spec.new do |s|
   s.static_framework = true
   s.module_name      = 'Rickenbacker'
   
+  s.subspec 'Extension' do |xx|
+    xx.source_files = 'Sources/Extension/*.swift'
+  end
+  
   s.subspec 'CatHome' do |xx|
     xx.source_files = 'Sources/CatHome/*.swift'
     xx.resource_bundles = { 'Rickenbacker' => ['Sources/CatHome/*.{xcassets,lproj}'] }
@@ -42,19 +46,10 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'Adapter' do |xx|
-    xx.subspec 'Controller' do |xxx|
-      xxx.source_files = 'Sources/Adapter/Controller/*.swift'
-      xxx.dependency 'Rickenbacker/Adapter/ViewModel'
-      xxx.dependency 'Rickenbacker/Adapter/View'
-    end
-    xx.subspec 'ViewModel' do |xxx|
-      xxx.source_files = 'Sources/Adapter/ViewModel/*.swift'
-    end
-    xx.subspec 'View' do |xxx|
-      xxx.source_files = 'Sources/Adapter/View/*.swift'
-    end
+    xx.source_files = 'Sources/Adapter/*.swift'
     xx.dependency 'Rickenbacker/CatHome'
-    xx.dependency 'Rickenbacker/BeeBox'
+    xx.dependency 'RxSwift'
+    xx.dependency 'RxCocoa'
   end
   
   s.subspec 'CTMediator' do |xx|
@@ -77,7 +72,7 @@ Pod::Spec.new do |s|
   s.subspec 'DZNEmptyDataSet' do |xx|
     xx.source_files = 'Sources/DZNEmptyDataSet/*.swift'
     xx.dependency 'Rickenbacker/Adapter'
-    xx.dependency 'EmptyDataSet-Swift'
+    xx.dependency 'DZNEmptyDataSet'
   end
   
 end

@@ -15,7 +15,7 @@ public final class ErrorTracker: SharedSequenceConvertibleType {
     
     public func trackError<O: ObservableConvertibleType>(from source: O) -> Observable<O.Element> {
         return source.asObservable().do(onError: onError)
-            }
+    }
     
     public func asSharedSequence() -> SharedSequence<SharingStrategy, Error> {
         return _subject.asObservable().asDriverOnErrorJustComplete()

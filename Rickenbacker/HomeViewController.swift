@@ -70,11 +70,12 @@ class HomeViewController: UIViewController {
         }.disposed(by: disposeBag)
         
         /// 订阅点击事件
-        tableView.rx.modelSelected(ViewControllerType.self).subscribe (onNext: { type in
-            let vc: UIViewController = type.viewController
-            vc.title = type.rawValue
-            self.navigationController?.pushViewController(vc, animated: true)
-        }).disposed(by: disposeBag)
+        tableView.rx.modelSelected(ViewControllerType.self)
+            .subscribe (onNext: { [weak self] in
+                let vc: UIViewController = $0.viewController
+                vc.title = $0.rawValue
+                self?.navigationController?.pushViewController(vc, animated: true)
+            }).disposed(by: disposeBag)
     }
 }
 

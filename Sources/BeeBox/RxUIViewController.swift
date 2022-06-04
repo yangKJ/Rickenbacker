@@ -25,6 +25,13 @@ public extension Reactive where Base: UIViewController {
         }
     }
     
+    /// Pop view controller
+    /// Example:
+    ///
+    ///     popButton.rx.tap
+    ///        .bind(to: rx.popViewController(animated: false))
+    ///        .disposed(by: disposeBag)
+    ///
     func popViewController(animated: Bool = true) -> Binder<Void> {
         return Binder(base) { this, _ in
             this.navigationController?.popViewController(animated: animated)

@@ -30,8 +30,8 @@ class Target_SecondViewController: NSObject {
     /// 否则会出现找不到该方法从而导致控制器为`nil`问题
     @objc func Action_Extension_ViewController(_ params: NSDictionary) -> UIViewController? {
         guard let title = params["title"] as? String else { return nil }
-        let vc = SecondViewController.init()
-        vc.viewModel = SecondViewModel.init(title: title)
+        let vm = SecondViewModel.init(title: title)
+        let vc = SecondViewController.init(viewModel: vm)
         return vc
     }
 }

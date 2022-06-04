@@ -9,7 +9,7 @@
 import Foundation
 import Rickenbacker
 
-class EmptyViewModel: ViewModel {
+class EmptyViewModel: ViewModel, ViewModelEmptiable, ViewModelHeaderable {
     
     let dataSource: BehaviorRelay<[String]> = BehaviorRelay(value: [])
     
@@ -21,9 +21,9 @@ class EmptyViewModel: ViewModel {
         
         driver.map { $0.isEmpty }.bind(to: isEmptyData).disposed(by: disposeBag)
         
-        driver.subscribe { _ in } onCompleted: {
-            self.refreshSubject.onNext(.endHeaderRefresh)
-        }.disposed(by: disposeBag)
+        driver.subscribe(onCompleted: { [weak self] in
+            self?.refreshSubject.onNext(.endHeaderRefresh)
+        }).disposed(by: disposeBag)
     }
 }
 

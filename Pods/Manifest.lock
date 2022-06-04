@@ -3,32 +3,32 @@ PODS:
   - DZNEmptyDataSet (1.8.1)
   - HBDNavigationBar (1.9.5)
   - MJRefresh (3.7.5)
-  - Rickenbacker (0.0.3):
-    - Rickenbacker/Adapter (= 0.0.3)
-    - Rickenbacker/BeeBox (= 0.0.3)
-    - Rickenbacker/CatHome (= 0.0.3)
-    - Rickenbacker/CTMediator (= 0.0.3)
-    - Rickenbacker/DZNEmptyDataSet (= 0.0.3)
-    - Rickenbacker/Extension (= 0.0.3)
-    - Rickenbacker/HBDNavigationBar (= 0.0.3)
-    - Rickenbacker/MJRefresh (= 0.0.3)
-  - Rickenbacker/Adapter (0.0.3):
+  - Rickenbacker (0.1.0):
+    - Rickenbacker/Adapter (= 0.1.0)
+    - Rickenbacker/BeeBox (= 0.1.0)
+    - Rickenbacker/CatHome (= 0.1.0)
+    - Rickenbacker/CTMediator (= 0.1.0)
+    - Rickenbacker/DZNEmptyDataSet (= 0.1.0)
+    - Rickenbacker/Extension (= 0.1.0)
+    - Rickenbacker/HBDNavigationBar (= 0.1.0)
+    - Rickenbacker/MJRefresh (= 0.1.0)
+  - Rickenbacker/Adapter (0.1.0):
     - Rickenbacker/CatHome
     - RxCocoa
     - RxSwift
-  - Rickenbacker/BeeBox (0.0.3):
+  - Rickenbacker/BeeBox (0.1.0):
     - RxCocoa
     - RxSwift
-  - Rickenbacker/CatHome (0.0.3)
-  - Rickenbacker/CTMediator (0.0.3):
+  - Rickenbacker/CatHome (0.1.0)
+  - Rickenbacker/CTMediator (0.1.0):
     - CTMediator
-  - Rickenbacker/DZNEmptyDataSet (0.0.3):
+  - Rickenbacker/DZNEmptyDataSet (0.1.0):
     - DZNEmptyDataSet
     - Rickenbacker/Adapter
-  - Rickenbacker/Extension (0.0.3)
-  - Rickenbacker/HBDNavigationBar (0.0.3):
+  - Rickenbacker/Extension (0.1.0)
+  - Rickenbacker/HBDNavigationBar (0.1.0):
     - HBDNavigationBar
-  - Rickenbacker/MJRefresh (0.0.3):
+  - Rickenbacker/MJRefresh (0.1.0):
     - MJRefresh
     - Rickenbacker/Adapter
   - RxCocoa (6.5.0):
@@ -60,7 +60,7 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   HBDNavigationBar: 5e8e93c1dfaf4195c54b6fcf55090cb3ea597e06
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
-  Rickenbacker: 46937ad26402a4c85e5516010ea3ad4e11d31ab5
+  Rickenbacker: 752c3a6039b829c4b9d1a0f452aaf8a944d9dd6d
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8

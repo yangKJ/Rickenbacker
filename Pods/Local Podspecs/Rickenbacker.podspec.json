@@ -25,10 +25,6 @@
   "module_name": "Rickenbacker",
   "subspecs": [
     {
-      "name": "Extension",
-      "source_files": "Sources/Extension/*.swift"
-    },
-    {
       "name": "CatHome",
       "source_files": "Sources/CatHome/*.swift",
       "resource_bundles": {
@@ -93,6 +89,10 @@
         "MJRefresh": [
 
         ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "Rickenbacker_VMScrollViewController_MJRefresh",
+        "GCC_PREPROCESSOR_DEFINITIONS": "Rickenbacker_VMScrollViewController_MJRefresh=1"
       }
     },
     {
@@ -105,6 +105,10 @@
         "DZNEmptyDataSet": [
 
         ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "Rickenbacker_VMScrollViewController_DZNEmptyDataSet",
+        "GCC_PREPROCESSOR_DEFINITIONS": "Rickenbacker_VMScrollViewController_DZNEmptyDataSet=1"
       }
     }
   ],

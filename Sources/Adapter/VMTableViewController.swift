@@ -8,18 +8,11 @@
 import RxSwift
 import RxCocoa
 
-open class VMTableViewController<T: ViewModel>: VMViewController<T> {
+open class VMTableViewController<T: ViewModel>: VMScrollViewController<T> {
     
     public var clearsSelectionOnViewWillAppear = false
     public private(set) var style: UITableView.Style = UITableView.Style.plain
-    
-    public lazy var tableView: TableView = {
-        let tableView = TableView.init(frame: .zero, style: style)
-        tableView.rx.itemSelected.bind {
-            tableView.deselectRow(at: $0, animated: false)
-        }.disposed(by: disposeBag)
-        return tableView
-    }()
+    public private(set) var tableView: TableView
     
     public convenience init(_ style: UITableView.Style = UITableView.Style.plain) {
         self.init(style: style, viewModel: T.init())
@@ -27,7 +20,8 @@ open class VMTableViewController<T: ViewModel>: VMViewController<T> {
     
     public init(style: UITableView.Style = UITableView.Style.plain, viewModel: T) {
         self.style = style
-        super.init(viewModel: viewModel)
+        self.tableView = TableView.init(frame: .zero, style: style)
+        super.init(scrollView: tableView, viewModel: viewModel)
     }
     
     public required init?(coder: NSCoder) {
@@ -50,12 +44,8 @@ open class VMTableViewController<T: ViewModel>: VMViewController<T> {
     }
     
     final func setupTableView() {
-        self.setupSubRefresh()
-        self.setupSubEmptyData()
+        tableView.rx.itemSelected.bind { [weak self] in
+            self?.tableView.deselectRow(at: $0, animated: false)
+        }.disposed(by: disposeBag)
     }
-    
-    /// 需要添加dynamic修饰，否则无法使用方法交换
-    /// Need to add dynamic modification, otherwise the method exchange cannot be used
-    dynamic func setupSubRefresh() { }
-    dynamic func setupSubEmptyData() { }
 }

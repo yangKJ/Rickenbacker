@@ -1,24 +1,24 @@
 //
-//  VMTableViewController+EmptyData.swift
+//  VMScrollViewController+EmptyData.swift
 //  Rickenbacker
 //
-//  Created by Condy on 2021/10/4.
+//  Created by Condy on 2022/5/20.
 //
 
 import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
 
-extension VMTableViewController: EmptyDataTap {
+extension VMScrollViewController: EmptyDataTap {
     
-    @_dynamicReplacement(for: setupSubEmptyData())
-    private func swizzled_setupSubEmptyData() {
-        setupSubEmptyData()
-        setupEmptyData()
-    }
+//    @_dynamicReplacement(for: setupScrollSubEmptyData())
+//    private func swizzled_setupScrollSubEmptyData() {
+//        setupScrollSubEmptyData()
+//        setupOptionalEmptyData()
+//    }
     
     /// 配置空数据
-    private final func setupEmptyData() {
+    final func setupOptionalEmptyData() {
         
         guard let vm = viewModel as? ViewModelEmptiable else { return }
         
@@ -48,18 +48,18 @@ extension VMTableViewController: EmptyDataTap {
         
         vm.isEmptyData.subscribe { [weak self] (empty) in
             guard let `self` = self, let boo = empty.element, boo else { return }
-            self.tableView.reloadEmptyDataSet()
+            self.scrollView.reloadEmptyDataSet()
         }.disposed(by: disposeBag)
     }
 }
 
 fileprivate var DZNEmptyDataContext: UInt8 = 0
 
-extension VMTableViewController {
+extension VMScrollViewController {
     
     private var DZNEmptyBridge: DZNEmptyDataSetBridge {
         return lazyInstanceObservable(&DZNEmptyDataContext) { () -> DZNEmptyDataSetBridge in
-            DZNEmptyDataSetBridge(tableView, viewModel: viewModel as! ViewModelEmptiable)
+            DZNEmptyDataSetBridge.init(with: scrollView, viewModel: viewModel as! ViewModelEmptiable)
         }
     }
     

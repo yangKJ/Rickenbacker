@@ -35,7 +35,6 @@ class MJRefreshViewController: VMTableViewController<MJRefreshViewModel> {
     }
     
     func setupUI() {
-        self.view.addSubview(self.tableView)
         tableView.contentInset = UIEdgeInsets(top: navigationHeight, left: 0, bottom: 0, right: 0)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

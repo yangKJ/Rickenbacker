@@ -17,7 +17,7 @@ extension BaseViewController {
     private var previousNavigationHidden: Bool? {
         get {
             if let hidden = objc_getAssociatedObject(self, &PreviousNavigationHiddenContext) {
-                return hidden as! Bool
+                return hidden as? Bool
             } else {
                 let hidden = false
                 objc_setAssociatedObject(self, &PreviousNavigationHiddenContext, hidden, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)

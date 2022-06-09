@@ -1,5 +1,5 @@
 //
-//  BaseScrollViewController+Refresh.swift
+//  VMScrollViewController+Refresh.swift
 //  Rickenbacker
 //
 //  Created by Condy on 2022/5/20.
@@ -9,16 +9,16 @@
 import RxSwift
 import RxCocoa
 
-extension BaseScrollViewController: RefreshingSubject {
+extension VMScrollViewController: RefreshingSubject {
     
-    @_dynamicReplacement(for: setupSubRefresh())
-    private func swizzled_setupSubRefresh() {
-        setupSubRefresh()
-        setupRefresh()
-    }
+//    @_dynamicReplacement(for: setupScrollSubRefresh())
+//    private func swizzled_setupScrollSubRefresh() {
+//        setupScrollSubRefresh()
+//        setupOptionalRefresh()
+//    }
     
     /// 配置刷新相关
-    private final func setupRefresh() {
+    final func setupOptionalRefresh() {
         
         guard let vm = viewModel as? ViewModelRefreshable else { return }
         

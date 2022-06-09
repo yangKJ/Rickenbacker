@@ -35,7 +35,6 @@ class DZNEmptyDataSetViewController: VMTableViewController<EmptyViewModel> {
     
     func setupUI() {
         self.navigationItem.rightBarButtonItem = self.resetBarButton
-        self.view.addSubview(self.tableView)
         tableView.rowHeight = 66
         tableView.contentInset = UIEdgeInsets(top: navigationHeight, left: 0, bottom: 0, right: 0)
         tableView.translatesAutoresizingMaskIntoConstraints = false

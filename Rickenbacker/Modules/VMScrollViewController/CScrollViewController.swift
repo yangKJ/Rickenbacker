@@ -9,7 +9,7 @@
 import Foundation
 import Rickenbacker
 
-class CScrollViewController: BaseScrollViewController {
+class CScrollViewController: VMScrollViewController<CScrollViewModel> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +32,7 @@ class CScrollViewController: BaseScrollViewController {
     }
     
     func setupBindings() {
-        guard let collectionView = scrollView as? UICollectionView,
-              let viewModel = viewModel as? CScrollViewModel else {
+        guard let collectionView = scrollView as? UICollectionView else {
             return
         }
         

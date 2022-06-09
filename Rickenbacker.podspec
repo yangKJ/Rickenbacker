@@ -30,10 +30,6 @@ Pod::Spec.new do |s|
   s.static_framework = true
   s.module_name      = 'Rickenbacker'
   
-  s.subspec 'Extension' do |xx|
-    xx.source_files = 'Sources/Extension/*.swift'
-  end
-  
   s.subspec 'CatHome' do |xx|
     xx.source_files = 'Sources/CatHome/*.swift'
     xx.resource_bundles = { 'Rickenbacker' => ['Sources/CatHome/*.{xcassets,lproj}'] }
@@ -67,12 +63,20 @@ Pod::Spec.new do |s|
     xx.source_files = 'Sources/MJRefresh/*.swift'
     xx.dependency 'Rickenbacker/Adapter'
     xx.dependency 'MJRefresh'
+    xx.pod_target_xcconfig = {
+      'SWIFT_ACTIVE_COMPILATION_CONDITIONS' => 'Rickenbacker_VMScrollViewController_MJRefresh',
+      'GCC_PREPROCESSOR_DEFINITIONS' => 'Rickenbacker_VMScrollViewController_MJRefresh=1'
+    }
   end
   
   s.subspec 'DZNEmptyDataSet' do |xx|
     xx.source_files = 'Sources/DZNEmptyDataSet/*.swift'
     xx.dependency 'Rickenbacker/Adapter'
     xx.dependency 'DZNEmptyDataSet'
+    xx.pod_target_xcconfig = {
+      'SWIFT_ACTIVE_COMPILATION_CONDITIONS' => 'Rickenbacker_VMScrollViewController_DZNEmptyDataSet',
+      'GCC_PREPROCESSOR_DEFINITIONS' => 'Rickenbacker_VMScrollViewController_DZNEmptyDataSet=1'
+    }
   end
   
 end

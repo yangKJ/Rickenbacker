@@ -21,14 +21,7 @@ final class DZNEmptyDataSetBridge: NSObject {
     var sourceCallback: (() -> DZNEmptyDataSetSourceable?)?
     var delegateCallback: (() -> DZNEmptyDataSetDelegateable?)?
     
-    init(_ tableView: TableView, viewModel: ViewModelEmptiable) {
-        self.viewModel = viewModel
-        super.init()
-        tableView.emptyDataSetSource = self
-        tableView.emptyDataSetDelegate = self
-    }
-    
-    init(scrollView: UIScrollView, viewModel: ViewModelEmptiable) {
+    init(with scrollView: UIScrollView, viewModel: ViewModelEmptiable) {
         self.viewModel = viewModel
         super.init()
         scrollView.emptyDataSetSource = self

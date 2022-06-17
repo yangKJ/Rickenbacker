@@ -58,17 +58,17 @@ fileprivate var DZNEmptyDataContext: UInt8 = 0
 extension VMScrollViewController {
     
     private var DZNEmptyBridge: DZNEmptyDataSetBridge {
-        return lazyInstanceObservable(&DZNEmptyDataContext) { () -> DZNEmptyDataSetBridge in
+        return lazyInstanceBridge(&DZNEmptyDataContext) { () -> DZNEmptyDataSetBridge in
             DZNEmptyDataSetBridge.init(with: scrollView, viewModel: viewModel as! ViewModelEmptiable)
         }
     }
     
-    private func lazyInstanceObservable<T: AnyObject>(_ key: UnsafeRawPointer, createCachedObservable: () -> T) -> T {
+    private func lazyInstanceBridge<T: AnyObject>(_ key: UnsafeRawPointer, createCachedBridge: () -> T) -> T {
         if let value = objc_getAssociatedObject(self, key) as? T {
             return value
         }
-        let observable = createCachedObservable()
-        objc_setAssociatedObject(self, key, observable, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        return observable
+        let bridge = createCachedBridge()
+        objc_setAssociatedObject(self, key, bridge, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        return bridge
     }
 }

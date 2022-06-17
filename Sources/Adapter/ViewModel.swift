@@ -18,16 +18,7 @@ public protocol ViewModelType {
     func transform(input: Input) -> Output
 }
 
-public protocol ViewModelPrefix {
-    /// inputs修饰前缀
-    /// inputs modifier prefix
-    var inputs: Self { get }
-    /// outputs修饰前缀
-    /// outputs modifier prefix
-    var outputs: Self { get }
-}
-
-open class ViewModel: NSObject {
+open class ViewModel: NSObject, ViewModelPrefix {
     
     public let disposeBag = DisposeBag()
     
@@ -35,15 +26,5 @@ open class ViewModel: NSObject {
     
     deinit {
         Log.debug("\(self.description): ViewModel Deinited", file: "\(type(of: self))")
-    }
-}
-
-extension ViewModel: ViewModelPrefix {
-    public var inputs: Self {
-        return self
-    }
-    
-    public var outputs: Self {
-        return self
     }
 }

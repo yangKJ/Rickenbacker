@@ -51,11 +51,3 @@ open class VMScrollViewController<T: ViewModel>: VMViewController<T> {
     //dynamic func setupScrollSubRefresh() { }
     //dynamic func setupScrollSubEmptyData() { }
 }
-
-//private let swizzling: (AnyClass, Selector, Selector) -> () = { forClass, originalSelector, swizzledSelector in
-//    guard let originalMethod = class_getInstanceMethod(forClass, originalSelector),
-//          let swizzledMethod = class_getInstanceMethod(forClass, swizzledSelector) else {
-//        return
-//    }
-//    method_exchangeImplementations(originalMethod, swizzledMethod)
-//}

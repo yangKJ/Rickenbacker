@@ -12,20 +12,13 @@ import Rickenbacker
 class SecondViewModel: ViewModel {
     
     //MARK: - outputs
-    let setupTitle = BehaviorRelay<String?>(value: nil)
-    let changeTitle = PublishRelay<String>()
+    let changeTitle = BehaviorRelay<String?>(value: nil)
     
     init(title: String) {
-        self.setupTitle.accept(title)
+        self.changeTitle.accept(title)
     }
     
     required init() {
         fatalError("init() has not been implemented")
-    }
-    
-    //MARK: - inputs
-    func changeTitle(_ title: String?) {
-        guard let title = title else { return }
-        self.inputs.changeTitle.accept(title)
     }
 }

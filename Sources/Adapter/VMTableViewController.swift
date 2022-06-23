@@ -44,6 +44,18 @@ open class VMTableViewController<T: ViewModel>: VMScrollViewController<T> {
     }
     
     final func setupTableView() {
+        let statusBarHeight = { () -> CGFloat in
+            if #available(iOS 13.0, *) {
+                let statusManager = UIApplication.shared.windows.first?.windowScene?.statusBarManager
+                return statusManager?.statusBarFrame.height ?? 20.0
+            } else {
+                return UIApplication.shared.statusBarFrame.height
+            }
+        }
+        tableView.contentInset = UIEdgeInsets(top: statusBarHeight()+44, left: 0, bottom: 0, right: 0)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.frame = view.bounds
+        
         tableView.rx.itemSelected.bind { [weak self] in
             self?.tableView.deselectRow(at: $0, animated: false)
         }.disposed(by: disposeBag)

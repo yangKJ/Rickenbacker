@@ -24,7 +24,6 @@ class MJRefreshViewController: VMTableViewController<MJRefreshViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupInit()
-        self.setupUI()
         self.setupTable()
         self.setupBindings()
     }
@@ -32,17 +31,6 @@ class MJRefreshViewController: VMTableViewController<MJRefreshViewModel> {
     func setupInit() {
         self.hbd_barShadowHidden = true
         self.navigationItem.rightBarButtonItem = self.resetBarButton
-    }
-    
-    func setupUI() {
-        tableView.contentInset = UIEdgeInsets(top: navigationHeight, left: 0, bottom: 0, right: 0)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        ])
     }
     
     func setupTable() {

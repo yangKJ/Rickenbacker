@@ -20,9 +20,10 @@ class SecondViewController: VMViewController<SecondViewModel> {
         button.setTitle("change title", for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        button.rx.tap.subscribe { [weak self] _ in
-            self?.viewModel.inputs.changeTitle(button.titleLabel?.text)
-        }.disposed(by: disposeBag)
+        button.rx.tap
+            .map { button.titleLabel?.text ?? "" }
+            .bind(to: viewModel.changeTitle)
+            .disposed(by: disposeBag)
         return button
     }()
     
@@ -39,13 +40,9 @@ class SecondViewController: VMViewController<SecondViewModel> {
     }
     
     func setupBindings() {
-        viewModel.outputs.setupTitle.asDriver().drive { [weak self] string in
-            self?.title = string
-        }.disposed(by: disposeBag)
-        
-        viewModel.outputs.changeTitle.subscribe(onNext: { [weak self] string in
-            self?.title = string
-        }).disposed(by: disposeBag)
+        viewModel.outputs.changeTitle
+            .bind(to: rx.title)
+            .disposed(by: disposeBag)
     }
     
     override func backAction() {

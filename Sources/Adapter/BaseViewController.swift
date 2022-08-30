@@ -53,3 +53,21 @@ open class BaseViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 }
+
+extension BaseViewController {
+    
+    override open func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBarHiddenableViewWillAppear(animated)
+    }
+    
+    override open func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        setupNavigationBarHiddenableViewWillDisappear(animated)
+    }
+    
+    override open func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupNavigationBarHiddenableViewDidAppear(animated)
+    }
+}

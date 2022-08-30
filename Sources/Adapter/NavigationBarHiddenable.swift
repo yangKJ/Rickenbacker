@@ -14,6 +14,7 @@ public protocol NavigationBarHiddenable { }
 fileprivate var PreviousNavigationHiddenContext: UInt8 = 0
 
 extension BaseViewController {
+    
     private var previousNavigationHidden: Bool? {
         get {
             if let hidden = objc_getAssociatedObject(self, &PreviousNavigationHiddenContext) {
@@ -32,8 +33,7 @@ extension BaseViewController {
 
 extension BaseViewController {
     
-    override open func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    final func setupNavigationBarHiddenableViewWillAppear(_ animated: Bool) {
         if self is NavigationBarHiddenable {
             if previousNavigationHidden == nil {
                 if let viewControllers = self.navigationController?.viewControllers,
@@ -50,8 +50,7 @@ extension BaseViewController {
         }
     }
     
-    override open func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    final func setupNavigationBarHiddenableViewWillDisappear(_ animated: Bool) {
         if self is NavigationBarHiddenable,
            let controllers = self.navigationController?.viewControllers,
            controllers.contains(self) == false {
@@ -59,8 +58,7 @@ extension BaseViewController {
         }
     }
     
-    override open func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    final func setupNavigationBarHiddenableViewDidAppear(_ animated: Bool) {
         DispatchQueue.main.async {
             guard let top = self.navigationController?.topViewController, top == self else {
                 return

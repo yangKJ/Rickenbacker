@@ -1,5 +1,5 @@
 //
-//  Emptiable.swift
+//  ViewModelEmptiable.swift
 //  Rickenbacker
 //
 //  Created by Condy on 2021/10/4.

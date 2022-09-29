@@ -11,16 +11,21 @@ import RxCocoa
 open class VMTableViewController<T: ViewModel>: VMScrollViewController<T> {
     
     public var clearsSelectionOnViewWillAppear = false
-    public private(set) var style: UITableView.Style = UITableView.Style.plain
+    public private(set) var style: UITableView.Style
     public private(set) var tableView: TableView
     
     public convenience init(_ style: UITableView.Style = UITableView.Style.plain) {
         self.init(style: style, viewModel: T.init())
     }
     
-    public init(style: UITableView.Style = UITableView.Style.plain, viewModel: T) {
-        self.style = style
-        self.tableView = TableView.init(frame: .zero, style: style)
+    public convenience init(style: UITableView.Style = UITableView.Style.plain, viewModel: T) {
+        let table = TableView.init(frame: .zero, style: style)
+        self.init(tableView: table, viewModel: viewModel)
+    }
+    
+    public init(tableView: TableView, viewModel: T) {
+        self.style = tableView.style
+        self.tableView = tableView
         super.init(scrollView: tableView, viewModel: viewModel)
     }
     

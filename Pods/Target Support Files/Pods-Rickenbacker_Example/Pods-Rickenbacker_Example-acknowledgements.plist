@@ -14,17 +14,6 @@
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>MIT
-</string>
-			<key>License</key>
-			<string>MIT</string>
-			<key>Title</key>
-			<string>CTMediator</string>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-		</dict>
-		<dict>
-			<key>FooterText</key>
 			<string>The MIT License (MIT)
 
 Copyright (c) 2016 Ignacio Romero Zurbuchen iromero@dzen.cl

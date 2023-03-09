@@ -1,6 +1,6 @@
 {
   "name": "Rickenbacker",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "summary": "MVVM + RxSwift Project Architecture.",
   "homepage": "https://github.com/yangKJ/Rickenbacker",
   "description": "https://github.com/yangKJ/Rickenbacker/blob/master/README.md",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/yangKJ/Rickenbacker.git",
-    "tag": "1.0.2"
+    "tag": "1.0.3"
   },
   "social_media_url": "https://juejin.cn/user/1987535102554472/posts",
   "platforms": {
@@ -61,14 +61,9 @@
       }
     },
     {
-      "name": "CTMediator",
-      "source_files": "Sources/CTMediator/*.{h,swift}",
-      "prefix_header_contents": "#import \"Rickenbacker-Bridging-Header.h\"",
-      "dependencies": {
-        "CTMediator": [
-
-        ]
-      }
+      "name": "Mediator",
+      "source_files": "Sources/Mediator/*.{h,mm,swift}",
+      "libraries": "c++"
     },
     {
       "name": "HBDNavigationBar",

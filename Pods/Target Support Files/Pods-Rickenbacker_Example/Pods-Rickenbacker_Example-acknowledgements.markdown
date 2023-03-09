@@ -1,11 +1,6 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## CTMediator
-
-MIT
-
-
 ## DZNEmptyDataSet
 
 The MIT License (MIT)

@@ -31,7 +31,7 @@ class CTMediatorViewController: BaseViewController {
     
     func bingViewModel() {
         
-        if let vc = CTMediator.shared.Second_viewController(title: "biaoti") {
+        if let vc = Mediator.Second_viewController(title: "biaoti") {
             pushButton.rx.tap
                 .bind(to: rx.pushViewController(vc, animated: true))
                 .disposed(by: disposeBag)

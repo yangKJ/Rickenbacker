@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Rickenbacker'
-  s.version          = '1.0.2'
+  s.version          = '1.0.3'
   s.summary          = 'MVVM + RxSwift Project Architecture.'
   
   # This description is used to generate tags and improve search results.
@@ -48,10 +48,9 @@ Pod::Spec.new do |s|
     xx.dependency 'RxCocoa'
   end
   
-  s.subspec 'CTMediator' do |xx|
-    xx.source_files = 'Sources/CTMediator/*.{h,swift}'
-    xx.prefix_header_contents = '#import "Rickenbacker-Bridging-Header.h"'
-    xx.dependency 'CTMediator'
+  s.subspec 'Mediator' do |xx|
+    xx.source_files = 'Sources/Mediator/*.{h,mm,swift}'
+    xx.libraries = 'c++' # Fixed `Undefined symbol: ___gxx_personality_v0`
   end
   
   s.subspec 'HBDNavigationBar' do |xx|

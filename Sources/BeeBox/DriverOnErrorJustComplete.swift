@@ -9,39 +9,39 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-public extension ObservableType {
+extension ObservableType {
     
-    func asDriverOnErrorJustComplete() -> Driver<Element> {
+    public func asDriverOnErrorJustComplete() -> Driver<Element> {
         return asDriver { _ in
             return Driver.empty()
         }
     }
 }
 
-public extension ObservableConvertibleType {
+extension ObservableConvertibleType {
     
-    func catchErrorJustReturn(closure: @escaping @autoclosure () throws -> Element) -> Observable<Element> {
+    public func catchErrorJustReturn(closure: @escaping @autoclosure () throws -> Element) -> Observable<Element> {
         return asObservable().catch({ _ in
             return Observable.just(try closure())
         })
     }
     
-    func catchErrorJustComplete() -> Observable<Element> {
+    public func catchErrorJustComplete() -> Observable<Element> {
         return asObservable().catch({ _ in
             Observable.empty()
         })
     }
 }
 
-public extension ObservableConvertibleType {
+extension ObservableConvertibleType {
     
-    func asDriver(onErrorJustReturnClosure: @escaping @autoclosure () -> Element) -> Driver<Element> {
+    public func asDriver(onErrorJustReturnClosure: @escaping @autoclosure () -> Element) -> Driver<Element> {
         return asDriver { _ in
             Driver.just(onErrorJustReturnClosure())
         }
     }
     
-    func asDriverOnErrorJustComplete() -> Driver<Element> {
+    public func asDriverOnErrorJustComplete() -> Driver<Element> {
         return asDriver { _ in
             Driver.empty()
         }

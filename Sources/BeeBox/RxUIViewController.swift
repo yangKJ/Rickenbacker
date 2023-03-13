@@ -9,7 +9,7 @@
 import RxSwift
 import RxCocoa
 
-public extension Reactive where Base: UIViewController {
+extension Reactive where Base: UIViewController {
     
     /// Push view controller
     /// Example:
@@ -18,8 +18,8 @@ public extension Reactive where Base: UIViewController {
     ///         .bind(to: rx.pushViewController(vc, animated: true))
     ///         .disposed(by: disposeBag)
     ///
-    func pushViewController(_ viewController: @escaping @autoclosure () -> UIViewController,
-                            animated: Bool = true) -> Binder<Void> {
+    public func pushViewController(_ viewController: @escaping @autoclosure () -> UIViewController,
+                                   animated: Bool = true) -> Binder<Void> {
         return Binder(base) { this, _ in
             this.navigationController?.pushViewController(viewController(), animated: animated)
         }
@@ -32,19 +32,19 @@ public extension Reactive where Base: UIViewController {
     ///        .bind(to: rx.popViewController(animated: false))
     ///        .disposed(by: disposeBag)
     ///
-    func popViewController(animated: Bool = true) -> Binder<Void> {
+    public func popViewController(animated: Bool = true) -> Binder<Void> {
         return Binder(base) { this, _ in
             this.navigationController?.popViewController(animated: animated)
         }
     }
     
-    func popToRootViewController(animated: Bool = true) -> Binder<Void> {
+    public func popToRootViewController(animated: Bool = true) -> Binder<Void> {
         return Binder(base) { this, _ in
             this.navigationController?.popToRootViewController(animated: animated)
         }
     }
     
-    func present(_ viewController: @escaping @autoclosure () -> UIViewController,
+    public func present(_ viewController: @escaping @autoclosure () -> UIViewController,
                  animated: Bool = true,
                  completion: (() -> Void)? = nil) -> Binder<Void> {
         return Binder(base) { this, _ in
@@ -52,7 +52,7 @@ public extension Reactive where Base: UIViewController {
         }
     }
     
-    func dismiss(animated: Bool = true) -> Binder<Void> {
+    public func dismiss(animated: Bool = true) -> Binder<Void> {
         return Binder(base) { this, _ in
             this.dismiss(animated: animated, completion: nil)
         }

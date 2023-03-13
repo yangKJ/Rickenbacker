@@ -8,10 +8,13 @@
 import Foundation
 import UIKit
 
-@objc(BaseViewController)
 open class BaseViewController: UIViewController {
     
-    @objc public lazy var backBarButton: UIBarButtonItem = {
+    /// 强制移除，开启之后跳转到下一张页面时，此页面会从堆栈中移除
+    /// When you jump to the next view controller after opening, this view controller will be removed from the stack.
+    public var wasForceRemoved = false
+    
+    public lazy var backBarButton: UIBarButtonItem = {
         let barButton = UIBarButtonItem(image: R.image("base_black_back"),
                                         style: .plain,
                                         target: self,
@@ -24,7 +27,7 @@ open class BaseViewController: UIViewController {
         Log.debug("\(self.description): Deinited", file: "\(type(of: self))")
     }
     
-    @objc public var navigationTitle = "" {
+    public var navigationTitle = "" {
         didSet {
             self.navigationItem.title = navigationTitle
         }
@@ -44,13 +47,31 @@ open class BaseViewController: UIViewController {
         }
     }
     
-    // MARK: - action
+    // MARK: - public methods
+    
     @objc dynamic open func backAction() {
+        self.willCloseByUserBlock?(self)
         if (self.navigationController?.children[0] == self) {
-            self.dismiss(animated: true, completion:nil)
+            self.dismiss(animated: true) {
+                self.closedByUserBlock?(self)
+            }
             return
         }
         self.navigationController?.popViewController(animated: true)
+        self.closedByUserBlock?(self)
+    }
+    
+    var willCloseByUserBlock: ((_ vc: BaseViewController) -> Void)?
+    var closedByUserBlock: ((_ vc: BaseViewController) -> Void)?
+    
+    /// About to close the current page. Click the back button or gesture to return.
+    open func setWillCloseByUserBlock(_ block: @escaping (_ vc: BaseViewController) -> Void) {
+        self.willCloseByUserBlock = block
+    }
+    
+    /// It has been successfully closed. Click the back button or gesture to return.
+    open func setClosedByUserComplete(_ block: @escaping (_ vc: BaseViewController) -> Void) {
+        self.closedByUserBlock = block
     }
 }
 
@@ -69,5 +90,17 @@ extension BaseViewController {
     override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupNavigationBarHiddenableViewDidAppear(animated)
+    }
+    
+    override open func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if wasForceRemoved == false {
+            return
+        }
+        var viewControllers = navigationController?.viewControllers ?? []
+        viewControllers.removeAll {
+            ($0 as? BaseViewController)?.wasForceRemoved ?? false ? true : false
+        }
+        navigationController?.viewControllers = viewControllers
     }
 }

@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "Rickenbacker.h"
 #import "__objc_mediator.h"
 #import "__objc_msgSend.h"
 

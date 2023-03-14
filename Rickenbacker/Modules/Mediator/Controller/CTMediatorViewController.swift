@@ -33,9 +33,8 @@ class CTMediatorViewController: BaseViewController {
         
         if let vc = Mediator.Second_viewController(title: "biaoti") {
             pushButton.rx.tap
-                .subscribe(onNext: { [weak self] in
-                    self?.navigationController?.pushViewController(vc, removeType: CTMediatorViewController.self, animated: true)
-                }).disposed(by: rx.disposeBag)
+                .bind(to: rx.pushViewController(vc, removeType: CTMediatorViewController.self))
+                .disposed(by: rx.disposeBag)
         }
     }
 }

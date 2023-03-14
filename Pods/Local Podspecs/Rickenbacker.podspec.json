@@ -1,6 +1,6 @@
 {
   "name": "Rickenbacker",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "summary": "MVVM + RxSwift Project Architecture.",
   "homepage": "https://github.com/yangKJ/Rickenbacker",
   "description": "https://github.com/yangKJ/Rickenbacker/blob/master/README.md",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/yangKJ/Rickenbacker.git",
-    "tag": "1.0.4"
+    "tag": "1.0.5"
   },
   "social_media_url": "https://juejin.cn/user/1987535102554472/posts",
   "platforms": {
@@ -22,7 +22,13 @@
   "swift_versions": "5.0",
   "requires_arc": true,
   "static_framework": true,
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "5.0"
+  },
   "module_name": "Rickenbacker",
+  "ios": {
+    "source_files": "Sources/Rickenbacker.h"
+  },
   "subspecs": [
     {
       "name": "CatHome",
@@ -49,13 +55,10 @@
       "name": "Adapter",
       "source_files": "Sources/Adapter/*.swift",
       "dependencies": {
+        "Rickenbacker/BeeBox": [
+
+        ],
         "Rickenbacker/CatHome": [
-
-        ],
-        "RxSwift": [
-
-        ],
-        "RxCocoa": [
 
         ]
       }

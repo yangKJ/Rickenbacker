@@ -18,6 +18,23 @@ extension UINavigationController {
         return vc
     }
     
+    /// Push to view controller and replace the last `replaceCount` view controller.
+    /// - Parameters:
+    ///   - controller: Push to view controller.
+    ///   - replaceCount: The number of replacements, `Int.max` replace all.
+    ///   - animated: Whether to turn on the animation.
+    public func pushViewControllerAndReplace(_ controller: UIViewController, replaceCount: Int, animated: Bool) {
+        if replaceCount == Int.max {
+            setViewControllers([controller], animated: animated)
+        } else {
+            var cons = viewControllers
+            let count = min(cons.count, replaceCount)
+            cons.removeLast(count)
+            cons.append(controller)
+            setViewControllers(cons, animated: animated)
+        }
+    }
+    
     /// Push to view controller and remove the `removeType` controller.
     /// - Parameters:
     ///   - controller: Push to view controller.
@@ -28,9 +45,6 @@ extension UINavigationController {
         var i = 0
         while i < cons.count {
             if cons.indices.contains(i), type(of: cons[i]) == removeType {
-                if let vc = cons[i] as? BaseViewController {
-                    vc.wasForceRemoved = true
-                }
                 cons.remove(at: i)
                 i -= 1
             }
@@ -50,9 +64,6 @@ extension UINavigationController {
         var i = 0
         while i < cons.count {
             if cons.indices.contains(i), removeTypes.contains { type(of: cons[i]) == $0 } {
-                if let con = cons[i] as? BaseViewController {
-                    con.wasForceRemoved = true
-                }
                 cons.remove(at: i)
                 i -= 1
             }

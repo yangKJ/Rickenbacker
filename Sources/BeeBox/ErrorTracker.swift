@@ -40,3 +40,12 @@ extension ObservableConvertibleType {
         return errorTracker.trackError(from: self)
     }
 }
+
+extension ObservableType {
+    
+    public func asDriverOnErrorJustComplete() -> Driver<Element> {
+        return asDriver { _ in
+            return Driver.empty()
+        }
+    }
+}

@@ -1,29 +1,29 @@
 PODS:
   - DZNEmptyDataSet (1.8.1)
-  - HBDNavigationBar (1.9.5)
+  - HBDNavigationBar (1.9.6)
   - MJRefresh (3.7.5)
-  - Rickenbacker (1.0.5):
-    - Rickenbacker/Adapter (= 1.0.5)
-    - Rickenbacker/BeeBox (= 1.0.5)
-    - Rickenbacker/CatHome (= 1.0.5)
-    - Rickenbacker/DZNEmptyDataSet (= 1.0.5)
-    - Rickenbacker/HBDNavigationBar (= 1.0.5)
-    - Rickenbacker/Mediator (= 1.0.5)
-    - Rickenbacker/MJRefresh (= 1.0.5)
-  - Rickenbacker/Adapter (1.0.5):
+  - Rickenbacker (1.0.6):
+    - Rickenbacker/Adapter (= 1.0.6)
+    - Rickenbacker/BeeBox (= 1.0.6)
+    - Rickenbacker/CatHome (= 1.0.6)
+    - Rickenbacker/DZNEmptyDataSet (= 1.0.6)
+    - Rickenbacker/HBDNavigationBar (= 1.0.6)
+    - Rickenbacker/Mediator (= 1.0.6)
+    - Rickenbacker/MJRefresh (= 1.0.6)
+  - Rickenbacker/Adapter (1.0.6):
     - Rickenbacker/BeeBox
     - Rickenbacker/CatHome
-  - Rickenbacker/BeeBox (1.0.5):
+  - Rickenbacker/BeeBox (1.0.6):
     - RxCocoa
     - RxSwift
-  - Rickenbacker/CatHome (1.0.5)
-  - Rickenbacker/DZNEmptyDataSet (1.0.5):
+  - Rickenbacker/CatHome (1.0.6)
+  - Rickenbacker/DZNEmptyDataSet (1.0.6):
     - DZNEmptyDataSet
     - Rickenbacker/Adapter
-  - Rickenbacker/HBDNavigationBar (1.0.5):
+  - Rickenbacker/HBDNavigationBar (1.0.6):
     - HBDNavigationBar
-  - Rickenbacker/Mediator (1.0.5)
-  - Rickenbacker/MJRefresh (1.0.5):
+  - Rickenbacker/Mediator (1.0.6)
+  - Rickenbacker/MJRefresh (1.0.6):
     - MJRefresh
     - Rickenbacker/Adapter
   - RxCocoa (6.5.0):
@@ -51,9 +51,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  HBDNavigationBar: 5e8e93c1dfaf4195c54b6fcf55090cb3ea597e06
+  HBDNavigationBar: a997b65ab7194271e5584b87a952fc851832f692
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
-  Rickenbacker: 3006b379aaa33e3613852cbc5e3b2c86d00e7176
+  Rickenbacker: bd59f1e86aa919ca007fda55de850d72ce5e5d54
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8

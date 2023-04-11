@@ -12,18 +12,34 @@ open class VMTableViewController<T: ViewModel>: VMScrollViewController<T> {
     
     public var clearsSelectionOnViewWillAppear = false
     public private(set) var style: UITableView.Style
-    public private(set) var tableView: TableView
+    public private(set) var tableView: UITableView
     
-    public convenience init(_ style: UITableView.Style = UITableView.Style.plain) {
+    public convenience init(_ style: UITableView.Style = .plain) {
         self.init(style: style, viewModel: T.init())
     }
     
-    public convenience init(style: UITableView.Style = UITableView.Style.plain, viewModel: T) {
-        let table = TableView.init(frame: .zero, style: style)
+    public convenience init(style: UITableView.Style = .plain, viewModel: T) {
+        let table = UITableView.init(frame: .zero, style: style)
+        table.rowHeight = UITableView.automaticDimension
+        table.estimatedRowHeight = 50
+        table.sectionHeaderHeight = 0.00001
+        table.sectionFooterHeight = 0.00001
+        table.showsVerticalScrollIndicator = false
+        table.showsHorizontalScrollIndicator = false
+        table.cellLayoutMarginsFollowReadableWidth = false
+        table.tableFooterView = UIView()
+        table.separatorStyle = UITableViewCell.SeparatorStyle.none
+        table.keyboardDismissMode = UIScrollView.KeyboardDismissMode.onDrag
+        if #available(iOS 11, *) {
+            table.contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.never
+        }
+        if #available(iOS 15.0, *) {
+            table.sectionHeaderTopPadding = 0
+        }
         self.init(tableView: table, viewModel: viewModel)
     }
     
-    public init(tableView: TableView, viewModel: T) {
+    public init(tableView: UITableView, viewModel: T) {
         self.style = tableView.style
         self.tableView = tableView
         super.init(scrollView: tableView, viewModel: viewModel)

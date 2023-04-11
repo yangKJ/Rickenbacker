@@ -26,9 +26,7 @@ public struct R {
     }
     
     /// Read multilingual text resources
-    public static func text(_ string: String,
-                            forResource: String = "Rickenbacker",
-                            comment: String = "Localizable") -> String {
+    public static func text(_ string: String, forResource: String = "Rickenbacker", comment: String = "Localizable") -> String {
         guard let bundlePath = Bundle.main.path(forResource: forResource, ofType: "bundle"),
               let bundle = Bundle.init(path: bundlePath) else {
             return string

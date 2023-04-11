@@ -25,21 +25,20 @@ extension VMScrollViewController: EmptyDataTap {
         let source: DZNEmptyDataSetSourceable? = self as? DZNEmptyDataSetSourceable
         let delegate: DZNEmptyDataSetDelegateable? = self as? DZNEmptyDataSetDelegateable
         if source != nil || delegate != nil {
-            let bridge = self.DZNEmptyBridge
-            bridge.didTapContentView = { [weak self] in
+            self.DZNEmptyBridge.didTapContentView = { [weak self] in
                 self?.emptyDataSetViewTap.onNext(())
             }
-            bridge.didTapDataButton = { [weak self] in
+            self.DZNEmptyBridge.didTapDataButton = { [weak self] in
                 self?.emptyDataSetButtonTap.onNext(())
             }
             if source != nil {
-                bridge.sourceCallback = { [weak self] in
+                self.DZNEmptyBridge.sourceCallback = { [weak self] in
                     guard let `self` = self else { return nil }
                     return self as? DZNEmptyDataSetSourceable
                 }
             }
             if delegate != nil {
-                bridge.delegateCallback = { [weak self] in
+                self.DZNEmptyBridge.delegateCallback = { [weak self] in
                     guard let `self` = self else { return nil }
                     return self as? DZNEmptyDataSetDelegateable
                 }

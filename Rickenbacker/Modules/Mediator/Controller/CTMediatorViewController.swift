@@ -31,10 +31,14 @@ class CTMediatorViewController: BaseViewController {
     
     func bingViewModel() {
         
-        if let vc = Mediator.Second_viewController(title: "biaoti") {
-            pushButton.rx.tap
-                .bind(to: rx.pushViewController(vc, removeType: CTMediatorViewController.self))
-                .disposed(by: rx.disposeBag)
-        }
+        pushButton.rx.tap.subscribe { [weak self] _ in
+            if let vc = Mediator.Second_viewController(title: "biaoti") {
+                self?.navigationController?.pushViewController(vc, animated: true)
+            }
+        }.disposed(by: rx.disposeBag)
+    }
+    
+    func setupN() {
+        
     }
 }

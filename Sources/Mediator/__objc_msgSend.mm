@@ -150,7 +150,10 @@ id __objc_msgSend(id target, SEL selector, NSDictionary<NSString *, id> * argume
     // 符合预期
     invocation.target = target;
     invocation.selector = selector;
-    if (arguments) { [invocation setArgument:&arguments atIndex:2]; /** skip self & _cmd */ }
+    if (arguments) {
+        // skip self & _cmd
+        [invocation setArgument:&arguments atIndex:2];    
+    }
     
     [invocation invoke];
     

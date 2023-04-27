@@ -4,18 +4,14 @@ PODS:
   - MJRefresh (3.7.5)
   - Rickenbacker (1.0.9):
     - Rickenbacker/Adapter (= 1.0.9)
-    - Rickenbacker/BeeBox (= 1.0.9)
-    - Rickenbacker/CatHome (= 1.0.9)
+    - Rickenbacker/Boxs (= 1.0.9)
     - Rickenbacker/DZNEmptyDataSet (= 1.0.9)
     - Rickenbacker/Mediator (= 1.0.9)
     - Rickenbacker/MJRefresh (= 1.0.9)
+    - Rickenbacker/RxTools (= 1.0.9)
   - Rickenbacker/Adapter (1.0.9):
-    - Rickenbacker/BeeBox
-    - Rickenbacker/CatHome
-  - Rickenbacker/BeeBox (1.0.9):
-    - RxCocoa
-    - RxSwift
-  - Rickenbacker/CatHome (1.0.9)
+    - Rickenbacker/RxTools
+  - Rickenbacker/Boxs (1.0.9)
   - Rickenbacker/DZNEmptyDataSet (1.0.9):
     - DZNEmptyDataSet
     - Rickenbacker/Adapter
@@ -23,6 +19,10 @@ PODS:
   - Rickenbacker/MJRefresh (1.0.9):
     - MJRefresh
     - Rickenbacker/Adapter
+  - Rickenbacker/RxTools (1.0.9):
+    - Rickenbacker/Boxs
+    - RxCocoa
+    - RxSwift
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
@@ -51,7 +51,7 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   HBDNavigationBar: a997b65ab7194271e5584b87a952fc851832f692
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
-  Rickenbacker: e6912e1c657a4cb8a21c8def1aa999e7c66abdc3
+  Rickenbacker: 9b8d3128fcb1a6f66b3b251da4771c62f6a40751
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8

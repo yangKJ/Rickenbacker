@@ -33,21 +33,21 @@ Pod::Spec.new do |s|
   s.module_name      = 'Rickenbacker'
   s.ios.source_files = 'Sources/Rickenbacker.h'
   
-  s.subspec 'CatHome' do |xx|
-    xx.source_files = 'Sources/CatHome/*.swift'
-    xx.resource_bundles = { 'Rickenbacker' => ['Sources/CatHome/*.{xcassets,lproj}'] }
+  s.subspec 'Boxs' do |xx|
+    xx.source_files = 'Sources/Boxs/*.swift'
+    xx.resource_bundles = { 'Rickenbacker' => ['Sources/Boxs/*.{xcassets,lproj}'] }
   end
   
-  s.subspec 'BeeBox' do |xx|
-    xx.source_files = 'Sources/BeeBox/*.swift'
+  s.subspec 'RxTools' do |xx|
+    xx.source_files = 'Sources/RxTools/*.swift'
     xx.dependency 'RxSwift'
     xx.dependency 'RxCocoa'
+    xx.dependency 'Rickenbacker/Boxs'
   end
   
   s.subspec 'Adapter' do |xx|
     xx.source_files = 'Sources/Adapter/*.swift'
-    xx.dependency 'Rickenbacker/BeeBox'
-    xx.dependency 'Rickenbacker/CatHome'
+    xx.dependency 'Rickenbacker/RxTools'
   end
   
   s.subspec 'Mediator' do |xx|

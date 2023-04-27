@@ -31,22 +31,25 @@
   },
   "subspecs": [
     {
-      "name": "CatHome",
-      "source_files": "Sources/CatHome/*.swift",
+      "name": "Boxs",
+      "source_files": "Sources/Boxs/*.swift",
       "resource_bundles": {
         "Rickenbacker": [
-          "Sources/CatHome/*.{xcassets,lproj}"
+          "Sources/Boxs/*.{xcassets,lproj}"
         ]
       }
     },
     {
-      "name": "BeeBox",
-      "source_files": "Sources/BeeBox/*.swift",
+      "name": "RxTools",
+      "source_files": "Sources/RxTools/*.swift",
       "dependencies": {
         "RxSwift": [
 
         ],
         "RxCocoa": [
+
+        ],
+        "Rickenbacker/Boxs": [
 
         ]
       }
@@ -55,10 +58,7 @@
       "name": "Adapter",
       "source_files": "Sources/Adapter/*.swift",
       "dependencies": {
-        "Rickenbacker/BeeBox": [
-
-        ],
-        "Rickenbacker/CatHome": [
+        "Rickenbacker/RxTools": [
 
         ]
       }

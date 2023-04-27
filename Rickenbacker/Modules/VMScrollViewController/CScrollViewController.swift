@@ -20,8 +20,8 @@ class CScrollViewController: VMScrollViewController<CScrollViewModel> {
     func setupUI() {
         guard let collectionView = scrollView as? CScrollView else { return }
         let width = self.view.frame.size.width / 3 - 10
-        collectionView.layout.itemSize = CGSize(width: width, height: width/3*2)
-        collectionView.contentInset = UIEdgeInsets(top: navigationHeight, left: 0, bottom: 0, right: 0)
+        collectionView.layout.itemSize = CGSize(width: width, height: width)
+        collectionView.contentInset = UIEdgeInsets(top: C.navigationHeight, left: 0, bottom: 0, right: 0)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),

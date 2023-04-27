@@ -47,7 +47,7 @@ class HomeViewController: UIViewController {
     
     func setupUI() {
         self.view.addSubview(self.tableView)
-        tableView.contentInset = UIEdgeInsets(top: navigationHeight, left: 0, bottom: 0, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: C.navigationHeight, left: 0, bottom: 0, right: 0)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -77,17 +77,4 @@ class HomeViewController: UIViewController {
                 self?.navigationController?.pushViewController(vc, animated: true)
             }).disposed(by: disposeBag)
     }
-}
-
-var statusBarHeight: CGFloat {
-    if #available(iOS 13.0, *) {
-        let statusManager = UIApplication.shared.windows.first?.windowScene?.statusBarManager
-        return statusManager?.statusBarFrame.height ?? 20.0
-    } else {
-        return UIApplication.shared.statusBarFrame.height
-    }
-}
-
-var navigationHeight: CGFloat {
-    return 44 + statusBarHeight
 }

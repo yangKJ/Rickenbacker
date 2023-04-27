@@ -8,6 +8,7 @@
 
 import UIKit
 import Rickenbacker
+import HBDNavigationBar
 
 class SecondViewController: VMViewController<SecondViewModel> {
     

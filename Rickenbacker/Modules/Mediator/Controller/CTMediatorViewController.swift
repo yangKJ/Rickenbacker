@@ -11,8 +11,6 @@ import Rickenbacker
 
 class CTMediatorViewController: BaseViewController {
     
-    let disposeBag = DisposeBag()
-    
     lazy var pushButton: UIButton = {
         let button = UIButton.init(type: .custom)
         button.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
@@ -32,13 +30,10 @@ class CTMediatorViewController: BaseViewController {
     func bingViewModel() {
         
         pushButton.rx.tap.subscribe { [weak self] _ in
-            if let vc = Mediator.Second_viewController(title: "biaoti") {
-                self?.navigationController?.pushViewController(vc, animated: true)
+            guard let vc = Mediator.Second_viewController(title: "biaoti") else {
+                return
             }
+            self?.navigationController?.pushViewController(vc, removeType: CTMediatorViewController.self, animated: true)
         }.disposed(by: rx.disposeBag)
-    }
-    
-    func setupN() {
-        
     }
 }

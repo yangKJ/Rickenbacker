@@ -8,14 +8,17 @@
 
 import UIKit
 import Rickenbacker
+import HBDNavigationBar
 
 class HBDNavigationBarViewController: BaseViewController {
     
     lazy var backButton: UIButton = {
         let button = UIButton.init(type: .custom)
-        button.frame = CGRect(x: 10, y: 44, width: 44, height: 44)
-        button.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+        button.frame = CGRect(x: 10, y: C.statusBarHeight, width: 44, height: 44)
         button.setImage(R.image("base_black_close"), for: .normal)
+        button.rx.tap.subscribe { [weak self] _ in
+            self?.backAction()
+        }.disposed(by: rx.disposeBag)
         return button
     }()
     
@@ -27,10 +30,9 @@ class HBDNavigationBarViewController: BaseViewController {
         button.setTitle("CTMediator", for: .normal)
         button.setTitleColor(UIColor.red, for: .normal)
         button.rx.tap.subscribe { [weak self] _ in
-            guard let `self` = self else { return }
-            let vm = SecondViewModel.init(title: self.title!)
+            let vm = SecondViewModel.init(title: self?.title ?? "")
             let vc = SecondViewController.init(viewModel: vm)
-            self.navigationController?.pushViewController(vc, animated: true)
+            self?.navigationController?.pushViewController(vc, animated: true)
         }.disposed(by: rx.disposeBag)
         return button
     }()
@@ -43,9 +45,5 @@ class HBDNavigationBarViewController: BaseViewController {
         self.view.backgroundColor = UIColor.gray
         self.view.addSubview(self.backButton)
         self.view.addSubview(self.pushButton)
-    }
-    
-    @objc override func backAction() {
-        super.backAction()
     }
 }

@@ -17,7 +17,7 @@ target 'Rickenbacker_Example' do
 #  pod 'CTMediator' # 组件化 target-action
 #  pod 'MJRefresh' # 刷新
 #  pod 'DZNEmptyDataSet' # 空数据展示
-#  pod 'HBDNavigationBar' # 导航栏
+  pod 'HBDNavigationBar' # 导航栏
   
 end
 

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Rickenbacker'
-  s.version          = '1.0.8'
+  s.version          = '1.0.9'
   s.summary          = 'MVVM + RxSwift Project Architecture.'
   
   # This description is used to generate tags and improve search results.
@@ -53,11 +53,6 @@ Pod::Spec.new do |s|
   s.subspec 'Mediator' do |xx|
     xx.source_files = 'Sources/Mediator/*.{h,mm,swift}'
     xx.libraries = 'c++' # Fixed `Undefined symbol: ___gxx_personality_v0`
-  end
-  
-  s.subspec 'HBDNavigationBar' do |xx|
-    xx.source_files = 'Sources/HBDNavigationBar/*.swift'
-    xx.dependency 'HBDNavigationBar'
   end
   
   s.subspec 'MJRefresh' do |xx|

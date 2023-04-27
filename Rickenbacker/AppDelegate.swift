@@ -7,15 +7,13 @@
 //
 
 import UIKit
-import class Rickenbacker.BaseNavigationController
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions
-                     launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let vc: HomeViewController = HomeViewController.init()
         let nav = BaseNavigationController.init(rootViewController: vc)
@@ -23,4 +21,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
-

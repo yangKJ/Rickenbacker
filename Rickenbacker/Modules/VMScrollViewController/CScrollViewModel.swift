@@ -8,6 +8,7 @@
 
 import Foundation
 import Rickenbacker
+import RxCocoa
 
 final class CScrollViewModel: ViewModel, ViewModelHeaderAndFooterable, ViewModelEmptiable {
     struct Input {

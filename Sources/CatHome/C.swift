@@ -13,7 +13,7 @@ public struct C {
     
     public static let width  = UIScreen.main.bounds.width
     public static let height = UIScreen.main.bounds.height
-    public static let navigationHeight = barHeight + 44.0
+    public static let navigationHeight = statusBarHeight + 44.0
     public static let tabBarHeight = barHeight == 44 ? 83 : 49
     public static let barHeight: CGFloat = {
         if #available(iOS 13.0, *) {
@@ -22,6 +22,16 @@ public struct C {
             return UIApplication.shared.statusBarFrame.height
         }
     }()
+    
+    public static let statusBarHeight: CGFloat = {
+        if #available(iOS 13.0, *) {
+            let statusManager = UIApplication.shared.windows.first?.windowScene?.statusBarManager
+            return statusManager?.statusBarFrame.height ?? 20.0
+        } else {
+            return UIApplication.shared.statusBarFrame.height
+        }
+    }()
+    
     /// 安全区域
     public static let topSafeAreaHeight = barHeight - 20
     public static let bottomSafeAreaHeight = tabBarHeight - 49

@@ -29,7 +29,6 @@ class MJRefreshViewController: VMTableViewController<MJRefreshViewModel> {
     }
     
     func setupInit() {
-        self.hbd_barShadowHidden = true
         self.navigationItem.rightBarButtonItem = self.resetBarButton
     }
     

@@ -27,6 +27,7 @@
 		874083DA2848A7A700791A64 /* CScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874083D92848A7A700791A64 /* CScrollView.swift */; };
 		874083DC2848A7E900791A64 /* CScrollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874083DB2848A7E900791A64 /* CScrollViewModel.swift */; };
 		877D33A728378FE700EB1815 /* README_CN.md in Resources */ = {isa = PBXBuildFile; fileRef = 877D33A628378FE700EB1815 /* README_CN.md */; };
+		87C70AE329FA0B1500D2CDF9 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C70AE229FA0B1500D2CDF9 /* BaseNavigationController.swift */; };
 		D69A6D5433C792A62D5FD31E /* Pods_Rickenbacker_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54E476D6C77D0F7941FDDA4 /* Pods_Rickenbacker_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		874083DB2848A7E900791A64 /* CScrollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CScrollViewModel.swift; sourceTree = "<group>"; };
 		877D33A628378FE700EB1815 /* README_CN.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README_CN.md; sourceTree = SOURCE_ROOT; };
 		878E21D429B8856500F034C1 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		87C70AE229FA0B1500D2CDF9 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		F54E476D6C77D0F7941FDDA4 /* Pods_Rickenbacker_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rickenbacker_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				87C70AE229FA0B1500D2CDF9 /* BaseNavigationController.swift */,
 				607FACD71AFB9204008FA782 /* HomeViewController.swift */,
 				04F2018D27796968007C6BB3 /* HomeViewModel.swift */,
 				04F2018F27796B61007C6BB3 /* Modules */,
@@ -386,6 +389,7 @@
 				874083DA2848A7A700791A64 /* CScrollView.swift in Sources */,
 				04F201A427796B61007C6BB3 /* SecondTarget.swift in Sources */,
 				04F201AA27796B61007C6BB3 /* MJRefreshViewModel.swift in Sources */,
+				87C70AE329FA0B1500D2CDF9 /* BaseNavigationController.swift in Sources */,
 				04F201AC27796B61007C6BB3 /* DZNEmptyDataSetViewController.swift in Sources */,
 				874083DC2848A7E900791A64 /* CScrollViewModel.swift in Sources */,
 			);

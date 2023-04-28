@@ -11,6 +11,7 @@ import UIKit
 /// 常用常量And方法
 public struct C {
     
+    public static let px1 = 1.0 / UIScreen.main.scale
     public static let width  = UIScreen.main.bounds.width
     public static let height = UIScreen.main.bounds.height
     public static let navigationHeight = statusBarHeight + 44.0

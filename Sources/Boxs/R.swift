@@ -44,4 +44,21 @@ public struct R {
         }
         return color
     }
+    
+    /// Read json data
+    public static func jsonData(_ named: String, forResource: String = "Rickenbacker") -> Data? {
+        let bundle: Bundle?
+        if let bundlePath = Bundle.main.path(forResource: forResource, ofType: "bundle") {
+            bundle = Bundle.init(path: bundlePath)
+        } else {
+            bundle = Bundle.main
+        }
+        guard let path = ["json", "JSON", "Json"].compactMap({
+            bundle?.path(forResource: named, ofType: $0)
+        }).first else {
+            return nil
+        }
+        let contentURL = URL(fileURLWithPath: path)
+        return try? Data(contentsOf: contentURL)
+    }
 }

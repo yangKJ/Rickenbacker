@@ -39,7 +39,7 @@ public protocol ViewModelType {
 
 open class ViewModel: NSObject, ViewModelPrefix {
     
-    public let disposeBag = DisposeBag()
+    public lazy var disposeBag = DisposeBag()
     
     required public override init() { }
     

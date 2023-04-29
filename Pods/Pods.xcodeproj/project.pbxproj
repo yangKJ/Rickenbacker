@@ -2618,23 +2618,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0F8CC0A3C2D62D93AB833277FB657C7F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C62E9BFEA2532EEBB2C5CDD8B025059E /* Rickenbacker.debug.xcconfig */;
-			buildSettings = {
-				COMPILER_INDEX_STORE_ENABLE = NO;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Rickenbacker";
-				IBSC_MODULE = Rickenbacker;
-				INFOPLIST_FILE = "Target Support Files/Rickenbacker/ResourceBundle-Rickenbacker-Rickenbacker-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				PRODUCT_NAME = Rickenbacker;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
 		0FFFD177440D556AC451E2CA2ED3D998 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 50270EE7CBDC3FC2C806A7288388200B /* MJRefresh.release.xcconfig */;
@@ -2729,6 +2712,24 @@
 			};
 			name = Debug;
 		};
+		37F150E723C99F8A9C5843F230F6B0C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A78404DB82BB1A1772459EE72D793D76 /* Rickenbacker.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				COMPILER_INDEX_STORE_ENABLE = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Rickenbacker";
+				IBSC_MODULE = Rickenbacker;
+				INFOPLIST_FILE = "Target Support Files/Rickenbacker/ResourceBundle-Rickenbacker-Rickenbacker-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PRODUCT_NAME = Rickenbacker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		3F5C95E0FA96D2A1C458710027637CCE /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 20CE021E72C268EC975F73A43B5017DB /* RxCocoa.release.xcconfig */;
@@ -2793,23 +2794,6 @@
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		577DCD6E1142796F30C8D7D68562FAB0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A78404DB82BB1A1772459EE72D793D76 /* Rickenbacker.release.xcconfig */;
-			buildSettings = {
-				COMPILER_INDEX_STORE_ENABLE = NO;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Rickenbacker";
-				IBSC_MODULE = Rickenbacker;
-				INFOPLIST_FILE = "Target Support Files/Rickenbacker/ResourceBundle-Rickenbacker-Rickenbacker-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				PRODUCT_NAME = Rickenbacker;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
@@ -3227,6 +3211,24 @@
 			};
 			name = Debug;
 		};
+		F1D2348F55B535A80EAA272675243D33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C62E9BFEA2532EEBB2C5CDD8B025059E /* Rickenbacker.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				COMPILER_INDEX_STORE_ENABLE = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Rickenbacker";
+				IBSC_MODULE = Rickenbacker;
+				INFOPLIST_FILE = "Target Support Files/Rickenbacker/ResourceBundle-Rickenbacker-Rickenbacker-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PRODUCT_NAME = Rickenbacker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
 		F9A5FC29D9B87DDDD97EC122A8A4E7AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A78404DB82BB1A1772459EE72D793D76 /* Rickenbacker.release.xcconfig */;
@@ -3377,8 +3379,8 @@
 		FAC7262E9A652EA1FA99B34BE1C93D24 /* Build configuration list for PBXNativeTarget "Rickenbacker-Rickenbacker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0F8CC0A3C2D62D93AB833277FB657C7F /* Debug */,
-				577DCD6E1142796F30C8D7D68562FAB0 /* Release */,
+				F1D2348F55B535A80EAA272675243D33 /* Debug */,
+				37F150E723C99F8A9C5843F230F6B0C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

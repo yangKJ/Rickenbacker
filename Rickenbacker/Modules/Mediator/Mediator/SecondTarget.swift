@@ -11,14 +11,11 @@ import Rickenbacker
 
 extension Mediator {
     static func Second_viewController(title: String) -> UIViewController? {
-//        self.performTarget(String(describing: SecondTarget.self),
-//                           action: "setupSecondViewController",
-//                           module: "Rickenbacker_Example",
-//                           params: ["title": title]) as? UIViewController
-        self.perform(target: SecondTarget.self,
-                     action: "setupSecondViewController",
-                     module: "Rickenbacker_Example",
-                     params: ["title": title])
+        //viewController(prefix: "Second", module: "Rickenbacker_Example", params: ["title": title])
+        self.performTarget(String(describing: SecondTarget.self),
+                           action: "setupSecondViewController",
+                           module: "Rickenbacker_Example",
+                           params: ["title": title]) as? UIViewController
     }
 }
 

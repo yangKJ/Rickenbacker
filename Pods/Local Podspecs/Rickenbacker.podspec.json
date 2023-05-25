@@ -1,6 +1,6 @@
 {
   "name": "Rickenbacker",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "summary": "MVVM + RxSwift Project Architecture.",
   "homepage": "https://github.com/yangKJ/Rickenbacker",
   "description": "https://github.com/yangKJ/Rickenbacker/blob/master/README.md",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/yangKJ/Rickenbacker.git",
-    "tag": "1.1.1"
+    "tag": "1.1.2"
   },
   "social_media_url": "https://juejin.cn/user/1987535102554472/posts",
   "platforms": {

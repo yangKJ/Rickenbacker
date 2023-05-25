@@ -1,5 +1,5 @@
 //
-//  BaseViewController.swift
+//  BasicsViewController.swift
 //  Rickenbacker
 //
 //  Created by Condy on 2021/10/2.
@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-open class BaseViewController: UIViewController {
+open class BasicsViewController: UIViewController {
     
-    /// 强制移除，开启之后跳转到下一张页面时，此页面会从堆栈中移除
+    /// 强制移除，开启之后`viewDidDisappear`时，此页面会从堆栈中移除。
     /// When you jump to the next view controller after opening, this view controller will be removed from the stack.
     public var wasForceRemoved = false
     
@@ -18,7 +18,7 @@ open class BaseViewController: UIViewController {
         let barButton = UIBarButtonItem(image: R.image("base_black_back"),
                                         style: .plain,
                                         target: self,
-                                        action: #selector(BaseViewController.backAction))
+                                        action: #selector(BasicsViewController.backAction))
         barButton.imageInsets.left = 5
         return barButton
     }()
@@ -61,21 +61,21 @@ open class BaseViewController: UIViewController {
         self.closedByUserBlock?(self)
     }
     
-    var willCloseByUserBlock: ((_ vc: BaseViewController) -> Void)?
-    var closedByUserBlock: ((_ vc: BaseViewController) -> Void)?
+    var willCloseByUserBlock: ((_ vc: BasicsViewController) -> Void)?
+    var closedByUserBlock: ((_ vc: BasicsViewController) -> Void)?
     
     /// About to close the current page. Click the back button or gesture to return.
-    open func setWillCloseByUserBlock(_ block: @escaping (_ vc: BaseViewController) -> Void) {
+    open func setWillCloseByUserBlock(_ block: @escaping (_ vc: BasicsViewController) -> Void) {
         self.willCloseByUserBlock = block
     }
     
     /// It has been successfully closed. Click the back button or gesture to return.
-    open func setClosedByUserComplete(_ block: @escaping (_ vc: BaseViewController) -> Void) {
+    open func setClosedByUserComplete(_ block: @escaping (_ vc: BasicsViewController) -> Void) {
         self.closedByUserBlock = block
     }
 }
 
-extension BaseViewController {
+extension BasicsViewController {
     
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -94,13 +94,11 @@ extension BaseViewController {
     
     override open func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        if wasForceRemoved == false {
+        guard wasForceRemoved, let viewControllers = navigationController?.viewControllers else {
             return
         }
-        var viewControllers = navigationController?.viewControllers ?? []
-        viewControllers.removeAll {
-            ($0 as? BaseViewController)?.wasForceRemoved ?? false ? true : false
-        }
-        navigationController?.viewControllers = viewControllers
+        navigationController?.viewControllers = viewControllers.compactMap({ vc in
+            return vc == self ? nil : vc
+        })
     }
 }

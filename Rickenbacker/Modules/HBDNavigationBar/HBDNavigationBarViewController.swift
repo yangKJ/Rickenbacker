@@ -10,7 +10,7 @@ import UIKit
 import Rickenbacker
 import HBDNavigationBar
 
-class HBDNavigationBarViewController: BaseViewController {
+class HBDNavigationBarViewController: BasicsViewController {
     
     lazy var backButton: UIButton = {
         let button = UIButton.init(type: .custom)

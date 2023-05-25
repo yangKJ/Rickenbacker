@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Rickenbacker'
-  s.version          = '1.1.0'
+  s.version          = '1.1.1'
   s.summary          = 'MVVM + RxSwift Project Architecture.'
   
   # This description is used to generate tags and improve search results.
@@ -38,8 +38,8 @@ Pod::Spec.new do |s|
     xx.resource_bundles = { 'Rickenbacker' => ['Sources/Boxs/*.{xcassets,lproj}'] }
   end
   
-  s.subspec 'RxTools' do |xx|
-    xx.source_files = 'Sources/RxTools/*.swift'
+  s.subspec 'Rx' do |xx|
+    xx.source_files = 'Sources/Rx/*.swift'
     xx.dependency 'RxSwift'
     xx.dependency 'RxCocoa'
     xx.dependency 'Rickenbacker/Boxs'
@@ -47,7 +47,7 @@ Pod::Spec.new do |s|
   
   s.subspec 'Adapter' do |xx|
     xx.source_files = 'Sources/Adapter/*.swift'
-    xx.dependency 'Rickenbacker/RxTools'
+    xx.dependency 'Rickenbacker/Rx'
   end
   
   s.subspec 'Mediator' do |xx|

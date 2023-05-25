@@ -15,38 +15,35 @@ public protocol EmptyDataTap {
     var emptyDataSetViewTap: PublishSubject<Void> { get set }
 }
 
-fileprivate var EmptyDataSetButtonTapContext: UInt8 = 0
-fileprivate var EmptyDataSetViewTapContext: UInt8 = 0
-
 extension EmptyDataTap {
     
     public var emptyDataSetButtonTap: PublishSubject<Void> {
         get {
-            if let emptyData = objc_getAssociatedObject(self, &EmptyDataSetButtonTapContext) {
+            if let emptyData = objc_getAssociatedObject(self, &DZNEmptyExtensionKeys.buttonTapContext) {
                 return emptyData as! PublishSubject<Void>
             } else {
                 let emptyData: PublishSubject<Void> = PublishSubject<Void>()
-                objc_setAssociatedObject(self, &EmptyDataSetButtonTapContext, emptyData, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+                objc_setAssociatedObject(self, &DZNEmptyExtensionKeys.buttonTapContext, emptyData, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
                 return emptyData
             }
         }
         set {
-            objc_setAssociatedObject(self, &EmptyDataSetButtonTapContext, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &DZNEmptyExtensionKeys.buttonTapContext, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
     public var emptyDataSetViewTap: PublishSubject<Void> {
         get {
-            if let emptyData = objc_getAssociatedObject(self, &EmptyDataSetViewTapContext) {
+            if let emptyData = objc_getAssociatedObject(self, &DZNEmptyExtensionKeys.viewTapContext) {
                 return emptyData as! PublishSubject<Void>
             } else {
                 let emptyData: PublishSubject<Void> = PublishSubject<Void>()
-                objc_setAssociatedObject(self, &EmptyDataSetViewTapContext, emptyData, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+                objc_setAssociatedObject(self, &DZNEmptyExtensionKeys.viewTapContext, emptyData, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
                 return emptyData
             }
         }
         set {
-            objc_setAssociatedObject(self, &EmptyDataSetViewTapContext, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &DZNEmptyExtensionKeys.viewTapContext, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
 }

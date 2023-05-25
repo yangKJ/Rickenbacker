@@ -17,6 +17,20 @@ extension VMScrollViewController: EmptyDataTap {
 //        setupOptionalEmptyData()
 //    }
     
+    private var DZNEmptyBridge: DZNEmptyDataSetBridge {
+        func lazyInstanceBridge<T: AnyObject>(_ key: UnsafeRawPointer, createCachedBridge: () -> T) -> T {
+            if let value = objc_getAssociatedObject(self, key) as? T {
+                return value
+            }
+            let bridge = createCachedBridge()
+            objc_setAssociatedObject(self, key, bridge, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            return bridge
+        }
+        return lazyInstanceBridge(&DZNEmptyExtensionKeys.emptyBridgeContext) { () -> DZNEmptyDataSetBridge in
+            DZNEmptyDataSetBridge.init(with: scrollView, viewModel: viewModel as! ViewModelEmptiable)
+        }
+    }
+    
     /// 配置空数据
     final func setupOptionalEmptyData() {
         
@@ -33,41 +47,27 @@ extension VMScrollViewController: EmptyDataTap {
             }
             if source != nil {
                 self.DZNEmptyBridge.sourceCallback = { [weak self] in
-                    guard let `self` = self else { return nil }
-                    return self as? DZNEmptyDataSetSourceable
+                    guard let weakself = self else {
+                        return nil
+                    }
+                    return weakself as? DZNEmptyDataSetSourceable
                 }
             }
             if delegate != nil {
                 self.DZNEmptyBridge.delegateCallback = { [weak self] in
-                    guard let `self` = self else { return nil }
-                    return self as? DZNEmptyDataSetDelegateable
+                    guard let weakself = self else {
+                        return nil
+                    }
+                    return weakself as? DZNEmptyDataSetDelegateable
                 }
             }
         }
         
         vm.isEmptyData.subscribe { [weak self] (empty) in
-            guard let `self` = self, let boo = empty.element, boo else { return }
-            self.scrollView.reloadEmptyDataSet()
+            guard let isEmpty = empty.element, isEmpty else {
+                return
+            }
+            self?.scrollView.reloadEmptyDataSet()
         }.disposed(by: disposeBag)
-    }
-}
-
-fileprivate var DZNEmptyDataContext: UInt8 = 0
-
-extension VMScrollViewController {
-    
-    private var DZNEmptyBridge: DZNEmptyDataSetBridge {
-        return lazyInstanceBridge(&DZNEmptyDataContext) { () -> DZNEmptyDataSetBridge in
-            DZNEmptyDataSetBridge.init(with: scrollView, viewModel: viewModel as! ViewModelEmptiable)
-        }
-    }
-    
-    private func lazyInstanceBridge<T: AnyObject>(_ key: UnsafeRawPointer, createCachedBridge: () -> T) -> T {
-        if let value = objc_getAssociatedObject(self, key) as? T {
-            return value
-        }
-        let bridge = createCachedBridge()
-        objc_setAssociatedObject(self, key, bridge, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        return bridge
     }
 }

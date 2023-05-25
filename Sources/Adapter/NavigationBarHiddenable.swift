@@ -13,7 +13,7 @@ public protocol NavigationBarHiddenable { }
 
 fileprivate var PreviousNavigationHiddenContext: UInt8 = 0
 
-extension BaseViewController {
+extension BasicsViewController {
     
     private var previousNavigationHidden: Bool? {
         get {
@@ -31,7 +31,7 @@ extension BaseViewController {
     }
 }
 
-extension BaseViewController {
+extension BasicsViewController {
     
     final func setupNavigationBarHiddenableViewWillAppear(_ animated: Bool) {
         if self is NavigationBarHiddenable {

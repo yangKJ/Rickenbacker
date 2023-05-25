@@ -16,7 +16,7 @@
 /// 继承时需指定 ViewModel 或其子类作为泛型。该类会自动懒加载指定类型的 VM 对象。
 /// When inheriting, you need to specify ViewModel or its subclasses as generics.
 /// This class will automatically lazy load VM objects of the specified type.
-open class VMViewController<T: ViewModel> : BaseViewController {
+open class VMViewController<T: ViewModel> : BasicsViewController {
     
     public let viewModel: T
     public var disposeBag: DisposeBag {

@@ -63,7 +63,9 @@ extension UINavigationController {
         var cons = viewControllers
         var i = 0
         while i < cons.count {
-            if cons.indices.contains(i), removeTypes.contains { type(of: cons[i]) == $0 } {
+            if cons.indices.contains(i), removeTypes.contains(where: { removeType in
+                type(of: cons[i]) == removeType
+            }) {
                 cons.remove(at: i)
                 i -= 1
             }

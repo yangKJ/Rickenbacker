@@ -6,12 +6,10 @@
 //
 
 import Foundation
-import RxRelay
+import RxCocoa
 
 /// 参考用例
 /// https://github.com/yangKJ/Rickenbacker/blob/master/Rickenbacker/Modules/DZNEmptyDataSet/EmptyViewModel.swift
-
-fileprivate var EmptyDataContext: UInt8 = 0
 
 public protocol ViewModelEmptiable {
     /// 空数据
@@ -22,16 +20,16 @@ extension ViewModelEmptiable {
     
     public var isEmptyData: BehaviorRelay<Bool> {
         get {
-            if let empty = objc_getAssociatedObject(self, &EmptyDataContext) {
+            if let empty = objc_getAssociatedObject(self, &DZNEmptyExtensionKeys.isEmptyDataContext) {
                 return empty as! BehaviorRelay<Bool>
             } else {
                 let empty: BehaviorRelay<Bool> = BehaviorRelay(value: false)
-                objc_setAssociatedObject(self, &EmptyDataContext, empty, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+                objc_setAssociatedObject(self, &DZNEmptyExtensionKeys.isEmptyDataContext, empty, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
                 return empty
             }
         }
         set {
-            objc_setAssociatedObject(self, &EmptyDataContext, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &DZNEmptyExtensionKeys.isEmptyDataContext, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
 }

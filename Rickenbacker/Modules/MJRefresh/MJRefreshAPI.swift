@@ -32,9 +32,6 @@ fileprivate struct NetworkService {
         let items = (0 ... 19).map { _ in
             "current page = \(page), Random data \(Int(arc4random() % 700))"
         }
-        let observable = Observable.just(items)
-        return observable
-            .delay(.seconds(1), scheduler: MainScheduler.instance)
-            .asDriver(onErrorDriveWith: Driver.empty())
+        return Driver.just(items).delay(.seconds(1))
     }
 }

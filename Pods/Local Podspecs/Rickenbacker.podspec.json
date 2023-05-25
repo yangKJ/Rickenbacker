@@ -1,6 +1,6 @@
 {
   "name": "Rickenbacker",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "summary": "MVVM + RxSwift Project Architecture.",
   "homepage": "https://github.com/yangKJ/Rickenbacker",
   "description": "https://github.com/yangKJ/Rickenbacker/blob/master/README.md",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/yangKJ/Rickenbacker.git",
-    "tag": "1.1.0"
+    "tag": "1.1.1"
   },
   "social_media_url": "https://juejin.cn/user/1987535102554472/posts",
   "platforms": {
@@ -40,8 +40,8 @@
       }
     },
     {
-      "name": "RxTools",
-      "source_files": "Sources/RxTools/*.swift",
+      "name": "Rx",
+      "source_files": "Sources/Rx/*.swift",
       "dependencies": {
         "RxSwift": [
 
@@ -58,7 +58,7 @@
       "name": "Adapter",
       "source_files": "Sources/Adapter/*.swift",
       "dependencies": {
-        "Rickenbacker/RxTools": [
+        "Rickenbacker/Rx": [
 
         ]
       }

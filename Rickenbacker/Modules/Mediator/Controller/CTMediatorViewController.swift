@@ -9,7 +9,7 @@
 import UIKit
 import Rickenbacker
 
-class CTMediatorViewController: BaseViewController {
+class CTMediatorViewController: BasicsViewController {
     
     lazy var pushButton: UIButton = {
         let button = UIButton.init(type: .custom)

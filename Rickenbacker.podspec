@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Rickenbacker'
-  s.version          = '1.1.2'
+  s.version          = '1.1.3'
   s.summary          = 'MVVM + RxSwift Project Architecture.'
   
   # This description is used to generate tags and improve search results.
@@ -35,7 +35,7 @@ Pod::Spec.new do |s|
   
   s.subspec 'Boxs' do |xx|
     xx.source_files = 'Sources/Boxs/*.swift'
-    xx.resource_bundles = { 'Rickenbacker' => ['Sources/Boxs/*.{xcassets,lproj}'] }
+    xx.resource = ['Sources/Boxs/*.bundle']
   end
   
   s.subspec 'Rx' do |xx|
@@ -60,8 +60,8 @@ Pod::Spec.new do |s|
     xx.dependency 'Rickenbacker/Adapter'
     xx.dependency 'MJRefresh'
     xx.pod_target_xcconfig = {
-      'SWIFT_ACTIVE_COMPILATION_CONDITIONS' => 'Rickenbacker_VMScrollViewController_MJRefresh',
-      'GCC_PREPROCESSOR_DEFINITIONS' => 'Rickenbacker_VMScrollViewController_MJRefresh=1'
+      'SWIFT_ACTIVE_COMPILATION_CONDITIONS' => 'RICKENBACKER_MJREFRESH',
+      'GCC_PREPROCESSOR_DEFINITIONS' => 'RICKENBACKER_MJREFRESH=1'
     }
   end
   
@@ -70,8 +70,8 @@ Pod::Spec.new do |s|
     xx.dependency 'Rickenbacker/Adapter'
     xx.dependency 'DZNEmptyDataSet'
     xx.pod_target_xcconfig = {
-      'SWIFT_ACTIVE_COMPILATION_CONDITIONS' => 'Rickenbacker_VMScrollViewController_DZNEmptyDataSet',
-      'GCC_PREPROCESSOR_DEFINITIONS' => 'Rickenbacker_VMScrollViewController_DZNEmptyDataSet=1'
+      'SWIFT_ACTIVE_COMPILATION_CONDITIONS' => 'RICKENBACKER_DZNEMPTYDATASET',
+      'GCC_PREPROCESSOR_DEFINITIONS' => 'RICKENBACKER_DZNEMPTYDATASET=1'
     }
   end
   

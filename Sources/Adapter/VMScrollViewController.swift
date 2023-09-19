@@ -36,12 +36,12 @@ open class VMScrollViewController<T: ViewModel>: VMViewController<T> {
         view.addSubview(scrollView)
         
         // 是否包含刷新模块
-        #if Rickenbacker_VMScrollViewController_MJRefresh
+        #if RICKENBACKER_MJREFRESH
         self.setupOptionalRefresh()
         #endif
         
         // 是否包含空数据模块
-        #if Rickenbacker_VMScrollViewController_DZNEmptyDataSet
+        #if RICKENBACKER_DZNEMPTYDATASET
         self.setupOptionalEmptyData()
         #endif
     }

@@ -37,9 +37,7 @@ public protocol ViewModelType {
     func transform(input: Input) -> Output
 }
 
-open class ViewModel: NSObject, ViewModelPrefix {
-    
-    public lazy var disposeBag = DisposeBag()
+open class ViewModel: NSObject, ViewModelPrefix, HasDisposeBag {
     
     required public override init() { }
     

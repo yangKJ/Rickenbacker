@@ -12,37 +12,35 @@ public struct R {
     
     /// Load image resources
     public static func image(_ named: String, forResource: String = "Rickenbacker") -> UIImage {
-        let imageblock = { (name: String) -> UIImage in
-            return UIImage(named: named) ?? UIImage()
+        if let image = UIImage.init(named: named) {
+            return image
         }
-        guard let bundlePath = Bundle.main.path(forResource: forResource, ofType: "bundle") else {
-            return imageblock(named)
+        let containnerBundle = readFrameworkBundle(with: forResource)
+        if let image = UIImage(named: named, in: containnerBundle, compatibleWith: nil) {
+            return image
         }
-        let bundle = Bundle.init(path: bundlePath)
-        guard let image = UIImage(named: named, in: bundle, compatibleWith: nil) else {
-            return imageblock(named)
-        }
-        return image
+        return UIImage()
     }
     
     /// Read multilingual text resources
-    public static func text(_ string: String, forResource: String = "Rickenbacker", comment: String = "Localizable") -> String {
-        guard let bundlePath = Bundle.main.path(forResource: forResource, ofType: "bundle"),
-              let bundle = Bundle.init(path: bundlePath) else {
-            return string
+    public static func text(_ key: String, forResource: String = "Rickenbacker", comment: String = "Localizable") -> String {
+        guard let bundle = readFrameworkBundle(with: forResource) else {
+            return key
         }
-        return NSLocalizedString(string, tableName: nil, bundle: bundle, value: "", comment: comment)
+        return NSLocalizedString(key, tableName: nil, bundle: bundle, value: "", comment: comment)
     }
     
     /// Read color resource
     @available(iOS 11.0, *)
-    public static func color(_ string: String, forResource: String = "Rickenbacker") -> UIColor? {
-        guard let bundlePath = Bundle.main.path(forResource: forResource, ofType: "bundle"),
-              let bundle = Bundle.init(path: bundlePath),
-              let color = UIColor(named: string, in: bundle, compatibleWith: nil) else {
+    public static func color(_ named: String, forResource: String = "Rickenbacker") -> UIColor? {
+        if let color = UIColor.init(named: named) {
+            return color
+        }
+        guard let bundlePath = Bundle.main.path(forResource: forResource, ofType: "bundle") else {
             return nil
         }
-        return color
+        let bundle = Bundle.init(path: bundlePath)
+        return UIColor(named: named, in: bundle, compatibleWith: nil)
     }
     
     /// Read json data
@@ -60,5 +58,23 @@ public struct R {
         }
         let contentURL = URL(fileURLWithPath: path)
         return try? Data(contentsOf: contentURL)
+    }
+    
+    public static func readFrameworkBundle(with bundleName: String) -> Bundle? {
+        let candidates = [
+            // Bundle should be present here when the package is linked into an App.
+            Bundle.main.resourceURL,
+            // Bundle should be present here when the package is linked into a framework.
+            Bundle(for: NSObject.self).resourceURL,
+            // For command-line tools.
+            Bundle.main.bundleURL,
+        ]
+        for candidate in candidates {
+            let bundlePath = candidate?.appendingPathComponent(bundleName + ".bundle")
+            if let bundle = bundlePath.flatMap(Bundle.init(url:)) {
+                return bundle
+            }
+        }
+        return nil
     }
 }

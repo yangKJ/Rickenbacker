@@ -15,9 +15,9 @@ class MJRefreshViewController: VMTableViewController<MJRefreshViewModel> {
     
     lazy var resetBarButton: UIBarButtonItem = {
         let barButton = UIBarButtonItem.init(title: "Reset", style: .plain, target: nil, action: nil)
-        barButton.rx.tap
-            .bind(to: tableView.mj_header!.rx.beginRefreshing)
-            .disposed(by: disposeBag)
+        barButton.rx.tap.subscribe(onNext: { [weak self] _ in
+            self?.tableView.mj_header?.rx.beginRefreshing.onNext(())
+        }).disposed(by: disposeBag)
         return barButton
     }()
     

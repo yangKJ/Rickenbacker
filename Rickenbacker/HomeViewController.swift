@@ -8,6 +8,7 @@
 
 import UIKit
 import Rickenbacker
+import HBDNavigationBar
 
 class HomeViewController: UIViewController {
     
@@ -22,7 +23,7 @@ class HomeViewController: UIViewController {
         tableView.sectionFooterHeight = 0.00001
         tableView.showsVerticalScrollIndicator = false
         tableView.showsHorizontalScrollIndicator = false
-        tableView.backgroundColor = R.color("background")
+        tableView.backgroundColor = UIColor.white
         //tableView.separatorStyle = .none
         if #available(iOS 11, *) {
             tableView.contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.never
@@ -41,7 +42,7 @@ class HomeViewController: UIViewController {
     
     func setupInit() {
         self.title = "Case"
-        self.view.backgroundColor = R.color("background")
+        self.view.backgroundColor = UIColor.white
         self.hbd_barShadowHidden = true
     }
     
@@ -63,7 +64,7 @@ class HomeViewController: UIViewController {
             let cell = UITableViewCell(style: .value1, reuseIdentifier: HomeViewController.homeCellIdentifier)
             cell.selectionStyle = .none
             cell.accessoryType = .disclosureIndicator
-            cell.textLabel?.textColor = R.color("defaultTint")
+            cell.textLabel?.textColor = UIColor.black
             cell.textLabel?.text = "\(row + 1). " + element.rawValue
             cell.textLabel?.font = UIFont.systemFont(ofSize: 14)
             return cell

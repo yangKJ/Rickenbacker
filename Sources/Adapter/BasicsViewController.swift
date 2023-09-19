@@ -38,11 +38,11 @@ open class BasicsViewController: UIViewController {
         
         self.navigationItem.hidesBackButton = true
         self.navigationItem.leftBarButtonItem = self.backBarButton
+        self.view.backgroundColor = UIColor.white
         if #available(iOS 11.0, *) {
-            self.view.backgroundColor = R.color("background")
+            //self.view.backgroundColor = R.color("background")
             UIScrollView.appearance().contentInsetAdjustmentBehavior = .never
         } else {
-            self.view.backgroundColor = UIColor.white
             automaticallyAdjustsScrollViewInsets = false
         }
     }

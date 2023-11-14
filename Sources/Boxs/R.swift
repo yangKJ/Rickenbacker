@@ -15,8 +15,8 @@ public struct R {
         if let image = UIImage.init(named: named) {
             return image
         }
-        let containnerBundle = readFrameworkBundle(with: forResource)
-        if let image = UIImage(named: named, in: containnerBundle, compatibleWith: nil) {
+        let bundle = readFrameworkBundle(with: forResource)
+        if let image = UIImage(named: named, in: bundle, compatibleWith: nil) {
             return image
         }
         return UIImage()
@@ -36,10 +36,9 @@ public struct R {
         if let color = UIColor.init(named: named) {
             return color
         }
-        guard let bundlePath = Bundle.main.path(forResource: forResource, ofType: "bundle") else {
+        guard let bundle = readFrameworkBundle(with: forResource) else {
             return nil
         }
-        let bundle = Bundle.init(path: bundlePath)
         return UIColor(named: named, in: bundle, compatibleWith: nil)
     }
     
@@ -65,7 +64,7 @@ public struct R {
             // Bundle should be present here when the package is linked into an App.
             Bundle.main.resourceURL,
             // Bundle should be present here when the package is linked into a framework.
-            Bundle(for: NSObject.self).resourceURL,
+            Bundle(for: R__.self).resourceURL,
             // For command-line tools.
             Bundle.main.bundleURL,
         ]
@@ -75,6 +74,30 @@ public struct R {
                 return bundle
             }
         }
-        return nil
+        return Bundle(for: R__.self)
+    }
+}
+
+fileprivate final class R__ { }
+
+extension R {
+    
+    public static func readImage(_ named: String, ofType: String = "png") -> UIImage? {
+        let containnerBundle = Bundle(for: R__.self)
+        let nameScale = named + "@\(Int(UIScreen.main.scale))x"
+        guard let resourcePath = containnerBundle.path(forResource: "Rickenbacker", ofType: "bundle"),
+              let bundle = Bundle.init(path: resourcePath),
+              let path = bundle.path(forResource: nameScale, ofType: ofType) else {
+            return nil
+        }
+        return UIImage.init(contentsOfFile: path)
+    }
+    
+    public static var base_black_back: UIImage? {
+        readImage("base_black_back")?.withRenderingMode(.alwaysTemplate)
+    }
+    
+    public static var base_black_close: UIImage? {
+        readImage("base_black_close")?.withRenderingMode(.alwaysTemplate)
     }
 }

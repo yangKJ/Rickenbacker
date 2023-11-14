@@ -15,7 +15,7 @@ open class BasicsViewController: UIViewController {
     public var wasForceRemoved = false
     
     public lazy var backBarButton: UIBarButtonItem = {
-        let barButton = UIBarButtonItem(image: R.image("base_black_back"),
+        let barButton = UIBarButtonItem(image: R.base_black_back,
                                         style: .plain,
                                         target: self,
                                         action: #selector(BasicsViewController.backAction))

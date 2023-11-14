@@ -11,7 +11,8 @@ import RxCocoa
 /// 参考用例
 /// https://github.com/yangKJ/Rickenbacker/blob/master/Rickenbacker/Modules/DZNEmptyDataSet/EmptyViewModel.swift
 
-public protocol ViewModelEmptiable {
+/// 继承AnyObject，主要为了限制实现该协议类来自NSObject，否则存储属性扩展无效。
+public protocol ViewModelEmptiable: AnyObject {
     /// 空数据
     var isEmptyData: BehaviorRelay<Bool> { get set }
 }

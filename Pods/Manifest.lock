@@ -2,24 +2,24 @@ PODS:
   - DZNEmptyDataSet (1.8.1)
   - HBDNavigationBar (1.9.6)
   - MJRefresh (3.7.5)
-  - Rickenbacker (1.1.3):
-    - Rickenbacker/Adapter (= 1.1.3)
-    - Rickenbacker/Boxs (= 1.1.3)
-    - Rickenbacker/DZNEmptyDataSet (= 1.1.3)
-    - Rickenbacker/Mediator (= 1.1.3)
-    - Rickenbacker/MJRefresh (= 1.1.3)
-    - Rickenbacker/Rx (= 1.1.3)
-  - Rickenbacker/Adapter (1.1.3):
+  - Rickenbacker (1.1.4):
+    - Rickenbacker/Adapter (= 1.1.4)
+    - Rickenbacker/Boxs (= 1.1.4)
+    - Rickenbacker/DZNEmptyDataSet (= 1.1.4)
+    - Rickenbacker/Mediator (= 1.1.4)
+    - Rickenbacker/MJRefresh (= 1.1.4)
+    - Rickenbacker/Rx (= 1.1.4)
+  - Rickenbacker/Adapter (1.1.4):
     - Rickenbacker/Rx
-  - Rickenbacker/Boxs (1.1.3)
-  - Rickenbacker/DZNEmptyDataSet (1.1.3):
+  - Rickenbacker/Boxs (1.1.4)
+  - Rickenbacker/DZNEmptyDataSet (1.1.4):
     - DZNEmptyDataSet
     - Rickenbacker/Adapter
-  - Rickenbacker/Mediator (1.1.3)
-  - Rickenbacker/MJRefresh (1.1.3):
+  - Rickenbacker/Mediator (1.1.4)
+  - Rickenbacker/MJRefresh (1.1.4):
     - MJRefresh
     - Rickenbacker/Adapter
-  - Rickenbacker/Rx (1.1.3):
+  - Rickenbacker/Rx (1.1.4):
     - Rickenbacker/Boxs
     - RxCocoa
     - RxSwift
@@ -51,7 +51,7 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   HBDNavigationBar: a997b65ab7194271e5584b87a952fc851832f692
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
-  Rickenbacker: 97b6fdd9d1239d9baa739578b1a4d64aa3f5188f
+  Rickenbacker: 4da8413090bd79e83b32577e10e182447d1f1814
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8

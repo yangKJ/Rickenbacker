@@ -73,19 +73,30 @@ public struct C {
     }()
     
     public static let topViewController: UIViewController? = {
-        var vc = C.keyWindow?.rootViewController
-        if let presentedController = vc as? UITabBarController {
-            vc = presentedController.selectedViewController
+        let window = UIApplication.shared.delegate?.window
+        guard window != nil, let rootViewController = window?!.rootViewController else {
+            return nil
         }
-        while let presentedController = vc?.presentedViewController {
-            if let presentedController = presentedController as? UITabBarController {
-                vc = presentedController.selectedViewController
-            } else {
-                vc = presentedController
-            }
-        }
-        return vc
+        return getTopViewController(controller: rootViewController)
     }()
+    
+    public static func getTopViewController(controller: UIViewController) -> UIViewController {
+        if let presentedViewController = controller.presentedViewController {
+            return self.getTopViewController(controller: presentedViewController)
+        } else if let navigationController = controller as? UINavigationController {
+            if let topViewController = navigationController.topViewController {
+                return self.getTopViewController(controller: topViewController)
+            }
+            return navigationController
+        } else if let tabbarController = controller as? UITabBarController {
+            if let selectedViewController = tabbarController.selectedViewController {
+                return self.getTopViewController(controller: selectedViewController)
+            }
+            return tabbarController
+        } else {
+            return controller
+        }
+    }
 }
 
 extension C {

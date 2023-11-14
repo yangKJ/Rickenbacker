@@ -8,7 +8,7 @@
 import RxSwift
 import RxCocoa
 
-public protocol RefreshingSubject {
+public protocol RefreshingSubject: AnyObject {
     
     /// 下拉刷新事件可观察序列✌️
     /// Pull down refresh event observable sequence✌️

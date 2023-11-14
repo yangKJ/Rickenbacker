@@ -13,7 +13,7 @@ import RxSwift
 
 fileprivate var RefreshSubjectContext: UInt8 = 0
 
-public protocol ViewModelRefreshable {
+public protocol ViewModelRefreshable: AnyObject {
     /// 刷新状态
     var refreshSubject: BehaviorSubject<RefreshStatus> { get set }
 }

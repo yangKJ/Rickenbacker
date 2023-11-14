@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Rickenbacker'
-  s.version          = '1.1.3'
+  s.version          = '1.1.4'
   s.summary          = 'MVVM + RxSwift Project Architecture.'
   
   # This description is used to generate tags and improve search results.
@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '10.0'
   s.swift_version    = '5.0'
   s.requires_arc     = true
-  s.static_framework = true
+  s.static_framework = false
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0' }
   
   s.module_name      = 'Rickenbacker'
@@ -35,7 +35,8 @@ Pod::Spec.new do |s|
   
   s.subspec 'Boxs' do |xx|
     xx.source_files = 'Sources/Boxs/*.swift'
-    xx.resource = ['Sources/Boxs/*.bundle']
+    #xx.resource = ['Sources/Boxs/*.bundle']
+    xx.resource = 'Sources/Boxs/Rickenbacker.bundle'
   end
   
   s.subspec 'Rx' do |xx|

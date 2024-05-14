@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 /// 常用常量And方法
-public struct C {
+public struct Ces {
     
     public static let px1 = 1.0 / UIScreen.main.scale
     public static let width  = UIScreen.main.bounds.width
@@ -18,7 +18,7 @@ public struct C {
     public static let tabBarHeight = barHeight == 44 ? 83 : 49
     public static let barHeight: CGFloat = {
         if #available(iOS 13.0, *) {
-            return C.keyWindow?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+            return Ces.keyWindow?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
         } else {
             return UIApplication.shared.statusBarFrame.height
         }
@@ -38,7 +38,7 @@ public struct C {
     public static let bottomSafeAreaHeight = tabBarHeight - 49
     public static let safeAreaEdgeInsets: UIEdgeInsets = {
         if #available(iOS 11.0, *) {
-            return C.keyWindow?.safeAreaInsets ?? UIEdgeInsets.zero
+            return Ces.keyWindow?.safeAreaInsets ?? UIEdgeInsets.zero
         } else {
             return UIEdgeInsets.zero
         }
@@ -54,7 +54,7 @@ public struct C {
             return true
         }
         guard #available(iOS 11.0, *) else { return false }
-        if let bottomHeight = C.keyWindow?.safeAreaInsets.bottom {
+        if let bottomHeight = Ces.keyWindow?.safeAreaInsets.bottom {
             return bottomHeight > 30
         }
         return false
@@ -99,7 +99,7 @@ public struct C {
     }
 }
 
-extension C {
+extension Ces {
     
     public static func className(_ obj: Any) -> String {
         let type = Mirror.init(reflecting: obj)

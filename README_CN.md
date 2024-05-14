@@ -15,9 +15,9 @@
 
 ### CatHome
 - 资源模块，主要处理图片资源和文本资源读取
-  - 读取图片资源：`R.image("base_black_back")`
-  - 读取文本资源：`R.text("base_empty_title")`
-  - 读取颜色资源：`R.color("background")`
+  - 读取图片资源：`Res.image("base_black_back")`
+  - 读取文本资源：`Res.text("base_empty_title")`
+  - 读取颜色资源：`Res.color("background")`
 
 ### BeeBox
 - 主要收集[RxSwift](https://github.com/ReactiveX/RxSwift)相关好用方法类等
@@ -129,7 +129,7 @@ class EmptyViewModel: ViewModel, ViewModelEmptiable, ViewModelHeaderable {
 extension DZNEmptyDataSetViewController: DZNEmptyDataSetable {
     
     func DZNEmptyDataSetImage(scrollView: UIScrollView) -> UIImage {
-        return R.image("base_network_error_black")
+        return Res.image("base_network_error_black")
     }
     
     func DZNEmptyDataSetImageTintColor(scrollView: UIScrollView) -> UIColor? {
@@ -137,11 +137,11 @@ extension DZNEmptyDataSetViewController: DZNEmptyDataSetable {
     }
     
     func DZNEmptyDataSetTitle(scrollView: UIScrollView) -> NSAttributedString? {
-        NSAttributedString(string: R.text("TEXT"))
+        NSAttributedString(string: Res.text("TEXT"))
     }
     
     func DZNEmptyDataSetDescription(scrollView: UIScrollView) -> NSAttributedString? {
-        NSAttributedString(string: R.text("测试网络异常展示"))
+        NSAttributedString(string: Res.text("测试网络异常展示"))
     }
     
     func DZNEmptyDataSetVerticalOffset(scrollView: UIScrollView) -> CGFloat {

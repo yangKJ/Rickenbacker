@@ -1,5 +1,5 @@
 //
-//  ResourceManager.swift
+//  Res.swift
 //  Rickenbacker
 //
 //  Created by Condy on 2021/10/2.
@@ -8,7 +8,7 @@
 import Foundation
 
 /// 资源文件读取
-public struct R {
+public struct Res {
     
     /// Load image resources
     public static func image(_ named: String, forResource: String = "Rickenbacker") -> UIImage {
@@ -64,7 +64,7 @@ public struct R {
             // Bundle should be present here when the package is linked into an App.
             Bundle.main.resourceURL,
             // Bundle should be present here when the package is linked into a framework.
-            Bundle(for: R__.self).resourceURL,
+            Bundle(for: Res__.self).resourceURL,
             // For command-line tools.
             Bundle.main.bundleURL,
         ]
@@ -74,16 +74,16 @@ public struct R {
                 return bundle
             }
         }
-        return Bundle(for: R__.self)
+        return Bundle(for: Res__.self)
     }
 }
 
-fileprivate final class R__ { }
+fileprivate final class Res__ { }
 
-extension R {
+extension Res {
     
     public static func readImage(_ named: String, ofType: String = "png") -> UIImage? {
-        let containnerBundle = Bundle(for: R__.self)
+        let containnerBundle = Bundle(for: Res__.self)
         let nameScale = named + "@\(Int(UIScreen.main.scale))x"
         guard let resourcePath = containnerBundle.path(forResource: "Rickenbacker", ofType: "bundle"),
               let bundle = Bundle.init(path: resourcePath),

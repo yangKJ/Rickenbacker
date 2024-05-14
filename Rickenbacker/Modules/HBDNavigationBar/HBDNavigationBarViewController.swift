@@ -14,8 +14,8 @@ class HBDNavigationBarViewController: BasicsViewController {
     
     lazy var backButton: UIButton = {
         let button = UIButton.init(type: .custom)
-        button.frame = CGRect(x: 10, y: C.statusBarHeight, width: 44, height: 44)
-        button.setImage(R.image("base_black_close"), for: .normal)
+        button.frame = CGRect(x: 10, y: Ces.statusBarHeight, width: 44, height: 44)
+        button.setImage(Res.image("base_black_close"), for: .normal)
         button.rx.tap.subscribe { [weak self] _ in
             self?.backAction()
         }.disposed(by: rx.disposeBag)

@@ -11,13 +11,13 @@ import Rickenbacker
 
 class EmptyViewModel: ViewModel, ViewModelEmptiable, ViewModelHeaderable {
     
-    let dataSource: BehaviorRelay<[String]> = BehaviorRelay(value: [])
+    let datas: BehaviorRelay<[String]> = BehaviorRelay(value: [])
     
     func loadData() {
         
         let driver = NetworkService().randomResult().asObservable()
         
-        driver.bind(to: dataSource).disposed(by: disposeBag)
+        driver.bind(to: datas).disposed(by: disposeBag)
         
         driver.map { $0.isEmpty }.bind(to: isEmptyData).disposed(by: disposeBag)
         

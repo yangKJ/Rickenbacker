@@ -48,7 +48,7 @@ class HomeViewController: UIViewController {
     
     func setupUI() {
         self.view.addSubview(self.tableView)
-        tableView.contentInset = UIEdgeInsets(top: C.navigationHeight, left: 0, bottom: 0, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: Ces.navigationHeight, left: 0, bottom: 0, right: 0)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -60,7 +60,7 @@ class HomeViewController: UIViewController {
     
     func setupBinding() {
         /// 绑定数据源
-        viewModel.datasObservable.bind(to: tableView.rx.items) { (tableView, row, element) in
+        viewModel.outputs.datas.bind(to: tableView.rx.items) { (tableView, row, element) in
             let cell = UITableViewCell(style: .value1, reuseIdentifier: HomeViewController.homeCellIdentifier)
             cell.selectionStyle = .none
             cell.accessoryType = .disclosureIndicator

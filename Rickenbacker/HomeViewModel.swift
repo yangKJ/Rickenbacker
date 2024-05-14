@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import Rickenbacker
 
 enum ViewControllerType: String {
     case HBDNavigationBar = "Navigation"
@@ -34,9 +35,9 @@ enum ViewControllerType: String {
     }
 }
 
-class HomeViewModel: NSObject {
+class HomeViewModel: ViewModel {
     /// 可观察数据源
-    let datasObservable = Observable<Array<ViewControllerType>>.of([
+    let datas = Observable<Array<ViewControllerType>>.of([
         .HBDNavigationBar,
         .CTMediator,
         .MJRefresh,

@@ -8,6 +8,7 @@
 
 import UIKit
 import Rickenbacker
+import HBDNavigationBar
 
 class DZNEmptyDataSetViewController: VMTableViewController<EmptyViewModel> {
     
@@ -53,7 +54,7 @@ class DZNEmptyDataSetViewController: VMTableViewController<EmptyViewModel> {
             Log.debug(element)
         }).disposed(by: disposeBag)
         
-        viewModel.outputs.dataSource.bind(to: tableView.rx.items) { (tableView, row, element) in
+        viewModel.outputs.datas.bind(to: tableView.rx.items) { (tableView, row, element) in
             let cell = tableView.dequeueReusableCell(withIdentifier: DZNEmptyDataSetViewController.identifier)!
             cell.selectionStyle = .none
             cell.accessoryType = .disclosureIndicator
@@ -64,7 +65,7 @@ class DZNEmptyDataSetViewController: VMTableViewController<EmptyViewModel> {
             return cell
         }.disposed(by: disposeBag)
         
-        viewModel.isEmptyData.subscribe { (empty) in
+        viewModel.outputs.isEmptyData.subscribe { (empty) in
             Log.debug(empty.element)
         }.disposed(by: disposeBag)
         
@@ -86,7 +87,7 @@ class DZNEmptyDataSetViewController: VMTableViewController<EmptyViewModel> {
 extension DZNEmptyDataSetViewController: DZNEmptyDataSetable {
     
     func DZNEmptyDataSetImage(scrollView: UIScrollView) -> UIImage {
-        return R.image("base_network_error_black")
+        return Res.image("base_network_error_black")
     }
     
     func DZNEmptyDataSetImageTintColor(scrollView: UIScrollView) -> UIColor? {
@@ -94,11 +95,11 @@ extension DZNEmptyDataSetViewController: DZNEmptyDataSetable {
     }
     
     func DZNEmptyDataSetTitle(scrollView: UIScrollView) -> NSAttributedString? {
-        NSAttributedString(string: R.text("TEXT"))
+        NSAttributedString(string: Res.text("TEXT"))
     }
     
     func DZNEmptyDataSetDescription(scrollView: UIScrollView) -> NSAttributedString? {
-        NSAttributedString(string: R.text("测试网络异常展示"))
+        NSAttributedString(string: Res.text("测试网络异常展示"))
     }
     
     func DZNEmptyDataSetVerticalOffset(scrollView: UIScrollView) -> CGFloat {

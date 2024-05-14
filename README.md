@@ -32,19 +32,19 @@ Resource module, which mainly deals with image resource and text resource readin
 - Read image resource: 
 
 ```
-R.image("base_black_back")
+Res.image("base_black_back")
 ```
 
 - Read text resource: 
 
 ```
-R.text("base_empty_title")
+Res.text("base_empty_title")
 ```
 
 - Read color resource:
 
 ```
-R.color("background")
+Res.color("background")
 ```
 
 ### BeeBox
@@ -156,7 +156,7 @@ Test case:
 extension DZNEmptyDataSetViewController: DZNEmptyDataSetable {
     
     func DZNEmptyDataSetImage(scrollView: UIScrollView) -> UIImage {
-        return R.image("base_network_error_black")
+        return Res.image("base_network_error_black")
     }
     
     func DZNEmptyDataSetImageTintColor(scrollView: UIScrollView) -> UIColor? {
@@ -164,11 +164,11 @@ extension DZNEmptyDataSetViewController: DZNEmptyDataSetable {
     }
     
     func DZNEmptyDataSetTitle(scrollView: UIScrollView) -> NSAttributedString? {
-        NSAttributedString(string: R.text("TEXT"))
+        NSAttributedString(string: Res.text("TEXT"))
     }
     
     func DZNEmptyDataSetDescription(scrollView: UIScrollView) -> NSAttributedString? {
-        NSAttributedString(string: R.text("测试网络异常展示"))
+        NSAttributedString(string: Res.text("测试网络异常展示"))
     }
     
     func DZNEmptyDataSetVerticalOffset(scrollView: UIScrollView) -> CGFloat {

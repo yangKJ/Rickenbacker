@@ -21,7 +21,7 @@ class CScrollViewController: VMScrollViewController<CScrollViewModel> {
         guard let collectionView = scrollView as? CScrollView else { return }
         let width = self.view.frame.size.width / 3 - 10
         collectionView.layout.itemSize = CGSize(width: width, height: width)
-        collectionView.contentInset = UIEdgeInsets(top: C.navigationHeight, left: 0, bottom: 0, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: Ces.navigationHeight, left: 0, bottom: 0, right: 0)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -56,7 +56,7 @@ class CScrollViewController: VMScrollViewController<CScrollViewModel> {
 extension CScrollViewController: DZNEmptyDataSetable {
     
     func DZNEmptyDataSetImage(scrollView: UIScrollView) -> UIImage {
-        return R.image("base_network_error_white")
+        return Res.image("base_network_error_white")
     }
     
     func DZNEmptyDataSetImageTintColor(scrollView: UIScrollView) -> UIColor? {
@@ -64,11 +64,11 @@ extension CScrollViewController: DZNEmptyDataSetable {
     }
     
     func DZNEmptyDataSetTitle(scrollView: UIScrollView) -> NSAttributedString? {
-        NSAttributedString(string: R.text("TEXT"))
+        NSAttributedString(string: Res.text("TEXT"))
     }
     
     func DZNEmptyDataSetDescription(scrollView: UIScrollView) -> NSAttributedString? {
-        NSAttributedString(string: R.text("上拉刷新可加载更多"))
+        NSAttributedString(string: Res.text("上拉刷新可加载更多"))
     }
     
     func DZNEmptyDataSetVerticalOffset(scrollView: UIScrollView) -> CGFloat {

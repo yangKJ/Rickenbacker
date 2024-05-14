@@ -60,7 +60,7 @@ extension BasicsViewController {
     
     final func setupNavigationBarHiddenableViewDidAppear(_ animated: Bool) {
         DispatchQueue.main.async {
-            guard let top = self.navigationController?.topViewController, top == self else {
+            guard let top = self.navigationController?.topViewController, top == self.realSelf else {
                 return
             }
             if !(self is NavigationBarHiddenable) && (self.navigationController?.isNavigationBarHidden ?? false) {

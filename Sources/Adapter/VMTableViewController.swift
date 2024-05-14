@@ -65,7 +65,7 @@ open class VMTableViewController<T: ViewModel>: VMScrollViewController<T> {
     }
     
     final func setupTableView() {
-        tableView.contentInset = UIEdgeInsets(top: C.navigationHeight, left: 0, bottom: 0, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: Ces.navigationHeight, left: 0, bottom: 0, right: 0)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.frame = view.bounds
         tableView.rx.itemSelected.bind { [weak self] in

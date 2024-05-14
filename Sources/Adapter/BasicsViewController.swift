@@ -14,8 +14,18 @@ open class BasicsViewController: UIViewController {
     /// When you jump to the next view controller after opening, this view controller will be removed from the stack.
     public var wasForceRemoved = false
     
+    public var realSelf: UIViewController {
+        get {
+            var realSelf: UIViewController = self
+            while let par = realSelf.parent, !(par is UINavigationController) {
+                realSelf = par
+            }
+            return realSelf
+        }
+    }
+    
     public lazy var backBarButton: UIBarButtonItem = {
-        let barButton = UIBarButtonItem(image: R.base_black_back,
+        let barButton = UIBarButtonItem(image: Res.base_black_back,
                                         style: .plain,
                                         target: self,
                                         action: #selector(BasicsViewController.backAction))
@@ -49,20 +59,8 @@ open class BasicsViewController: UIViewController {
     
     // MARK: - public methods
     
-    @objc dynamic open func backAction() {
-        self.willCloseByUserBlock?(self)
-        if (self.navigationController?.children[0] == self) {
-            self.dismiss(animated: true) {
-                self.closedByUserBlock?(self)
-            }
-            return
-        }
-        self.navigationController?.popViewController(animated: true)
-        self.closedByUserBlock?(self)
-    }
-    
-    var willCloseByUserBlock: ((_ vc: BasicsViewController) -> Void)?
-    var closedByUserBlock: ((_ vc: BasicsViewController) -> Void)?
+    public var willCloseByUserBlock: ((_ vc: BasicsViewController) -> Void)?
+    public var closedByUserBlock: ((_ vc: BasicsViewController) -> Void)?
     
     /// About to close the current page. Click the back button or gesture to return.
     open func setWillCloseByUserBlock(_ block: @escaping (_ vc: BasicsViewController) -> Void) {
@@ -72,6 +70,42 @@ open class BasicsViewController: UIViewController {
     /// It has been successfully closed. Click the back button or gesture to return.
     open func setClosedByUserComplete(_ block: @escaping (_ vc: BasicsViewController) -> Void) {
         self.closedByUserBlock = block
+    }
+    
+    /// Customize the back button click event.
+    @objc dynamic open func backAction() {
+        popoutOrDismiss()
+    }
+    
+    open func popoutOrDismiss(completion: (() -> Void)? = nil) {
+        self.willCloseByUserBlock?(self)
+        if self.presentingViewController != nil {
+            if let count = self.navigationController?.viewControllers.count, count > 1, self.navigationController?.topViewController == realSelf {
+                popout(completion: completion)
+            } else if self.navigationController?.children[0] == self {
+                self.dismiss(animated: true) {
+                    completion?()
+                    self.closedByUserBlock?(self)
+                }
+            } else {
+                popout(completion: completion)
+            }
+        } else {
+            popout(completion: completion)
+        }
+    }
+    
+    private func popout(completion: (() -> Void)? = nil) {
+        if let completion = completion {
+            CATransaction.begin()
+            CATransaction.setCompletionBlock(completion)
+            self.navigationController?.popViewController(animated: true)
+            self.closedByUserBlock?(self)
+            CATransaction.commit()
+        } else {
+            self.navigationController?.popViewController(animated: true)
+            self.closedByUserBlock?(self)
+        }
     }
 }
 
@@ -98,7 +132,7 @@ extension BasicsViewController {
             return
         }
         navigationController?.viewControllers = viewControllers.compactMap({ vc in
-            return vc == self ? nil : vc
+            return vc == self.realSelf ? nil : vc
         })
     }
 }

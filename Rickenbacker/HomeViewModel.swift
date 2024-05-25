@@ -15,6 +15,7 @@ enum ViewControllerType: String {
     case CTMediator = "Mediator"
     case MJRefresh = "Refresh"
     case DZNEmptyDataSet = "EmptyData"
+    case DZNEmptyDataWithoutBasic = "EmptyDataWithoutBasic"
     case CScroll = "VMScrollViewController"
     
     var viewController: UIViewController {
@@ -27,6 +28,8 @@ enum ViewControllerType: String {
             return MJRefreshViewController()
         case .DZNEmptyDataSet:
             return DZNEmptyDataSetViewController()
+        case .DZNEmptyDataWithoutBasic:
+            return DZNEmptyDataSetWithoutBasicViewController()
         case .CScroll:
             let vm = CScrollViewModel.init()
             let view = CScrollView.init(viewModel: vm)
@@ -42,6 +45,7 @@ class HomeViewModel: ViewModel {
         .CTMediator,
         .MJRefresh,
         .DZNEmptyDataSet,
+        .DZNEmptyDataWithoutBasic,
         .CScroll,
     ])
 }

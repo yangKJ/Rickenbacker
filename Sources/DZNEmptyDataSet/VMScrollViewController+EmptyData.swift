@@ -32,7 +32,7 @@ extension VMScrollViewController: EmptyDataTap {
     }
     
     /// 配置空数据
-    final func setupOptionalEmptyData() {
+    public func setupOptionalEmptyData() {
         
         guard let vm = viewModel as? ViewModelEmptiable else { return }
         

@@ -35,12 +35,13 @@ DEPENDENCIES:
   - Rickenbacker (from `./`)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
     - DZNEmptyDataSet
     - HBDNavigationBar
     - MJRefresh
     - RxCocoa
     - RxRelay
+  trunk:
     - RxSwift
 
 EXTERNAL SOURCES:
@@ -56,6 +57,6 @@ SPEC CHECKSUMS:
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
 
-PODFILE CHECKSUM: c8f9201e04f846756408f445c10a80feae17e3b1
+PODFILE CHECKSUM: 8f105417e4f7ead69bd1657ead922efc82235009
 
 COCOAPODS: 1.15.2

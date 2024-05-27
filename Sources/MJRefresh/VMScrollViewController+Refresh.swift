@@ -11,11 +11,11 @@ import RxCocoa
 
 extension VMScrollViewController: RefreshingSubject {
     
-//    @_dynamicReplacement(for: setupScrollSubRefresh())
-//    private func swizzled_setupScrollSubRefresh() {
-//        setupScrollSubRefresh()
-//        setupOptionalRefresh()
-//    }
+    //    @_dynamicReplacement(for: setupScrollSubRefresh())
+    //    private func swizzled_setupScrollSubRefresh() {
+    //        setupScrollSubRefresh()
+    //        setupOptionalRefresh()
+    //    }
     
     /// 配置刷新相关
     final func setupOptionalRefresh() {
@@ -28,8 +28,7 @@ extension VMScrollViewController: RefreshingSubject {
                 scrollView.mj_header?.beginRefreshing()
             }
             scrollView.mj_header?.rx.refreshing
-                .asDriver()
-                .drive(onNext: { [weak self] _ in
+                .subscribe(onNext: { [weak self] _ in
                     vm.refreshSubject.onNext(.resetNomoreData)
                     self?.headerRefreshing.onNext(())
                 }).disposed(by: disposeBag)
@@ -38,8 +37,7 @@ extension VMScrollViewController: RefreshingSubject {
         if let footer = viewModel as? ViewModelFooterable {
             scrollView.mj_footer = footer.footer
             scrollView.mj_footer?.rx.refreshing
-                .asDriver()
-                .drive(onNext: { [weak self] _ in
+                .subscribe(onNext: { [weak self] _ in
                     guard let `self` = self else { return }
                     self.footerRefreshing.onNext(())
                 }).disposed(by: disposeBag)

@@ -14,6 +14,7 @@ enum ViewControllerType: String {
     case HBDNavigationBar = "Navigation"
     case CTMediator = "Mediator"
     case MJRefresh = "Refresh"
+    case MJRefreshWithoutBasic = "RefreshWithoutBasic"
     case DZNEmptyDataSet = "EmptyData"
     case DZNEmptyDataWithoutBasic = "EmptyDataWithoutBasic"
     case CScroll = "VMScrollViewController"
@@ -26,6 +27,8 @@ enum ViewControllerType: String {
             return CTMediatorViewController()
         case .MJRefresh:
             return MJRefreshViewController()
+        case .MJRefreshWithoutBasic:
+            return MJRefreshWithoutBasicViewController()
         case .DZNEmptyDataSet:
             return DZNEmptyDataSetViewController()
         case .DZNEmptyDataWithoutBasic:
@@ -44,6 +47,7 @@ class HomeViewModel: ViewModel {
         .HBDNavigationBar,
         .CTMediator,
         .MJRefresh,
+        .MJRefreshWithoutBasic,
         .DZNEmptyDataSet,
         .DZNEmptyDataWithoutBasic,
         .CScroll,

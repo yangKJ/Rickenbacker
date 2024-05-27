@@ -12,10 +12,10 @@ public protocol RefreshingSubject: AnyObject {
     
     /// 下拉刷新事件可观察序列✌️
     /// Pull down refresh event observable sequence✌️
-    var headerRefreshing: PublishSubject<Void> { get set } // = PublishSubject()
+    var headerRefreshing: PublishSubject<Void> { get set }
     /// 上拉加载更多事件可观察序列✌️
     /// Pull up to load more event observable sequences✌️
-    var footerRefreshing: PublishSubject<Void> { get set } // = PublishSubject()
+    var footerRefreshing: PublishSubject<Void> { get set }
 }
 
 fileprivate var HeaderRefreshingContext: UInt8 = 0

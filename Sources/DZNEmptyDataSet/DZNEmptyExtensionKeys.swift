@@ -12,4 +12,5 @@ struct DZNEmptyExtensionKeys {
     static var viewTapContext: Void?
     static var isEmptyDataContext: Void?
     static var emptyBridgeContext: Void?
+    static var ViewEmptiableDisposeBagContext: Void?
 }

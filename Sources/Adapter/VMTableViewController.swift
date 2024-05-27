@@ -27,7 +27,8 @@ open class VMTableViewController<T: ViewModel>: VMScrollViewController<T> {
         table.showsVerticalScrollIndicator = false
         table.showsHorizontalScrollIndicator = false
         table.cellLayoutMarginsFollowReadableWidth = false
-        table.tableFooterView = UIView()
+        table.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: Ces.width, height: 0.1))
+        table.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: Ces.width, height: 0.1))
         table.separatorStyle = UITableViewCell.SeparatorStyle.none
         table.keyboardDismissMode = UIScrollView.KeyboardDismissMode.onDrag
         if #available(iOS 11, *) {

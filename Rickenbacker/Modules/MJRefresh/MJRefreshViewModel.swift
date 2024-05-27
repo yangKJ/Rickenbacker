@@ -22,7 +22,7 @@ final class MJRefreshViewModel: ViewModel, ViewModelEmptiable {
 extension MJRefreshViewModel: ViewModelHeaderable, ViewModelFooterable {
     
     var enterBeginRefresh: Bool {
-        return false
+        return true
     }
     
     var footer: MJRefreshFooter {

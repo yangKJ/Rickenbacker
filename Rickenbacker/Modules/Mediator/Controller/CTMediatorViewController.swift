@@ -33,7 +33,7 @@ class CTMediatorViewController: BasicsViewController {
             guard let vc = Mediator.Second_viewController(title: "biaoti") else {
                 return
             }
-            self?.navigationController?.pushViewController(vc, removeType: CTMediatorViewController.self, animated: true)
+            self?.navigationController?.pushViewController(vc, animated: true)
         }.disposed(by: rx.disposeBag)
     }
 }

@@ -24,6 +24,8 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		68C01E9227907CE0009CFC9C /* MJRefreshAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C01E9127907CE0009CFC9C /* MJRefreshAPI.swift */; };
 		70B879DD2C01C0960030291B /* DZNEmptyDataSetWithoutBasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B879DC2C01C0960030291B /* DZNEmptyDataSetWithoutBasicViewController.swift */; };
+		8725477E2C07073300C437B8 /* NSObject+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8725477C2C07073300C437B8 /* NSObject+Rx.swift */; };
+		8725477F2C07073300C437B8 /* HasDisposeBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8725477D2C07073300C437B8 /* HasDisposeBag.swift */; };
 		874083D82848A78800791A64 /* CScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874083D72848A78800791A64 /* CScrollViewController.swift */; };
 		874083DA2848A7A700791A64 /* CScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874083D92848A7A700791A64 /* CScrollView.swift */; };
 		874083DC2848A7E900791A64 /* CScrollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874083DB2848A7E900791A64 /* CScrollViewModel.swift */; };
@@ -55,6 +57,8 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		68C01E9127907CE0009CFC9C /* MJRefreshAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MJRefreshAPI.swift; sourceTree = "<group>"; };
 		70B879DC2C01C0960030291B /* DZNEmptyDataSetWithoutBasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DZNEmptyDataSetWithoutBasicViewController.swift; sourceTree = "<group>"; };
+		8725477C2C07073300C437B8 /* NSObject+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Rx.swift"; sourceTree = "<group>"; };
+		8725477D2C07073300C437B8 /* HasDisposeBag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasDisposeBag.swift; sourceTree = "<group>"; };
 		874083D72848A78800791A64 /* CScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CScrollViewController.swift; sourceTree = "<group>"; };
 		874083D92848A7A700791A64 /* CScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CScrollView.swift; sourceTree = "<group>"; };
 		874083DB2848A7E900791A64 /* CScrollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CScrollViewModel.swift; sourceTree = "<group>"; };
@@ -80,6 +84,8 @@
 		04F2018C27796936007C6BB3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8725477D2C07073300C437B8 /* HasDisposeBag.swift */,
+				8725477C2C07073300C437B8 /* NSObject+Rx.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -374,11 +380,13 @@
 				04F2018E27796968007C6BB3 /* HomeViewModel.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				04F201AB27796B61007C6BB3 /* HBDNavigationBarViewController.swift in Sources */,
+				8725477E2C07073300C437B8 /* NSObject+Rx.swift in Sources */,
 				04F201A627796B61007C6BB3 /* SecondViewController.swift in Sources */,
 				04F201A927796B61007C6BB3 /* MJRefreshViewController.swift in Sources */,
 				04F201A527796B61007C6BB3 /* CTMediatorViewController.swift in Sources */,
 				874083DA2848A7A700791A64 /* CScrollView.swift in Sources */,
 				04F201A427796B61007C6BB3 /* SecondTarget.swift in Sources */,
+				8725477F2C07073300C437B8 /* HasDisposeBag.swift in Sources */,
 				04F201AA27796B61007C6BB3 /* MJRefreshViewModel.swift in Sources */,
 				87C70AE329FA0B1500D2CDF9 /* BaseNavigationController.swift in Sources */,
 				04F201AC27796B61007C6BB3 /* DZNEmptyDataSetViewController.swift in Sources */,

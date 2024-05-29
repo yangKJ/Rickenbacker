@@ -100,4 +100,12 @@ extension Res {
     public static var base_black_close: UIImage? {
         readImage("base_black_close")?.withRenderingMode(.alwaysTemplate)
     }
+    
+    public static var base_network_error_black: UIImage? {
+        readImage("base_network_error_black")?.withRenderingMode(.alwaysTemplate)
+    }
+    
+    public static var base_network_error_white: UIImage? {
+        readImage("base_network_error_white")?.withRenderingMode(.alwaysTemplate)
+    }
 }

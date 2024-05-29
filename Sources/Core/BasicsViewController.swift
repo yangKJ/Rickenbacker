@@ -14,6 +14,12 @@ open class BasicsViewController: UIViewController {
     /// When you jump to the next view controller after opening, this view controller will be removed from the stack.
     public var wasForceRemoved = false
     
+    public var navigationTitle = "" {
+        didSet {
+            self.navigationItem.title = navigationTitle
+        }
+    }
+    
     public var realSelf: UIViewController {
         get {
             var realSelf: UIViewController = self
@@ -35,12 +41,6 @@ open class BasicsViewController: UIViewController {
     
     deinit {
         Log.debug("\(self.description): Deinited", file: "\(type(of: self))")
-    }
-    
-    public var navigationTitle = "" {
-        didSet {
-            self.navigationItem.title = navigationTitle
-        }
     }
     
     override open func viewDidLoad() {

@@ -6,6 +6,8 @@
 //  Copyright © 2020 Krunoslav Zaher. All rights reserved.
 //
 
+import Foundation
+
 // MARK: - Static allocation
 extension InfallibleType {
     /**
@@ -158,7 +160,7 @@ extension InfallibleType {
 
 // MARK: - Distinct
 
-extension InfallibleType where Element: Comparable {
+extension InfallibleType where Element: Equatable {
     /**
      Returns an observable sequence that contains only distinct contiguous elements according to equality operator.
 

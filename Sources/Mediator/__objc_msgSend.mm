@@ -103,27 +103,27 @@ static id _Nullable __objc_getReturnValue(NSInvocation *inv, NSMethodSignature *
         unsigned int value = 0;
         [inv getReturnValue:&value];
         return @(value);
-    }  else if (strcmp(type, @encode(unsigned long)) == 0) {
+    } else if (strcmp(type, @encode(unsigned long)) == 0) {
         unsigned long value = 0;
         [inv getReturnValue:&value];
         return @(value);
-    }  else if (strcmp(type, @encode(unsigned long long)) == 0) {
+    } else if (strcmp(type, @encode(unsigned long long)) == 0) {
         unsigned long long value = 0;
         [inv getReturnValue:&value];
         return @(value);
-    }  else if (strcmp(type, @encode(float)) == 0) {
+    } else if (strcmp(type, @encode(float)) == 0) {
         float value = 0;
         [inv getReturnValue:&value];
         return @(value);
-    }  else if (strcmp(type, @encode(double)) == 0) {
+    } else if (strcmp(type, @encode(double)) == 0) {
         double value = 0;
         [inv getReturnValue:&value];
         return @(value);
-    }  else if (strcmp(type, @encode(BOOL)) == 0) {
+    } else if (strcmp(type, @encode(BOOL)) == 0) {
         BOOL value = 0;
         [inv getReturnValue:&value];
         return @(value);
-    }  else if (strcmp(type, @encode(const char *)) == 0) {
+    } else if (strcmp(type, @encode(const char *)) == 0) {
         const char * value = 0;
         [inv getReturnValue:&value];
         return @(value);

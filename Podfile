@@ -6,7 +6,6 @@ platform :ios, '10.0'
 target 'Rickenbacker_Example' do
   
 #  pod 'Rickenbacker/Mediator', :path => './'
-#  pod 'Rickenbacker/HBDNavigationBar', :path => './'
 #  pod 'Rickenbacker/MJRefresh', :path => './'
 #  pod 'Rickenbacker/DZNEmptyDataSet', :path => './'
 

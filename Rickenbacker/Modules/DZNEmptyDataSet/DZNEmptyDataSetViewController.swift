@@ -54,7 +54,7 @@ class DZNEmptyDataSetViewController: VMTableViewController<EmptyViewModel> {
             Log.debug(element)
         }).disposed(by: disposeBag)
         
-        viewModel.outputs.datas.bind(to: tableView.rx.items) { (tableView, row, element) in
+        viewModel.datas.bind(to: tableView.rx.items) { (tableView, row, element) in
             let cell = tableView.dequeueReusableCell(withIdentifier: DZNEmptyDataSetViewController.identifier)!
             cell.selectionStyle = .none
             cell.accessoryType = .disclosureIndicator
@@ -65,7 +65,7 @@ class DZNEmptyDataSetViewController: VMTableViewController<EmptyViewModel> {
             return cell
         }.disposed(by: disposeBag)
         
-        viewModel.outputs.isEmptyData.subscribe { (empty) in
+        viewModel.isEmptyData.subscribe { (empty) in
             Log.debug(empty.element)
         }.disposed(by: disposeBag)
         

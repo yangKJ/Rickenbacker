@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Rickenbacker'
-  s.version          = '1.1.6'
+  s.version          = '1.1.5'
   s.summary          = 'MVVM + RxSwift Project Architecture.'
   
   # This description is used to generate tags and improve search results.
@@ -33,22 +33,11 @@ Pod::Spec.new do |s|
   s.module_name      = 'Rickenbacker'
   s.ios.source_files = 'Sources/Rickenbacker.h'
   
-  s.subspec 'Boxs' do |xx|
-    xx.source_files = 'Sources/Boxs/*.swift'
-    #xx.resource = ['Sources/Boxs/*.bundle']
-    xx.resource = 'Sources/Boxs/Rickenbacker.bundle'
-  end
-  
-  s.subspec 'Rx' do |xx|
-    xx.source_files = 'Sources/Rx/*.swift'
+  s.subspec 'Core' do |xx|
+    xx.source_files = 'Sources/Core/*.swift'
+    xx.resource = 'Sources/Core/Rickenbacker.bundle'
     xx.dependency 'RxSwift'
     xx.dependency 'RxCocoa'
-    xx.dependency 'Rickenbacker/Boxs'
-  end
-  
-  s.subspec 'Adapter' do |xx|
-    xx.source_files = 'Sources/Adapter/*.swift'
-    xx.dependency 'Rickenbacker/Rx'
   end
   
   s.subspec 'Mediator' do |xx|
@@ -58,7 +47,7 @@ Pod::Spec.new do |s|
   
   s.subspec 'MJRefresh' do |xx|
     xx.source_files = 'Sources/MJRefresh/*.swift'
-    xx.dependency 'Rickenbacker/Adapter'
+    xx.dependency 'Rickenbacker/Core'
     xx.dependency 'MJRefresh'
     xx.pod_target_xcconfig = {
       'SWIFT_ACTIVE_COMPILATION_CONDITIONS' => 'RICKENBACKER_MJREFRESH',
@@ -68,7 +57,7 @@ Pod::Spec.new do |s|
   
   s.subspec 'DZNEmptyDataSet' do |xx|
     xx.source_files = 'Sources/DZNEmptyDataSet/*.swift'
-    xx.dependency 'Rickenbacker/Adapter'
+    xx.dependency 'Rickenbacker/Core'
     xx.dependency 'DZNEmptyDataSet'
     xx.pod_target_xcconfig = {
       'SWIFT_ACTIVE_COMPILATION_CONDITIONS' => 'RICKENBACKER_DZNEMPTYDATASET',

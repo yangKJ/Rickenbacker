@@ -19,11 +19,7 @@
 open class VMViewController<T: ViewModel> : BasicsViewController {
     
     public let viewModel: T
-    public var disposeBag: DisposeBag {
-        get {
-            viewModel.disposeBag
-        }
-    }
+    public var disposeBag = DisposeBag()
     
     public convenience init() {
         self.init(viewModel: T())

@@ -18,10 +18,6 @@ public protocol ViewEmptiable: EmptyDataTap {
 extension ViewEmptiable where Self: UIViewController {
     /// 配置空数据
     public func setupOptionalEmptyData() {
-        guard let vm = emptyViewModel as? ViewModelEmptiable else { 
-            return
-        }
-        
         let source: DZNEmptyDataSetSourceable? = self as? DZNEmptyDataSetSourceable
         let delegate: DZNEmptyDataSetDelegateable? = self as? DZNEmptyDataSetDelegateable
         if source != nil || delegate != nil {
@@ -49,7 +45,7 @@ extension ViewEmptiable where Self: UIViewController {
             }
         }
         
-        vm.isEmptyData.subscribe { [weak self] empty in
+        emptyViewModel.isEmptyData.subscribe { [weak self] empty in
             guard let isEmpty = empty.element, isEmpty else {
                 return
             }

@@ -27,7 +27,10 @@ extension CScrollViewModel: ViewModelType {
         var page: Int = 1
         
         // 下拉刷新
-        let refresh = input.headerRefresh.then(page = 1)
+        let refresh = input.headerRefresh//.then(page = 1)
+            .do(onNext: { _ in
+                page = 1
+            })
             .flatMapLatest {
                 MJRefreshAPI.refresh(page).request()
             }.map { [weak self] (items) -> [String] in
@@ -37,7 +40,10 @@ extension CScrollViewModel: ViewModelType {
             }.asDriver(onErrorJustReturn: [])
         
         // 上拉加载更多
-        let more = input.footerRefresh.then(page += 1)
+        let more = input.footerRefresh//.then(page += 1)
+            .do(onNext: { _ in
+                page += 1
+            })
             .flatMapLatest {
                 MJRefreshAPI.refresh(page).request()
             }.map { [unowned self] (items) -> [String] in
@@ -53,7 +59,7 @@ extension CScrollViewModel: ViewModelType {
         let items = Driver.of(refresh, more).merge()
         
         // 空数据绑定
-        items.map { $0.isEmpty }.asObservable().bind(to: isEmptyData).disposed(by: disposeBag)
+        items.map { $0.isEmpty }.asObservable().bind(to: isEmptyData).disposed(by: rx.disposeBag)
         
         return Output(items: items)
     }

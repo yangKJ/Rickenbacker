@@ -60,7 +60,7 @@ class HomeViewController: UIViewController {
     
     func setupBinding() {
         /// 绑定数据源
-        viewModel.outputs.datas.bind(to: tableView.rx.items) { (tableView, row, element) in
+        viewModel.datas.bind(to: tableView.rx.items) { (tableView, row, element) in
             let cell = UITableViewCell(style: .value1, reuseIdentifier: HomeViewController.homeCellIdentifier)
             cell.selectionStyle = .none
             cell.accessoryType = .disclosureIndicator

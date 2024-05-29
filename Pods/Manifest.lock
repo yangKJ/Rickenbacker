@@ -2,47 +2,41 @@ PODS:
   - DZNEmptyDataSet (1.8.1)
   - HBDNavigationBar (1.9.6)
   - MJRefresh (3.7.5)
-  - Rickenbacker (1.1.6):
-    - Rickenbacker/Adapter (= 1.1.6)
-    - Rickenbacker/Boxs (= 1.1.6)
-    - Rickenbacker/DZNEmptyDataSet (= 1.1.6)
-    - Rickenbacker/Mediator (= 1.1.6)
-    - Rickenbacker/MJRefresh (= 1.1.6)
-    - Rickenbacker/Rx (= 1.1.6)
-  - Rickenbacker/Adapter (1.1.6):
-    - Rickenbacker/Rx
-  - Rickenbacker/Boxs (1.1.6)
-  - Rickenbacker/DZNEmptyDataSet (1.1.6):
-    - DZNEmptyDataSet
-    - Rickenbacker/Adapter
-  - Rickenbacker/Mediator (1.1.6)
-  - Rickenbacker/MJRefresh (1.1.6):
-    - MJRefresh
-    - Rickenbacker/Adapter
-  - Rickenbacker/Rx (1.1.6):
-    - Rickenbacker/Boxs
+  - Rickenbacker (1.1.5):
+    - Rickenbacker/Core (= 1.1.5)
+    - Rickenbacker/DZNEmptyDataSet (= 1.1.5)
+    - Rickenbacker/Mediator (= 1.1.5)
+    - Rickenbacker/MJRefresh (= 1.1.5)
+  - Rickenbacker/Core (1.1.5):
     - RxCocoa
     - RxSwift
-  - RxCocoa (6.5.0):
-    - RxRelay (= 6.5.0)
-    - RxSwift (= 6.5.0)
-  - RxRelay (6.5.0):
-    - RxSwift (= 6.5.0)
-  - RxSwift (6.5.0)
+  - Rickenbacker/DZNEmptyDataSet (1.1.5):
+    - DZNEmptyDataSet
+    - Rickenbacker/Core
+  - Rickenbacker/Mediator (1.1.5)
+  - Rickenbacker/MJRefresh (1.1.5):
+    - MJRefresh
+    - Rickenbacker/Core
+  - RxCocoa (6.7.1):
+    - RxRelay (= 6.7.1)
+    - RxSwift (= 6.7.1)
+  - RxRelay (6.7.1):
+    - RxSwift (= 6.7.1)
+  - RxSwift (6.7.1)
 
 DEPENDENCIES:
   - HBDNavigationBar
   - Rickenbacker (from `./`)
 
 SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - RxCocoa
+    - RxRelay
+    - RxSwift
   https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
     - DZNEmptyDataSet
     - HBDNavigationBar
     - MJRefresh
-    - RxCocoa
-    - RxRelay
-  trunk:
-    - RxSwift
 
 EXTERNAL SOURCES:
   Rickenbacker:
@@ -52,11 +46,11 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   HBDNavigationBar: a997b65ab7194271e5584b87a952fc851832f692
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
-  Rickenbacker: 12eaf78cc137757c823fea6794c917459bb48546
-  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
-  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
-  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  Rickenbacker: ec9b610cc1c15971bf83c4aab8333aada116675c
+  RxCocoa: f5609cb4637587a7faa99c5d5787e3ad582b75a4
+  RxRelay: 4151ba01152436b08271e08410135e099880eae5
+  RxSwift: b9a93a26031785159e11abd40d1a55bcb8057e52
 
-PODFILE CHECKSUM: c8f9201e04f846756408f445c10a80feae17e3b1
+PODFILE CHECKSUM: 0d5f03d79f1dd1fa5e69e56db2b020574ec18fa5
 
 COCOAPODS: 1.15.2

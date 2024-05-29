@@ -41,7 +41,7 @@ class SecondViewController: VMViewController<SecondViewModel> {
     }
     
     func setupBindings() {
-        viewModel.outputs.changeTitle
+        viewModel.changeTitle
             .bind(to: rx.title)
             .disposed(by: disposeBag)
     }

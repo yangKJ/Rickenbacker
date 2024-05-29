@@ -11,32 +11,15 @@ import RxCocoa
 open class VMTableViewController<T: ViewModel>: VMScrollViewController<T> {
     
     public var clearsSelectionOnViewWillAppear = false
-    public private(set) var style: UITableView.Style
-    public private(set) var tableView: UITableView
+    public let style: UITableView.Style
+    public let tableView: UITableView
     
     public convenience init(_ style: UITableView.Style = .plain) {
         self.init(style: style, viewModel: T.init())
     }
     
     public convenience init(style: UITableView.Style = .plain, viewModel: T) {
-        let table = UITableView.init(frame: .zero, style: style)
-        table.rowHeight = UITableView.automaticDimension
-        table.estimatedRowHeight = 50
-        table.sectionHeaderHeight = 0.00001
-        table.sectionFooterHeight = 0.00001
-        table.showsVerticalScrollIndicator = false
-        table.showsHorizontalScrollIndicator = false
-        table.cellLayoutMarginsFollowReadableWidth = false
-        table.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: Ces.width, height: 0.1))
-        table.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: Ces.width, height: 0.1))
-        table.separatorStyle = UITableViewCell.SeparatorStyle.none
-        table.keyboardDismissMode = UIScrollView.KeyboardDismissMode.onDrag
-        if #available(iOS 11, *) {
-            table.contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.never
-        }
-        if #available(iOS 15.0, *) {
-            table.sectionHeaderTopPadding = 0
-        }
+        let table = Self.createTableView(UITableView.self, style: style)
         self.init(tableView: table, viewModel: viewModel)
     }
     
@@ -66,11 +49,33 @@ open class VMTableViewController<T: ViewModel>: VMScrollViewController<T> {
     }
     
     final func setupTableView() {
-        tableView.contentInset = UIEdgeInsets(top: Ces.navigationHeight, left: 0, bottom: 0, right: 0)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.frame = view.bounds
         tableView.rx.itemSelected.bind { [weak self] in
             self?.tableView.deselectRow(at: $0, animated: false)
         }.disposed(by: disposeBag)
+    }
+    
+    /// 创建通用列表
+    public static func createTableView<_Tp: UITableView>(_ type: _Tp.Type = _Tp.self, style: UITableView.Style) -> _Tp {
+        let table = _Tp.init(frame: .zero, style: style)
+        table.rowHeight = UITableView.automaticDimension
+        table.estimatedRowHeight = 44
+        table.sectionHeaderHeight = 0.00001
+        table.sectionFooterHeight = 0.00001
+        table.showsVerticalScrollIndicator = false
+        table.showsHorizontalScrollIndicator = false
+        table.cellLayoutMarginsFollowReadableWidth = false
+        table.separatorStyle = UITableViewCell.SeparatorStyle.none
+        table.keyboardDismissMode = UIScrollView.KeyboardDismissMode.onDrag
+        if #available(iOS 11, *) {
+            table.contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.never
+        }
+        if #available(iOS 15.0, *) {
+            table.sectionHeaderTopPadding = 0
+        }
+        if style == .grouped {
+            table.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: Ces.width, height: 0.1))
+        }
+        table.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: Ces.width, height: 0.1))
+        return table
     }
 }

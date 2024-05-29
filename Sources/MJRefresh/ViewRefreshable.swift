@@ -21,23 +21,19 @@ fileprivate var ViewRefreshableDisposeBagContext: UInt8 = 0
 extension ViewRefreshable where Self: UIViewController {
     /// 配置刷新相关
     public func setupOptionalRefresh() {
-        guard let viewModel = refreshViewModel as? ViewModelRefreshable else {
-            return
-        }
-        
-        if let header = viewModel as? ViewModelHeaderable {
+        if let header = refreshViewModel as? ViewModelHeaderable {
             refreshScrollView.mj_header = header.header
             if header.enterBeginRefresh {
                 refreshScrollView.mj_header?.beginRefreshing()
             }
             refreshScrollView.mj_header?.rx.refreshing
                 .subscribe(onNext: { [weak self] _ in
-                    viewModel.refreshSubject.onNext(.resetNomoreData)
+                    header.refreshSubject.onNext(.resetNomoreData)
                     self?.headerRefreshing.onNext(())
                 }).disposed(by: self.refreshDisposeBag)
         }
         
-        if let footer = viewModel as? ViewModelFooterable {
+        if let footer = refreshViewModel as? ViewModelFooterable {
             refreshScrollView.mj_footer = footer.footer
             refreshScrollView.mj_footer?.rx.refreshing
                 .subscribe(onNext: { [weak self] _ in
@@ -46,7 +42,7 @@ extension ViewRefreshable where Self: UIViewController {
         }
         
         /// 绑定下拉与上拉状态
-        viewModel.refreshSubject.bind(to: refreshScrollView.rx.refreshStatus).disposed(by: self.refreshDisposeBag)
+        refreshViewModel.refreshSubject.bind(to: refreshScrollView.rx.refreshStatus).disposed(by: self.refreshDisposeBag)
     }
     
     private var refreshDisposeBag: DisposeBag {

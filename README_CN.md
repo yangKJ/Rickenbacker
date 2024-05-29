@@ -5,7 +5,7 @@
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/Rickenbacker.svg?style=flat&label=CocoaPods&colorA=28a745&&colorB=4E4E4E)](https://cocoapods.org/pods/Rickenbacker)
 [![Platform](https://img.shields.io/badge/Platforms-iOS%20%7C%20macOS%20%7C%20watchOS-4E4E4E.svg?colorA=28a745)](#installation)
 
-<font color=red>**👌. MVVM + RxSwift + Mediatror + MJRefresh + DZNEmptyDataSet + SkeletonView**</font>
+<font color=red>**👌. MVVM + RxSwift + Mediatror + MJRefresh + DZNEmptyDataSet**</font>
 
 -------
 
@@ -13,23 +13,19 @@
 
 基于 **MVVM + RxSwift** 搭建响应式数据绑定基础架构
 
-### CatHome
+### Core
 - 资源模块，主要处理图片资源和文本资源读取
   - 读取图片资源：`Res.image("base_black_back")`
   - 读取文本资源：`Res.text("base_empty_title")`
   - 读取颜色资源：`Res.color("background")`
 
-### BeeBox
-- 主要收集[RxSwift](https://github.com/ReactiveX/RxSwift)相关好用方法类等
-
-### Adapter
 - 该模块主要就是封装基类
-  - [BaseViewController](https://github.com/yangKJ/Rickenbacker/blob/master/Sources/Adapter/BaseViewController.swift): 支持oc基类，公共部分
-  - [VMScrollViewController](https://github.com/yangKJ/Rickenbacker/blob/master/Sources/Adapter/VMScrollViewController.swift): 提供对列表提供刷新和空数据展示支持
-  - [VMTableViewController](https://github.com/yangKJ/Rickenbacker/blob/master/Sources/Adapter/VMTableViewController.swift): 列表基类, 内部采用响应式处理
-  - [VMViewController](https://github.com/yangKJ/Rickenbacker/blob/master/Sources/Adapter/VMViewController.swift): 该基类继承时需指定ViewModel或其子类作为泛型
-  - [ViewModel](https://github.com/yangKJ/Rickenbacker/blob/master/Sources/Adapter/ViewModel.swift): 基础模型，子类必须继承使用
-  - [NavigationBarHiddenable](https://github.com/yangKJ/Rickenbacker/blob/master/Sources/Adapter/NavigationBarHiddenable.swift): 隐藏NavigationBar的协议
+  - [BasicsViewController](https://github.com/yangKJ/Rickenbacker/blob/master/Sources/Core/BasicsViewController.swift): 基类，公共部分
+  - [VMScrollViewController](https://github.com/yangKJ/Rickenbacker/blob/master/Sources/Core/VMScrollViewController.swift): 提供对列表提供刷新和空数据展示支持
+  - [VMTableViewController](https://github.com/yangKJ/Rickenbacker/blob/master/Sources/Core/VMTableViewController.swift): 列表基类, 内部采用响应式处理
+  - [VMViewController](https://github.com/yangKJ/Rickenbacker/blob/master/Sources/Core/VMViewController.swift): 该基类继承时需指定ViewModel或其子类作为泛型
+  - [ViewModel](https://github.com/yangKJ/Rickenbacker/blob/master/Sources/Core/ViewModel.swift): 基础模型，子类必须继承使用
+  - [NavigationBarHiddenable](https://github.com/yangKJ/Rickenbacker/blob/master/Sources/Core/NavigationBarHiddenable.swift): 隐藏NavigationBar的协议
 
 ### Mediatror
 
@@ -68,9 +64,6 @@ class SecondTarget: NSObject {
     }
 }
 ```
-
-### HBDNavigationBar
-- 该模块是基于[HBDNavigationBar](https://github.com/listenzz/HBDNavigationBar)二次封装底层基础导航栏
 
 ### MJRefresh
 该模块是基于[MJRefresh](https://github.com/CoderMJLee/MJRefresh)封装列表刷新功能
@@ -154,19 +147,13 @@ extension DZNEmptyDataSetViewController: DZNEmptyDataSetable {
 - 导入项目响应式基类模块
 
 ```
-pod 'Rickenbacker/Adapter'
+pod 'Rickenbacker/Core'
 ```
 
 - 导入组件化模块
 
 ```
 pod 'Rickenbacker/Mediatror'
-```
-
-- 导入导航栏基础模块
-
-```
-pod 'Rickenbacker/HBDNavigationBar'
 ```
 
 - 导入自动刷新模块

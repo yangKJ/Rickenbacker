@@ -1,6 +1,6 @@
 {
   "name": "Rickenbacker",
-  "version": "1.1.6",
+  "version": "1.1.5",
   "summary": "MVVM + RxSwift Project Architecture.",
   "homepage": "https://github.com/yangKJ/Rickenbacker",
   "description": "https://github.com/yangKJ/Rickenbacker/blob/master/README.md",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/yangKJ/Rickenbacker.git",
-    "tag": "1.1.6"
+    "tag": "1.1.5"
   },
   "social_media_url": "https://juejin.cn/user/1987535102554472/posts",
   "platforms": {
@@ -31,30 +31,14 @@
   },
   "subspecs": [
     {
-      "name": "Boxs",
-      "source_files": "Sources/Boxs/*.swift",
-      "resources": "Sources/Boxs/Rickenbacker.bundle"
-    },
-    {
-      "name": "Rx",
-      "source_files": "Sources/Rx/*.swift",
+      "name": "Core",
+      "source_files": "Sources/Core/*.swift",
+      "resources": "Sources/Core/Rickenbacker.bundle",
       "dependencies": {
         "RxSwift": [
 
         ],
         "RxCocoa": [
-
-        ],
-        "Rickenbacker/Boxs": [
-
-        ]
-      }
-    },
-    {
-      "name": "Adapter",
-      "source_files": "Sources/Adapter/*.swift",
-      "dependencies": {
-        "Rickenbacker/Rx": [
 
         ]
       }
@@ -68,7 +52,7 @@
       "name": "MJRefresh",
       "source_files": "Sources/MJRefresh/*.swift",
       "dependencies": {
-        "Rickenbacker/Adapter": [
+        "Rickenbacker/Core": [
 
         ],
         "MJRefresh": [
@@ -84,7 +68,7 @@
       "name": "DZNEmptyDataSet",
       "source_files": "Sources/DZNEmptyDataSet/*.swift",
       "dependencies": {
-        "Rickenbacker/Adapter": [
+        "Rickenbacker/Core": [
 
         ],
         "DZNEmptyDataSet": [

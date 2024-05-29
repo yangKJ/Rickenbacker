@@ -29,6 +29,7 @@
 		874083D82848A78800791A64 /* CScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874083D72848A78800791A64 /* CScrollViewController.swift */; };
 		874083DA2848A7A700791A64 /* CScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874083D92848A7A700791A64 /* CScrollView.swift */; };
 		874083DC2848A7E900791A64 /* CScrollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874083DB2848A7E900791A64 /* CScrollViewModel.swift */; };
+		8740E2C12C071129003FE57B /* Ces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8740E2C02C071129003FE57B /* Ces.swift */; };
 		877D33A728378FE700EB1815 /* README_CN.md in Resources */ = {isa = PBXBuildFile; fileRef = 877D33A628378FE700EB1815 /* README_CN.md */; };
 		87B5901D2C04792800D83F05 /* MJRefreshWithoutBasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B5901C2C04792800D83F05 /* MJRefreshWithoutBasicViewController.swift */; };
 		87C70AE329FA0B1500D2CDF9 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C70AE229FA0B1500D2CDF9 /* BaseNavigationController.swift */; };
@@ -62,6 +63,7 @@
 		874083D72848A78800791A64 /* CScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CScrollViewController.swift; sourceTree = "<group>"; };
 		874083D92848A7A700791A64 /* CScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CScrollView.swift; sourceTree = "<group>"; };
 		874083DB2848A7E900791A64 /* CScrollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CScrollViewModel.swift; sourceTree = "<group>"; };
+		8740E2C02C071129003FE57B /* Ces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ces.swift; sourceTree = "<group>"; };
 		877D33A628378FE700EB1815 /* README_CN.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README_CN.md; sourceTree = SOURCE_ROOT; };
 		878E21D429B8856500F034C1 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		87B5901C2C04792800D83F05 /* MJRefreshWithoutBasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MJRefreshWithoutBasicViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 		04F2018C27796936007C6BB3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8740E2C02C071129003FE57B /* Ces.swift */,
 				8725477D2C07073300C437B8 /* HasDisposeBag.swift */,
 				8725477C2C07073300C437B8 /* NSObject+Rx.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -380,6 +383,7 @@
 				04F2018E27796968007C6BB3 /* HomeViewModel.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				04F201AB27796B61007C6BB3 /* HBDNavigationBarViewController.swift in Sources */,
+				8740E2C12C071129003FE57B /* Ces.swift in Sources */,
 				8725477E2C07073300C437B8 /* NSObject+Rx.swift in Sources */,
 				04F201A627796B61007C6BB3 /* SecondViewController.swift in Sources */,
 				04F201A927796B61007C6BB3 /* MJRefreshViewController.swift in Sources */,

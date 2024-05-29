@@ -45,22 +45,20 @@ open class VMTableViewController<T: ViewModel>: VMScrollViewController<T> {
     open override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.setupTableView()
-    }
-    
-    final func setupTableView() {
-        tableView.rx.itemSelected.bind { [weak self] in
+        self.tableView.rx.itemSelected.bind { [weak self] in
             self?.tableView.deselectRow(at: $0, animated: false)
         }.disposed(by: disposeBag)
     }
-    
+}
+
+extension VMTableViewController {
     /// 创建通用列表
     public static func createTableView<_Tp: UITableView>(_ type: _Tp.Type = _Tp.self, style: UITableView.Style) -> _Tp {
         let table = _Tp.init(frame: .zero, style: style)
-        table.rowHeight = UITableView.automaticDimension
-        table.estimatedRowHeight = 44
-        table.sectionHeaderHeight = 0.00001
-        table.sectionFooterHeight = 0.00001
+        table.rowHeight = 44
+        table.estimatedRowHeight = UITableView.automaticDimension
+        table.sectionHeaderHeight = 0.002
+        table.sectionFooterHeight = 0.002
         table.showsVerticalScrollIndicator = false
         table.showsHorizontalScrollIndicator = false
         table.cellLayoutMarginsFollowReadableWidth = false
@@ -73,9 +71,9 @@ open class VMTableViewController<T: ViewModel>: VMScrollViewController<T> {
             table.sectionHeaderTopPadding = 0
         }
         if style == .grouped {
-            table.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: Ces.width, height: 0.1))
+            table.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 0.1))
         }
-        table.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: Ces.width, height: 0.1))
+        table.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 0.1))
         return table
     }
 }

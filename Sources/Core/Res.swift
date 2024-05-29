@@ -84,10 +84,10 @@ extension Res {
     
     public static func readImage(_ named: String, ofType: String = "png") -> UIImage? {
         let containnerBundle = Bundle(for: Res__.self)
-        let nameScale = named + "@\(Int(UIScreen.main.scale))x"
+        let scale = min(Int(UIScreen.main.scale), 3)
         guard let resourcePath = containnerBundle.path(forResource: "Rickenbacker", ofType: "bundle"),
               let bundle = Bundle.init(path: resourcePath),
-              let path = bundle.path(forResource: nameScale, ofType: ofType) else {
+              let path = bundle.path(forResource: named + "@\(scale)x", ofType: ofType) else {
             return nil
         }
         return UIImage.init(contentsOfFile: path)
@@ -101,11 +101,7 @@ extension Res {
         readImage("base_black_close")?.withRenderingMode(.alwaysTemplate)
     }
     
-    public static var base_network_error_black: UIImage? {
-        readImage("base_network_error_black")?.withRenderingMode(.alwaysTemplate)
-    }
-    
-    public static var base_network_error_white: UIImage? {
-        readImage("base_network_error_white")?.withRenderingMode(.alwaysTemplate)
+    public static var base_line_navigation: UIImage? {
+        readImage("base_line_navigation")
     }
 }

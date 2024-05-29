@@ -30,14 +30,15 @@ open class BasicsViewController: UIViewController {
         }
     }
     
-    public lazy var backBarButton: UIBarButtonItem = {
-        let barButton = UIBarButtonItem(image: Res.base_black_back,
-                                        style: .plain,
-                                        target: self,
-                                        action: #selector(BasicsViewController.backAction))
-        barButton.imageInsets.left = 5
-        return barButton
-    }()
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.hidesBottomBarWhenPushed = true
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.hidesBottomBarWhenPushed = true
+    }
     
     deinit {
         Log.debug("\(self.description): Deinited", file: "\(type(of: self))")
@@ -47,20 +48,28 @@ open class BasicsViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.hidesBackButton = true
-        self.navigationItem.leftBarButtonItem = self.backBarButton
         self.view.backgroundColor = UIColor.white
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         if #available(iOS 11.0, *) {
-            //self.view.backgroundColor = R.color("background")
             UIScrollView.appearance().contentInsetAdjustmentBehavior = .never
         } else {
-            automaticallyAdjustsScrollViewInsets = false
+            self.automaticallyAdjustsScrollViewInsets = false
         }
+        self.setPopOrDismissButton(width: 50)
     }
     
     // MARK: - public methods
     
-    public var willCloseByUserBlock: ((_ vc: BasicsViewController) -> Void)?
-    public var closedByUserBlock: ((_ vc: BasicsViewController) -> Void)?
+    open func setPopOrDismissButton(width: CGFloat) {
+        guard let navigationController = self.navigationController else {
+            return
+        }
+        if let _ = self.presentingViewController, navigationController.viewControllers.first == self {
+            self.navigationItem.leftBarButtonItem = createBarButtonItem(image: Res.base_black_close, width: width)
+        } else if navigationController.viewControllers.first != self {
+            self.navigationItem.leftBarButtonItem = createBarButtonItem(image: Res.base_black_back, width: width)
+        }
+    }
     
     /// About to close the current page. Click the back button or gesture to return.
     open func setWillCloseByUserBlock(_ block: @escaping (_ vc: BasicsViewController) -> Void) {
@@ -69,7 +78,7 @@ open class BasicsViewController: UIViewController {
     
     /// It has been successfully closed. Click the back button or gesture to return.
     open func setClosedByUserComplete(_ block: @escaping (_ vc: BasicsViewController) -> Void) {
-        self.closedByUserBlock = block
+        self.closedByUserCompletionBlock = block
     }
     
     /// Customize the back button click event.
@@ -78,6 +87,7 @@ open class BasicsViewController: UIViewController {
     }
     
     open func popoutOrDismiss(completion: (() -> Void)? = nil) {
+        self.isPopedFromBackButton = true
         self.willCloseByUserBlock?(self)
         if self.presentingViewController != nil {
             if let count = self.navigationController?.viewControllers.count, count > 1, self.navigationController?.topViewController == realSelf {
@@ -85,7 +95,7 @@ open class BasicsViewController: UIViewController {
             } else if self.navigationController?.children[0] == self {
                 self.dismiss(animated: true) {
                     completion?()
-                    self.closedByUserBlock?(self)
+                    self.closedByUserCompletionBlock?(self)
                 }
             } else {
                 popout(completion: completion)
@@ -95,17 +105,41 @@ open class BasicsViewController: UIViewController {
         }
     }
     
+    // MARK: - private methods
+    
+    private var isPopedFromBackButton = false
+    private var hasNaviWhenWillDisappear = false
+    private var willCloseByUserBlock: ((_ vc: BasicsViewController) -> Void)?
+    private var closedByUserCompletionBlock: ((_ vc: BasicsViewController) -> Void)?
+    
     private func popout(completion: (() -> Void)? = nil) {
         if let completion = completion {
             CATransaction.begin()
             CATransaction.setCompletionBlock(completion)
             self.navigationController?.popViewController(animated: true)
-            self.closedByUserBlock?(self)
+            self.closedByUserCompletionBlock?(self)
             CATransaction.commit()
         } else {
             self.navigationController?.popViewController(animated: true)
-            self.closedByUserBlock?(self)
+            self.closedByUserCompletionBlock?(self)
         }
+    }
+    
+    private func viewDidPopOut() {
+        if !self.isPopedFromBackButton {
+            self.willCloseByUserBlock?(self)
+            self.closedByUserCompletionBlock?(self)
+        }
+    }
+    
+    private func createBarButtonItem(image: UIImage?, width: CGFloat) -> UIBarButtonItem {
+        let button = UIButton(type: .custom)
+        button.setImage(image, for: .normal)
+        button.addTarget(self, action: #selector(BasicsViewController.backAction), for: .touchUpInside)
+        button.sizeToFit()
+        button.frame = CGRect(x: 0, y: 0, width: width, height: 44)
+        button.contentHorizontalAlignment = .left
+        return UIBarButtonItem.init(customView: button)
     }
 }
 
@@ -119,6 +153,7 @@ extension BasicsViewController {
     override open func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         setupNavigationBarHiddenableViewWillDisappear(animated)
+        self.hasNaviWhenWillDisappear = self.navigationController != nil
     }
     
     override open func viewDidAppear(_ animated: Bool) {
@@ -130,6 +165,11 @@ extension BasicsViewController {
         super.viewDidDisappear(animated)
         guard wasForceRemoved, let viewControllers = navigationController?.viewControllers else {
             return
+        }
+        if let controllers = self.navigationController?.viewControllers, !controllers.contains(realSelf) {
+            self.viewDidPopOut()
+        } else if self.navigationController == nil && hasNaviWhenWillDisappear {
+            self.viewDidPopOut()
         }
         navigationController?.viewControllers = viewControllers.compactMap({ vc in
             return vc == self.realSelf ? nil : vc

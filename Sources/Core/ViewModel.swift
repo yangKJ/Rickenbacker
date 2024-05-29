@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import RxSwift
-import RxCocoa
 
 public protocol ViewModelType {
     associatedtype Input

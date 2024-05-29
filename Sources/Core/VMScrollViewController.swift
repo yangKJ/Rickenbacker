@@ -29,12 +29,8 @@ open class VMScrollViewController<T: ViewModel>: VMViewController<T> {
     open override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.setupScrollView()
-    }
-    
-    final func setupScrollView() {
-        self.view.addSubview(scrollView)
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(self.scrollView)
+        self.scrollView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
             scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
@@ -42,9 +38,17 @@ open class VMScrollViewController<T: ViewModel>: VMViewController<T> {
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
         if self is NavigationBarHiddenable {
-            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            self.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         } else {
-            scrollView.contentInset = UIEdgeInsets(top: Ces.navigationHeight, left: 0, bottom: 0, right: 0)
+            let statusBarHeight: CGFloat = {
+                if #available(iOS 13.0, *) {
+                    let statusManager = UIApplication.shared.windows.first?.windowScene?.statusBarManager
+                    return statusManager?.statusBarFrame.height ?? 20.0
+                } else {
+                    return UIApplication.shared.statusBarFrame.height
+                }
+            }()
+            self.scrollView.contentInset = UIEdgeInsets(top: statusBarHeight+44, left: 0, bottom: 0, right: 0)
         }
         
         // 是否包含刷新模块
